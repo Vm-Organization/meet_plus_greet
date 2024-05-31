@@ -1,3 +1,6 @@
 /.env
 /venv/
 .idea/
+/mpg/main_app/migrations/__pycache__/
+/mpg/booking/migrations/__pycache__/
+/mpg/airport/migrations/__pycache__/
