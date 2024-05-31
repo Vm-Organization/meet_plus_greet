@@ -33,9 +33,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '192.168.0.12',
     '95.163.185.57',
-    'google.com',
 ]
-SITE_ID = 1
 
 
 # Application definition
@@ -66,14 +64,26 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
+SITE_ID = 1
+
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
 CLIENT_ID = 'SOCIALACCOUNT_PROVIDERS'
+
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
+        'EMAIL_AUTHENTICATION': True,
         'APP': {
             'client_id': os.getenv('SOCIAL_AUTH_GOOGLE_KEY'),
             'secret': os.getenv('SOCIAL_AUTH_GOOGLE_SECRET'),
             'key': ''
         },
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
     }
 }
 
@@ -90,6 +100,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mpg.urls'
+# CSRF_COOKIE_SECURE = False
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = ["*"]
+CORS_ALLOW_HEADERS = ["*"]
 
 TEMPLATES = [
     {
@@ -196,7 +212,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 # ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = '/'
+# ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = '/'
 
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
