@@ -19,5 +19,5 @@ class ServicePrice(models.Model):
     service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='service_price')
 
     service_type = models.CharField(max_length=100, choices=SERVICE_TYPE)
-    price_one_passenger = models.CharField()
-    price_others_passengers = models.CharField()
+    price_one_passenger = models.CharField(max_length=50)
+    price_others_passengers = models.CharField(max_length=50)

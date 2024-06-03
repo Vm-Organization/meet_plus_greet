@@ -39,6 +39,6 @@ class Booking(models.Model):
     passenger_age = models.CharField(max_length=100, choices=PASSENGER_AGE)
     passenger_number = models.PositiveIntegerField()
     email = models.EmailField()
-    phone = models.CharField()
+    phone = models.CharField(max_length=15)
     telegram = models.CharField(max_length=100, blank=True, null=True)
     additional_info = models.TextField(blank=True, null=True)

@@ -66,7 +66,8 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
+# SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
+# SOCIALACCOUNT_QUERY_EMAIL = True
 CLIENT_ID = 'SOCIALACCOUNT_PROVIDERS'
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -77,25 +78,19 @@ SOCIALACCOUNT_PROVIDERS = {
             'secret': os.getenv('SOCIAL_AUTH_GOOGLE_SECRET'),
             'key': ''
         },
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
     }
 }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'allauth.account.middleware.AccountMiddleware',
 ]
 
@@ -178,7 +173,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 LANGUAGES = [
     ('ru', 'русский'),
     ('en-us', 'english')
