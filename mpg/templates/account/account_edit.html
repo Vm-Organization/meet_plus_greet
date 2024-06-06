@@ -1,0 +1,17 @@
+{% block title %}
+    Account edit
+{% endblock title %}
+
+{% block content %}
+    <h2>Личный кабинет </h2>
+    <p>Email: {{ account.user.email }}</p>
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+        <input type="submit" value="Сохранить">
+    </form>
+
+    <br>
+    <hr>
+{% endblock content %}
+

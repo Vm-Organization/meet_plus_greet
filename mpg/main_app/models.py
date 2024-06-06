@@ -30,10 +30,10 @@ class ServicePrice(models.Model):
 
 class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='account')
-    first_name = models.CharField(max_length=40)
-    last_name = models.CharField(max_length=40)
+    first_name = models.CharField(max_length=50, blank=True, null=True)
+    last_name = models.CharField(max_length=50, blank=True, null=True)
+    phone = models.CharField(max_length=20, blank=True, null=True)
     personal_information = models.TextField(blank=True, null=True)
-    booking_history = models.TextField(blank=True, null=True)
     profile_configuration = models.JSONField(blank=True, null=True)
     organization = models.CharField(max_length=150, blank=True, null=True)
 
@@ -42,18 +42,24 @@ class Account(models.Model):
 
 
 class Passenger(models.Model):
+    """Here should be added hashing for safety"""
     PASSENGER_AGE = [
         ('infant', 'Ребенок (0-2 лет)'),
         ('child', 'Ребенок (2-12 лет)'),
         ('adult', 'Взрослый'),
     ]
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='passenger')
-    first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    middle_name = models.CharField(max_length=100, blank=True, null=True)
+    birth_date = models.DateField()
     age = models.CharField(max_length=100, choices=PASSENGER_AGE)
+    phone = models.CharField(max_length=20, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
     # for documents. need to be hashed in future for security:
+    passport = models.CharField(max_length=30, blank=True, null=True)
     personal_data = models.CharField(max_length=500, blank=True, null=True)
-    additional_info = models.TextField(blank=True, null=True)
+    organization = models.CharField(max_length=150, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.last_name} {self.first_name} {self.middle_name}"
