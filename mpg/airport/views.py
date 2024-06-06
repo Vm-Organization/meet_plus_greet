@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Q
 from django.views.generic import ListView, DetailView
 
 from .models import Airport
@@ -42,3 +43,4 @@ class AirportSearch(ListView):
         context = super().get_context_data(**kwargs)
         context['filter'] = self.filterset
         return context
+

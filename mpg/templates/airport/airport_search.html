@@ -1,0 +1,21 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Airport Search
+{% endblock title %}
+
+{% block content %}
+    <form method="get">
+        {{ filter.form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
+    {% if airport_search %}
+        {% for airport in airport_search %}
+            <p>{{ airport.country }} -------- {{ airport.city }} -------- {{ airport.name }} </p>
+        {% endfor %}
+    {% else %}
+        <p>Ничего не найдено</p>
+    {% endif %}
+
+{% endblock content %}

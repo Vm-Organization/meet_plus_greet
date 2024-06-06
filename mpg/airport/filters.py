@@ -1,6 +1,7 @@
 from django_filters import FilterSet, CharFilter
 from django.db.models import Q
 
+
 from .models import Airport
 
 

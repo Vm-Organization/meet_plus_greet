@@ -65,6 +65,8 @@ INSTALLED_APPS = [
 
     # for filtering and searching
     'django_filters',
+
+    # autocomplete and dropdown list
 ]
 
 SITE_ID = 1

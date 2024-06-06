@@ -1,0 +1,18 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Airport List
+{% endblock title %}
+
+{% block content %}
+<!-- list of countries with their airports -->
+    {% for country in countries %}
+        <p><b>{{ country.country }}</b></p>
+        {% for airport in airports %}
+            {% if country.country == airport.country %}
+                <p>{{ airport.name }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
+{% endblock content %}
