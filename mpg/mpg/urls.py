@@ -18,9 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('meetplusgreet/admin/', admin.site.urls),
-    path('meetplusgreet/', include('allauth.urls')),
-    path('meetplusgreet/', include('main_app.urls')),
-    # path('meetplusgreet/airports/', include('airport.urls')),
-    # path('meetplusgreet/', include('booking.urls')),
+    path('admin/', admin.site.urls),
+    path('', include('allauth.urls')),
+    path('', include('main_app.urls')),
+    # path('airports/', include('airport.urls')),
+    # path('m', include('booking.urls')),
 ]
