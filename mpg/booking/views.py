@@ -7,7 +7,7 @@ from .models import Booking
 from .forms import BookingForm
 
 
-# view for autocompleting and selecting airport in booking
+# view for autocompleting and selecting airport in booking #TODO search in this field
 class AirportAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
         qs = Airport.objects.values('name').distinct()
@@ -18,6 +18,7 @@ class AirportAutocomplete(autocomplete.Select2QuerySetView):
         return qs
 
 
+# form for booking (test)
 def booking_create(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
