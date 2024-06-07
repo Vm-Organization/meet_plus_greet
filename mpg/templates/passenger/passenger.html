@@ -9,10 +9,8 @@
     <p>Отчество: {{ passenger.middle_name }}</p>
     <p>Дата рождения: {{ passenger.birth_date }}</p>
     <p>Возраст: {{ passenger.age }}</p>
-    <p>Документы: {{ passenger.passport }}</p>
     <p>Email: {{ passenger.email }}</p>
     <p>Телефон: {{ passenger.phone }}</p>
-    <p>Организация: {{ passenger.organization }}</p>
     <p>Личная информация: {{ passenger.personal_data }}</p>
     <br>
     <a style="text-decoration: none" href="{% url 'passenger_edit' passenger.pk %}">

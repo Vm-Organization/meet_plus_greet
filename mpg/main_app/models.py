@@ -56,10 +56,7 @@ class Passenger(models.Model):
     age = models.CharField(max_length=100, choices=PASSENGER_AGE)
     phone = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
-    # for documents. need to be hashed in future for security:
-    passport = models.CharField(max_length=30, blank=True, null=True)
     personal_data = models.CharField(max_length=500, blank=True, null=True)
-    organization = models.CharField(max_length=150, blank=True, null=True)
 
     def __str__(self):
         return f"{self.last_name} {self.first_name} {self.middle_name}"

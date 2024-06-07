@@ -27,11 +27,9 @@ class PassengerForm(forms.ModelForm):
     middle_name = forms.CharField(max_length=50, label='Отчество', required=False)
     birth_date = forms.DateField(label='Дата рождения', widget=forms.DateInput(attrs={'type': 'date'}, ))
     age = forms.ChoiceField(choices=Passenger.PASSENGER_AGE)
-    passport = forms.CharField(max_length=50, label='Документы', required=False)
     email = forms.EmailField(label='Email', required=False)
     phone = forms.CharField(max_length=50, label='Телефон', required=False)
-    organization = forms.CharField(max_length=50, label='Организация', required=False)
-    personal_information = forms.CharField(max_length=50, label='Личная информация', required=False)
+    personal_information = forms.CharField(max_length=200, label='Личная информация', required=False)
 
     class Meta:
         model = Passenger
@@ -41,9 +39,7 @@ class PassengerForm(forms.ModelForm):
             'middle_name',
             'birth_date',
             'age',
-            'passport',
             'phone',
             'email',
-            'organization',
             'personal_information',
         ]
