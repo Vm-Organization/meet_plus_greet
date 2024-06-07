@@ -34,7 +34,7 @@ class Booking(models.Model):
     departure_datetime = models.DateTimeField()
     arrival_datetime = models.DateTimeField()
 
-    booking_status = models.CharField(max_length=100, choices=BOOKING_STATUS)
+    booking_status = models.CharField(max_length=100, choices=BOOKING_STATUS, default='unpaid')
 
     # passenger_age = models.CharField(max_length=100, choices=PASSENGER_AGE)
     passenger_number = models.PositiveIntegerField()

@@ -1,0 +1,28 @@
+{% block title %}
+    Account
+{% endblock title %}
+
+{% block content %}
+    <h2>Личный кабинет </h2>
+    <p>Email: {{ account.user.email }}</p>
+    <p>Имя: {{ account.first_name }}</p>
+    <p>Фамилия: {{ account.last_name }}</p>
+    <p>Организация: {{ account.organization }}</p>
+    <p>Телефон: {{ account.phone }}</p>
+    <p>Личная информация: {{ account.personal_information }}</p>
+    <br>
+    <a style="text-decoration: none" href="/booking_history/">
+            <input type="button" value="История бронирований" />
+        </a>
+    <a style="text-decoration: none" href="{% url 'passenger_list' %}">
+            <input type="button" value="Пассажиры" />
+        </a>
+    <a style="text-decoration: none" href="{% url 'passenger_create' %}">
+            <input type="button" value="Добавить пассажира" />
+        </a>
+    <a style="text-decoration: none" href="{% url 'account_edit' %}">
+            <input type="button" value="Редактировать" />
+        </a>
+    <hr>
+{% endblock content %}
+

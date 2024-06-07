@@ -1,0 +1,15 @@
+{% block title %}
+    Passenger create or edit
+{% endblock title %}
+
+{% block content %}
+    <h2>Пассажир </h2>
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+        <input type="submit" value="Сохранить">
+    </form>
+    <br>
+    <hr>
+{% endblock content %}
+
