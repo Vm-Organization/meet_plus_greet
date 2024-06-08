@@ -7,10 +7,10 @@ from .models import Booking
 from .forms import BookingForm
 
 
-# view for autocompleting and selecting airport in booking #TODO search in this field
+# view for autocompleting and selecting airport in booking
 class AirportAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
-        qs = Airport.objects.values('name').distinct()
+        qs = Airport.objects.all()
 
         if self.q:
             qs = qs.filter(name__icontains=self.q)
