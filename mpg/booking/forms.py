@@ -13,7 +13,8 @@ class BookingForm(forms.ModelForm):
             # TODO add other fields
         ]
 
-    widgets = {
-        'departure_airport': autocomplete.ModelSelect2(url='airport_autocomplete'),
-        # TODO add others
-    }
+        widgets = {
+            'departure_airport': autocomplete.ModelSelect2(url='airport_autocomplete', attrs={'data-html': True}),
+            # TODO add others
+        }
+
