@@ -13,7 +13,6 @@ def valid_phone_number(phone):
 
     main_number = cleaned_phone[-10:]
     extra_parts = cleaned_phone[:-10]
-
     formatted_number = f"{main_number[:3]} {main_number[3:6]}-{main_number[6:8]}-{main_number[8:]}"
 
     if extra_parts:
