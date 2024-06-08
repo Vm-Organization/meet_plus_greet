@@ -6,7 +6,7 @@ from main_app.views import (AccountView,
                             PassengerCreateView,
                             PassengerEditView,
                             PassengerListView,
-                            PassengerDeleteView
+                            PassengerDeleteView, home, HomeView
                             )
 
 urlpatterns = [
@@ -18,4 +18,6 @@ urlpatterns = [
     path('passenger/<int:pk>/edit/', PassengerEditView.as_view(), name='passenger_edit'),
     path('passenger/list/', PassengerListView.as_view(), name='passenger_list'),
     path('passenger/<int:pk>/delete/', PassengerDeleteView.as_view(), name='passenger_delete'),
+
+    path('', HomeView.as_view(), name='home'),
     ]
