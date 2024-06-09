@@ -21,28 +21,37 @@ class Booking(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='booking')
 
+    booking_status = models.CharField(max_length=100, choices=BOOKING_STATUS, default='unpaid')
+
+    # stage 1 fields
     departure_airport = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name='departure_booking')
     arrival_airport = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name='arrival_booking')
+    transit_airport = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name='transit_booking', blank=True,
+                                        null=True)
 
+    # stage 2 fields
     departure_terminal = models.ForeignKey(Terminal, on_delete=models.CASCADE, related_name='departure_booking')
     arrival_terminal = models.ForeignKey(Terminal, on_delete=models.CASCADE, related_name='arrival_booking')
 
-    departure_service = models.ForeignKey(ServicePrice, on_delete=models.CASCADE, related_name='departure_service')
-    arrival_service = models.ForeignKey(ServicePrice, on_delete=models.CASCADE, related_name='arrival_service')
-
     flight_number = models.CharField(max_length=100)
+
     departure_datetime = models.DateTimeField()
     arrival_datetime = models.DateTimeField()
 
-    booking_status = models.CharField(max_length=100, choices=BOOKING_STATUS, default='unpaid')
-
-    # passenger_age = models.CharField(max_length=100, choices=PASSENGER_AGE)
+    # stage 3 fields
     passenger_number = models.PositiveIntegerField()
+
+    additional_info = models.TextField(blank=True, null=True)
+
     email = models.EmailField()
     phone = models.CharField(max_length=15)
     telegram = models.CharField(max_length=100, blank=True, null=True)
-    additional_info = models.TextField(blank=True, null=True)
+
     total_price = models.CharField(max_length=50, null=True)  # TODO: function to calculate total price
+
+    # off-stage: for determining prices
+    departure_service = models.ForeignKey(ServicePrice, on_delete=models.CASCADE, related_name='departure_service')
+    arrival_service = models.ForeignKey(ServicePrice, on_delete=models.CASCADE, related_name='arrival_service')
 
     def __str__(self):
         return self.pk

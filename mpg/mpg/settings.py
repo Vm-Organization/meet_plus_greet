@@ -69,6 +69,12 @@ INSTALLED_APPS = [
     # autocomplete and dropdown list
     'dal',
     'dal_select2',
+
+    # form wizard view
+    'formtools',
+
+    # form datetime widget
+    'formset',
 ]
 
 SITE_ID = 1

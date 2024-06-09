@@ -13,9 +13,7 @@ class Airport(models.Model):
 
 
 class Terminal(models.Model):
-    airport = models.ForeignKey(Airport, on_delete=models.CASCADE)
-
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
-        return f"{self.airport.name} - {self.name}"
+        return f"{self.name}"
