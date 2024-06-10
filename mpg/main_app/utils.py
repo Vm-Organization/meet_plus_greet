@@ -1,5 +1,7 @@
 import re
 import datetime
+
+
 def valid_phone_number(phone):
     cleaned_phone = re.sub(r"\D", '', phone)
 
@@ -22,6 +24,7 @@ def valid_phone_number(phone):
 
     return formatted_phone
 
+
 def age_type(birth_date):
     try:
         birth_date = datetime.datetime.strptime(birth_date, '%d.%m.%Y').date()
@@ -39,4 +42,3 @@ def age_type(birth_date):
         return ('child', 'Ребенок (2-12 лет)')
     else:
         return ('adult', 'Взрослый')
-
