@@ -30,8 +30,10 @@ class Booking(models.Model):
                                         null=True)
 
     # stage 2 fields
-    departure_terminal = models.ForeignKey(Terminal, on_delete=models.CASCADE, related_name='departure_booking')
-    arrival_terminal = models.ForeignKey(Terminal, on_delete=models.CASCADE, related_name='arrival_booking')
+    departure_terminal = models.ForeignKey(Terminal, on_delete=models.CASCADE, related_name='departure_booking',
+                                           default=14)
+    arrival_terminal = models.ForeignKey(Terminal, on_delete=models.CASCADE, related_name='arrival_booking',
+                                         default=14)
 
     flight_number = models.CharField(max_length=100)
 

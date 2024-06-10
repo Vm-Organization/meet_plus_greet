@@ -1,5 +1,7 @@
 import re
 import datetime
+
+
 def valid_phone_number(phone):
     cleaned_phone = re.sub(r"\D", '', phone)
 
@@ -21,6 +23,7 @@ def valid_phone_number(phone):
         formatted_phone = f"+1 ({formatted_number[:3]}) {formatted_number[4:]}"
 
     return formatted_phone
+
 
 def age_type(birth_date):
     try:
