@@ -1,12 +1,14 @@
 import re
 import datetime
 
+from django.core.exceptions import ValidationError
+
 
 def valid_phone_number(phone):
     cleaned_phone = re.sub(r"\D", '', phone)
 
     if len(cleaned_phone) < 10 or len(cleaned_phone) > 15:
-        return "Invalid phone number"
+        raise ValidationError("Invalid phone number.")
 
     if cleaned_phone[0] == '8':
         cleaned_phone = '7' + cleaned_phone[1:]
@@ -26,19 +28,19 @@ def valid_phone_number(phone):
 
 
 def age_type(birth_date):
-    try:
-        birth_date = datetime.datetime.strptime(birth_date, '%d.%m.%Y').date()
-    except ValueError:
-        return "Invalid date format. Please use DD.MM.YYYY."
+    # try:
+    # birth_date = datetime.datetime.strptime(birth_date, '%Y-%m-%d').date()
+    # except ValueError:
+    #     raise ValidationError("Invalid date of birth")
 
     today = datetime.date.today()
     age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
 
     if age < 0:
-        return "Invalid date of birth"
+        raise ValidationError("Invalid date of birth")
     elif age <= 2:
-        return ('infant', 'Ребенок (0-2 лет)')
+        return 'infant', 'Ребенок (0-2 лет)'
     elif age <= 12:
-        return ('child', 'Ребенок (2-12 лет)')
+        return 'child', 'Ребенок (2-12 лет)'
     else:
-        return ('adult', 'Взрослый')
+        return 'adult', 'Взрослый'
