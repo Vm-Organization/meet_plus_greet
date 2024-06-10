@@ -16,7 +16,11 @@ from main_app.models import Account, Passenger
 
 
 def home(request):
-    return TemplateView.as_view(template_name='main.html')
+    return TemplateView.as_view(template_name='home.html')
+
+
+class HomeView(TemplateView):
+    template_name = 'home.html'
 
 
 class AccountView(LoginRequiredMixin, TemplateView):
@@ -33,7 +37,6 @@ class AccountView(LoginRequiredMixin, TemplateView):
 class AccountEditView(LoginRequiredMixin, UpdateView):
     form_class = AccountForm
     model = Account
-    fields = '__all__'
     template_name = 'account/account_edit.html'
 
     def get_object(self, queryset=None):

@@ -10,7 +10,10 @@ Airport List
         <p><b>{{ country.country }}</b></p>
         {% for airport in airports %}
             {% if country.country == airport.country %}
-                <p>{{ airport.name }}</p>
+                <p><a href="{% url 'airport_detail' 216 %}">
+        <p>{{ airport.name }}</p>
+    </a></p>
+
             {% endif %}
         {% endfor %}
     {% endfor %}

@@ -1,0 +1,55 @@
+{% block title %}
+    Passenger
+{% endblock title %}
+
+{% block content %}
+    <h2>Главная </h2>
+    <p><a href="/admin/">
+        <input type="button" value="Админка" />
+    </a></p>
+<br>
+
+<p>Если вы вошли, то сначала вам предложат выйти</p>
+    <p><a href="/login/">
+        <input type="button" value="Вход" />
+    </a></p>
+<p><a href="/signup/">
+        <input type="button" value="Зарегистрироваться" />
+    </a></p>
+<br>
+
+<p><a href="{% url 'account' %}">
+        <input type="button" value="Личный кабинет" />
+    </a></p>
+<p><a href="{% url 'account_edit' %}">
+        <input type="button" value="Редактировать личный кабинет" />
+    </a></p>
+<br>
+
+<p><a href="{% url 'airport_list' %}">
+        <input type="button" value="Список аэропортов" />
+    </a></p>
+<p><a href="{% url 'airport_detail' 216 %}">
+        <input type="button" value="Какой-то аэропорт" />
+    </a></p>
+<p><a href="{% url 'airport_search' %}">
+        <input type="button" value="Поиск аэропорта" />
+    </a></p>
+<br>
+
+<p><a href="{% url 'passenger_list' %}">
+        <input type="button" value="Список пассажиров" />
+    </a></p>
+<p><a href="{% url 'passenger_create' %}">
+        <input type="button" value="Добавить пассажира" />
+    </a></p>
+<br>
+
+<p>В разработке</p>
+    <p><a href="{% url 'booking_create' %}">
+        <input type="button" value="Забронировать" />
+    </a></p>
+    <br>
+    <hr>
+{% endblock content %}
+

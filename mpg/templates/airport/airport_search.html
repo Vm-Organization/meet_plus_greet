@@ -12,7 +12,10 @@ Airport Search
 
     {% if airport_search %}
         {% for airport in airport_search %}
-            <p>{{ airport.country }} -------- {{ airport.city }} -------- {{ airport.name }} </p>
+            <p><a href="{% url 'airport_detail' 216 %}">
+        <p>{{ airport.country }} -------- {{ airport.city }} -------- {{ airport.name }} </p>
+    </a></p>
+
         {% endfor %}
     {% else %}
         <p>Ничего не найдено</p>
