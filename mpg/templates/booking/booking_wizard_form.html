@@ -1,16 +1,24 @@
-{% extends 'flatpages/default.html' %}
+{% extends "flatpages/default.html" %}
 {% load static %}
-
-{% block title %}
-Booking Form
-{% endblock title %}
+{% load i18n %}
 
 
 {% block content %}
+<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
 <div>
     <form action="" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <table>
+            {{ wizard.management_form }}
+            {% if wizard.form.forms %}
+                {{ wizard.form.management_form }}
+                {% for form in wizard.form.forms %}
+                    {{ form.as_table }}
+                {% endfor %}
+            {% else %}
+                {{ wizard.form }}
+            {% endif %}
+        </table>
 
         <table style="display: none">
             {{ view.formset.empty_form }}
@@ -20,17 +28,23 @@ Booking Form
             {{ view.formset }}
         </table>
 
-        <span id="add-form" class="button">Add form</span>
+        <span id="add-form" class="button">Search</span>
 
-        <input type="submit" />
+        {% if wizard.steps.prev %}
+        <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "first step" %}</button>
+        <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate "prev step" %}</button>
+        {% endif %}
+        <input type="submit" value="{% translate "submit" %}"/>
     </form>
 </div>
 {% endblock %}
+
 
 {% block footer %}
 <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
 
 {{ form.media }}
+{{ wizard.form.media }}
 
 <script>
 (function($) {
