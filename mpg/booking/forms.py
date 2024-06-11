@@ -45,12 +45,19 @@ class FlightInfoBookingForm(forms.ModelForm):
 
 # stage 3: passengers' and additional information
 class PassengerInfoForm(forms.ModelForm):
+    passenger_number = forms.IntegerField(min_value=1, label='Number of Passengers')
+    
     class Meta:
         model = Booking
         fields = [
             'passenger_number',
+            'passenger',
             'additional_info',
             'email',
             'phone',
             'telegram'
         ]
+
+        widgets = {
+            'passenger': autocomplete.ModelSelect2Multiple(url='passenger_autocomplete'),
+        }

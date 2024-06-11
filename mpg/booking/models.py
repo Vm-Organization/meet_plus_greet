@@ -42,6 +42,7 @@ class Booking(models.Model):
 
     # stage 3 fields
     passenger_number = models.PositiveIntegerField()
+    passenger = models.ManyToManyField(Passenger, through='PassengerBooking')
 
     additional_info = models.TextField(blank=True, null=True)
 
