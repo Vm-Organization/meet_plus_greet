@@ -1,0 +1,218 @@
+/* Font Import */
+@font-face {
+    font-family: 'TeXGyreHeros';
+    src: url('../fonts/TeXGyreHeros-Regular.woff');
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: url('../images/booking_airport_form.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation Menu Styles */
+nav {
+    position: fixed;
+    width: 80px;
+    height: 100%;
+    background-color: #D8CCC0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu li {
+    margin-bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+}
+
+.menu li:first-child {
+    position: absolute; 
+    top: 55px;
+}
+
+.menu a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.menu img {
+    display: block;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.logo {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 100%;
+    background-color: #E6DFD7;
+    display: flex;
+    justify-content: center; 
+}
+
+.logo img {
+    height: 48px;
+    width: 275px;
+    justify-content: center; 
+}
+
+.sub_titles {
+    width: 100%;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    color: #2C3135;
+}
+
+#sub_title_book, #sub_title_account {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+#sub_title_book {
+    background-color: rgba(230, 223, 215, 1);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#sub_title_account {
+    background-color: #D8CCC0;
+    border-top: 1px solid #D8CCC0;
+}
+
+/* Main Content Styles */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Button Styles */
+.btns {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 16px;
+    border: 2px solid;
+    border-color: transparent;
+    border-radius: 3px;
+    padding: 17px 61px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.previous {
+    background-color: #E6DFD7;
+    margin-right: 10px;
+    color: #2C3135;
+    box-shadow: 0px 0px 3.4px rgba(44, 49, 53, 0.1);
+}
+
+.next {
+    background-color: #2C3135;
+    margin-left: 10px;
+    color: #F4F3EF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.icon_previous:before {
+    content: url('../icons/previous.svg');
+    padding-right: 20px;
+}
+
+.icon_next:after {
+    content: url('../icons/next.svg');
+    padding-left: 20px;
+}
+
+/* Airport Styles */
+
+.booking_form{
+
+}
+
+.form-group {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Form Row Styles */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    width: 100%;
+}
+
+/* Full Width Styles */
+.full-width {
+    width: 100%;
+}
+
+/* Form Label Styles */
+.form-label {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 18px;
+    color: #2C3135;
+    margin-bottom: 5px;
+}
+
+/* Form Input Styles */
+.form-input {
+    width: 100%;
+}
+
+/* Input Element Styles */
+.form-input select {
+    width: 100%;
+    padding: 10px;
+}
+
+.select2-selection--single {
+    padding-bottom: 40px;
+}
+
