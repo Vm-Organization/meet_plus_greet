@@ -1,0 +1,37 @@
+{% extends "flatpages/default.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+     Booking
+{% endblock title %}
+
+{% block content %}
+    <h2>Бронирование </h2>
+    <p>Статус бронирования: {{ booking.booking_status }}</p>
+    <p>Номер рейса: {{ booking.flight_number }}</p>
+    <br>
+    <p>Аэропорт отправления: {{ booking.departure_airport }}</p>
+    <p>Терминал отправления: {{ booking.departure_terminal }}</p>
+    <p>Дата и время отправления: {{ booking.departure_date }}</p>
+    <br>
+    <p>Аэропорт прибытия: {{ booking.arrival_airport }}</p>
+    <p>Терминал прибытия: {{ booking.arrival_terminal }}</p>
+    <p>Дата и время прибытия: {{ booking.arrival_date }}</p>
+    <br>
+
+    <p>Аэропорт транзита: {{ booking.transit_airport }}</p>
+    <br>
+    <p>Email: {{ booking.email }}</p>
+    <p>Телефон: {{ booking.phone }}</p>
+    <p>Telegram: {{ booking.telegram }}</p>
+    <p>Дополнительная информация: {{ booking.additional_info }}</p>
+    <br>
+    <p>Количество пассажиров: {{ booking.passenger_number }}</p>
+    <p>Пассажиры:
+        {% for passenger in booking.passenger.all %} {{ passenger }} {% endfor %}</p>
+    <p>Итоговая стоимость: {{ booking.total_price }}</p>
+    <br>
+    <hr>
+{% endblock content %}

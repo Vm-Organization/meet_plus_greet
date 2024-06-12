@@ -1,0 +1,17 @@
+{% extends "flatpages/default.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+     Booking
+{% endblock title %}
+
+{% block content %}
+    <h2>Бронирование </h2>
+    {% for booking in booking %}
+        {% include 'booking/booking_detail.html' %}
+    {% endfor %}
+    <br>
+    <hr>
+{% endblock content %}

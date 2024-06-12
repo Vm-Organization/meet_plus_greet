@@ -3,7 +3,8 @@ from django import forms
 from dal import autocomplete
 from formset.widgets import DateTimeInput
 
-from .models import Booking
+from main_app.models import Passenger
+from .models import Booking, PassengerBooking
 
 
 # stage 1: departure, arrival, transit: additional
@@ -25,6 +26,9 @@ class AirportBookingForm(forms.ModelForm):
 
 # stage 2: flight information
 class FlightInfoBookingForm(forms.ModelForm):
+    departure_datetime = forms.DateTimeField(widget=DateTimeInput)
+    arrival_datetime = forms.DateTimeField(widget=DateTimeInput)
+
     class Meta:
         model = Booking
         fields = [
@@ -46,18 +50,34 @@ class FlightInfoBookingForm(forms.ModelForm):
 # stage 3: passengers' and additional information
 class PassengerInfoForm(forms.ModelForm):
     passenger_number = forms.IntegerField(min_value=1, label='Number of Passengers')
+    # passanger = forms.ModelChoiceField(queryset=Passenger.objects.all(), widget=autocomplete.ModelSelect2(url='passenger_autocomplete'), required=False)
     
     class Meta:
         model = Booking
         fields = [
             'passenger_number',
-            'passenger',
+            # 'passenger',
             'additional_info',
             'email',
             'phone',
             'telegram'
         ]
 
-        widgets = {
-            'passenger': autocomplete.ModelSelect2Multiple(url='passenger_autocomplete'),
-        }
+        # widgets = {
+        #     'passenger': autocomplete.ModelSelect2Multiple(url='passenger_autocomplete'),
+        # }
+
+
+class BookingDetailForm(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = '__all__'
+
+
+class PassengerBookingCreate(forms.Form):
+    passanger = forms.ModelChoiceField(queryset=Passenger.objects.all(),
+                                       widget=autocomplete.ModelSelect2(url='passenger_autocomplete'))
+
+    class Meta:
+        model = PassengerBooking
+        fields = '__all__'

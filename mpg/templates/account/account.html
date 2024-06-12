@@ -1,3 +1,8 @@
+{% extends "flatpages/default.html" %}
+{% load static %}
+{% load i18n %}
+
+
 {% block title %}
     Account
 {% endblock title %}
@@ -11,7 +16,7 @@
     <p>Телефон: {{ account.phone }}</p>
     <p>Личная информация: {{ account.personal_information }}</p>
     <br>
-    <a style="text-decoration: none" href="/booking_history/">
+    <a style="text-decoration: none" href="{% url 'booking_list' %}">
             <input type="button" value="История бронирований" />
         </a>
     <a style="text-decoration: none" href="{% url 'passenger_list' %}">

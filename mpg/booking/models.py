@@ -6,12 +6,6 @@ from main_app.models import ServicePrice, Passenger
 
 
 class Booking(models.Model):
-    PASSENGER_AGE = [
-        ('infant', 'Ребенок (0-2 лет)'),
-        ('child', 'Ребенок (2-12 лет)'),
-        ('adult', 'Взрослый'),
-    ]
-
     BOOKING_STATUS = [
         ('unpaid', 'Не оплачен'),
         ('paid', 'Оплачен'),
@@ -53,8 +47,12 @@ class Booking(models.Model):
     total_price = models.CharField(max_length=50, null=True)  # TODO: function to calculate total price
 
     # off-stage: for determining prices
-    departure_service = models.ForeignKey(ServicePrice, on_delete=models.CASCADE, related_name='departure_service')
-    arrival_service = models.ForeignKey(ServicePrice, on_delete=models.CASCADE, related_name='arrival_service')
+    departure_service = models.ForeignKey(ServicePrice, on_delete=models.CASCADE, related_name='departure_service',
+                                          blank=True, null=True)
+    arrival_service = models.ForeignKey(ServicePrice, on_delete=models.CASCADE, related_name='arrival_service',
+                                        blank=True, null=True)
+    transit_service = models.ForeignKey(ServicePrice, on_delete=models.CASCADE, related_name='transit_service',
+                                        blank=True, null=True)
 
     def __str__(self):
         return self.pk

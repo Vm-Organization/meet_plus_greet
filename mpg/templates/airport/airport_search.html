@@ -1,4 +1,7 @@
-{% extends 'flatpages/default.html' %}
+{% extends "flatpages/default.html" %}
+{% load static %}
+{% load i18n %}
+
 
 {% block title %}
 Airport Search
@@ -12,7 +15,7 @@ Airport Search
 
     {% if airport_search %}
         {% for airport in airport_search %}
-            <p><a href="{% url 'airport_detail' 216 %}">
+            <p><a href="{% url 'airport_detail' airport.pk %}">
         <p>{{ airport.country }} -------- {{ airport.city }} -------- {{ airport.name }} </p>
     </a></p>
 

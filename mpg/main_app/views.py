@@ -64,6 +64,7 @@ class PassengerDetailView(LoginRequiredMixin, DetailView):
     model = Passenger
     template_name = 'passenger/passenger.html'
     context_object_name = 'passenger'
+    form = PassengerForm
 
 
 class PassengerCreateView(LoginRequiredMixin, CreateView):
