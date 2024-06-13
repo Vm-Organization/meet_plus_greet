@@ -17,9 +17,15 @@ class AirportBookingForm(forms.ModelForm):
         ]
 
         widgets = {
-            'departure_airport': autocomplete.ModelSelect2(url='airport_autocomplete', attrs={'data-html': True}),
-            'arrival_airport': autocomplete.ModelSelect2(url='airport_autocomplete', attrs={'data-html': True}),
-            'transit_airport': autocomplete.ModelSelect2(url='airport_autocomplete', attrs={'data-html': True}),
+            'departure_airport': autocomplete.ModelSelect2(url='airport_autocomplete',
+                                                           attrs={'data-html': True,
+                                                                  'data-placeholder': 'Найти'}),
+            'arrival_airport': autocomplete.ModelSelect2(url='airport_autocomplete',
+                                                         attrs={'data-html': True,
+                                                                'data-placeholder': 'Найти'}),
+            'transit_airport': autocomplete.ModelSelect2(url='airport_autocomplete',
+                                                         attrs={'data-html': True,
+                                                                'data-placeholder': 'Добавить транзитный пункт'}),
         }
 
 
