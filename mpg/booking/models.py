@@ -41,7 +41,7 @@ class Booking(models.Model):
     additional_info = models.TextField(blank=True, null=True)
 
     email = models.EmailField()
-    phone = models.CharField(max_length=15)
+    phone = models.CharField(max_length=20, blank=True, null=True)
     telegram = models.CharField(max_length=100, blank=True, null=True)
 
     total_price = models.CharField(max_length=50, null=True)  # TODO: function to calculate total price

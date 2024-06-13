@@ -74,7 +74,7 @@ class BookingDetailForm(forms.ModelForm):
         fields = '__all__'
 
 
-class PassengerBookingCreate(forms.Form):
+class PassengerBookingForm(forms.Form):
     passanger = forms.ModelChoiceField(queryset=Passenger.objects.all(),
                                        widget=autocomplete.ModelSelect2(url='passenger_autocomplete'))
 

@@ -123,3 +123,14 @@ class BookingListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Booking.objects.filter(user=self.request.user)
+
+
+class PassengerListView(LoginRequiredMixin, ListView):
+    model = Passenger
+    ordering = ['last_name']
+    template_name = 'passenger/passenger_booking_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['passengers'] = self.model.objects.filter(user=self.request.user)
+        return context
