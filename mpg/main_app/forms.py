@@ -26,7 +26,7 @@ class PassengerForm(forms.ModelForm):
     first_name = forms.CharField(max_length=50, label='Имя')
     middle_name = forms.CharField(max_length=50, label='Отчество', required=False)
     birth_date = forms.DateField(label='Дата рождения', widget=forms.DateInput(attrs={'type': 'date'}, ))
-    age = forms.ChoiceField(choices=Passenger.PASSENGER_AGE)
+    # age = forms.ChoiceField(choices=Passenger.PASSENGER_AGE)
     email = forms.EmailField(label='Email', required=False)
     phone = forms.CharField(max_length=50, label='Телефон', required=False)
     personal_information = forms.CharField(max_length=200, label='Личная информация', required=False)
@@ -38,7 +38,7 @@ class PassengerForm(forms.ModelForm):
             'first_name',
             'middle_name',
             'birth_date',
-            'age',
+            # 'age',
             'phone',
             'email',
             'personal_information',
