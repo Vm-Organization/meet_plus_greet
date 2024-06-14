@@ -113,7 +113,6 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 9%;
 }
 
 /* Button Styles */
@@ -122,7 +121,6 @@ nav {
     padding: 20px;
     align-items: center;
     justify-content: center;
-    margin-top: 15%;
 }
 
 .btn {
@@ -165,46 +163,77 @@ nav {
 /* Airport Styles */
 
 .form-group {
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
 }
 
 /* Form Row Styles */
 .form-row {
-    display: flex;
-    justify-content: space-between;
-    padding-right: 20px;
-    width: 100%;
+   display: flex;
+   justify-content: space-between;
+   padding-right: 20px;
+   width: 100%;
 }
 
 /* Full Width Styles */
 .full-width {
-    width: 100%;
+   width: 830px;
 }
 
 /* Form Label Styles */
 .form-label {
-    font-family: 'TeXGyreHeros', sans-serif;
-    font-size: 18px;
-    color: #2C3135;
-    margin-bottom: 5px;
+   font-family: 'TeXGyreHeros', sans-serif;
+   font-size: 18px;
+   color: #2C3135;
+   margin-bottom: 5px;
 }
 
-/* Form Input Styles */
+/* Select Input Styles */
+.form-input-full-width {
+   width: 100%;
+}
+
 .form-input {
-    width: 100%;
+   width: 405px;
 }
 
-.form-input-transit {
-    width: 830px;
-}
-
-/* Input Element Styles */
+/* Select Element Styles */
 .form-input select {
-    width: 100%;
-    padding: 10px;
+   width: 100%;
+   padding: 10px;
+}
+
+.form-input-full-width select {
+   width: 100%;
+   padding: 10px;
+}
+
+/* Input Styles */
+.input-form input[type="text"],.input-form input[type='datetime-local'] {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 14px;
+    color: #2C3135;
+    width: 810px;
+    height: 40px;
+    background-color: #EFEFEF;
+    border: 1px solid #2C3135;
+    border-radius: 3px;
+    padding-left: 20px;
+}
+
+input[type='datetime-local']::pattern {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 14px;
+    color: #A0A0A0;
+    line-height: 38px;
+}
+
+::placeholder {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 14px;
+    color: #A0A0A0;
+    line-height: 38px;
 }
 
 /* Select Input Autocomplete Light Widget */
@@ -232,4 +261,12 @@ span.select2-container--default {
     font-family: 'TeXGyreHeros', sans-serif !important;
     font-size: 14px !important;
     color: #2C3135;
+}
+
+/* Date Time Calender Style */
+.flatpickr-calendar {
+    font-family: 'TeXGyreHeros', sans-serif !important;
+}
+.flatpickr-months .flatpickr-prev-month.flatpickr-next-month,.flatpickr-months .flatpickr-next-month.flatpickr-next-month {
+    font-family: 'TeXGyreHeros', sans-serif !important;
 }

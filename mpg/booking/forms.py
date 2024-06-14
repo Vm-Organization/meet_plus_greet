@@ -50,20 +50,38 @@ class AirportBookingForm(forms.ModelForm):
 
 # stage 2: flight information
 class FlightInfoBookingForm(forms.ModelForm):
-    departure_datetime = forms.DateTimeField(widget=DateTimeInput, label='Время отправления')
-    arrival_datetime = forms.DateTimeField(widget=DateTimeInput, label='Время прибытия')
-    flight_number = forms.CharField(max_length=50, label='Номер рейса'),
+    departure_datetime = forms.DateTimeField(widget=forms.DateTimeInput(
+            attrs={
+                'placeholder': 'Дата и время отправления',
+                'required': '',
+                'class': 'flatpickr'
+            }),
+        label='Время отправления')
+
+    arrival_datetime = forms.DateTimeField(widget=forms.DateTimeInput(
+            attrs={
+                'placeholder': 'Дата и время прибытия',
+                'required': '',
+                'class': 'flatpickr'
+            }),
+        label='Время прибытия')
+
+    flight_number = forms.CharField(max_length=50,
+                                    widget=forms.TextInput(attrs={'placeholder': 'Номер рейса'}),
+                                    label='Номер рейса')
+
     departure_terminal = forms.ModelChoiceField(
         queryset=Terminal.objects.all(),
         widget=autocomplete.ModelSelect2(url='terminal_autocomplete', attrs={
-                                                'data-placeholder': 'терминал отправления'}),
+            'data-placeholder': 'Терминал отправления'}),
         label='Терминал отправления',
         required=False
     )
+
     arrival_terminal = forms.ModelChoiceField(
         queryset=Terminal.objects.all(),
         widget=autocomplete.ModelSelect2(url='terminal_autocomplete', attrs={
-                                                'data-placeholder': 'терминал прибытия'}),
+            'data-placeholder': 'Терминал прибытия'}),
         label='Терминал прибытия',
         required=False
     )
@@ -92,7 +110,7 @@ class PassengerInfoForm(forms.ModelForm):
     phone = forms.CharField(max_length=50, label='Телефон', required=False)
     telegram = forms.CharField(max_length=50, label='Telegram', required=False)
     additional_info = forms.CharField(max_length=200, label='Дополнительная информация', required=False)
-    
+
     class Meta:
         model = Booking
         fields = [

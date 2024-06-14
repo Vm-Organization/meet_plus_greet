@@ -12,6 +12,18 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
+
+        .main {
+            margin-top: 7%;
+        }
+
+        .btns {
+            margin-top: 5%;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
     </style>
 {% endblock head %}
 
@@ -40,20 +52,17 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="{{ form.flight_number.id_for_label }}" class="form-label"></label>
-                        <div class="form-input">
+                        <div class="input-form">
                             {{ form.flight_number }}
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="{{ form.departure_datetime.id_for_label }}" class="form-label"></label>
-                        <div class="form-input">
+                        <div class="input-form">
                             {{ form.departure_datetime }}
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="{{ form.arrival_datetime.id_for_label }}" class="form-label"></label>
-                        <div class="form-input">
+                        <div class="input-form">
                             {{ form.arrival_datetime }}
                         </div>
                     </div>
@@ -74,20 +83,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="{{ wizard.form.flight_number.id_for_label }}" class="form-label"></label>
-                    <div class="form-input">
+                    <div class="input-form">
                         {{ wizard.form.flight_number }}
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="{{ wizard.form.departure_datetime.id_for_label }}" class="form-label"></label>
-                    <div class="form-input">
+                    <div class="input-form">
                         {{ wizard.form.departure_datetime }}
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="{{ wizard.form.arrival_datetime.id_for_label }}" class="form-label"></label>
-                    <div class="form-input">
+                    <div class="input-form">
                         {{ wizard.form.arrival_datetime }}
                     </div>
                 </div>
@@ -125,6 +131,9 @@
 {% block footer %}
 <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 {{ form.media }}
 {{ wizard.form.media }}
 
@@ -147,5 +156,13 @@
         newTable.slideDown()
     })
 })($)
+
+document.addEventListener('DOMContentLoaded', function() {
+            flatpickr('.flatpickr', {
+                enableTime: true,
+                dateFormat: "d.m.Y H:i",
+                time_24hr: true
+            });
+});
 </script>
 {% endblock %}
