@@ -1,4 +1,7 @@
-{% extends 'flatpages/default.html' %}
+{% extends "flatpages/default.html" %}
+{% load static %}
+{% load i18n %}
+
 
 {% block title %}
 Airport Detail
@@ -7,5 +10,28 @@ Airport Detail
 {% block content %}
 <h3>{{ airport.name }}</h3>
 <p>{{ airport.city }} -- {{ airport.country }}</p>
+<h5>Отправление:</h5>
+<p>Один пассажир:</p>
+<p>{{ departure_price_one_passenger }}</p>
+<p>Последующие пассажиры:</p>
+<p>{{ departure_price_others_passengers }}</p>
+<br>
+<h5>Прибытие:</h5>
+<p>Один пассажир:</p>
+<p>{{ arrival_price_one_passenger }}</p>
+<p>Последующие пассажиры:</p>
+<p>{{ arrival_price_others_passengers }}</p>
+<br>
+<h5>Транзит:</h5>
+<p>Один пассажир:</p>
+<p>{{ transit_price_one_passenger }}</p>
+<p>Последующие пассажиры:</p>
+<p>{{ transit_price_others_passengers }}</p>
+<br>
+<h5>Услуги:</h5>
+<p>{{ service }}</p>
+<br>
+<h5>Дополнительная информация:</h5>
+<p>{{ airport.additional_info }}</p>
 
 {% endblock content %}

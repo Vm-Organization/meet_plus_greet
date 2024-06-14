@@ -1,14 +1,17 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.db.models import Q
 from django.http import HttpResponse
 from django.utils.html import format_html
 
 from dal import autocomplete
+from django.views.generic import DetailView, ListView
 from formtools.wizard.views import SessionWizardView
 
 from airport.models import Airport, Terminal
 from main_app.models import Passenger
-from .forms import AirportBookingForm, FlightInfoBookingForm, PassengerInfoForm
+from .forms import AirportBookingForm, FlightInfoBookingForm, PassengerInfoForm, BookingDetailForm
+from .models import Booking, PassengerBooking
 
 
 # TODO: add is_authenticated in autocomplete widget + add LoginRequired for forms
@@ -97,9 +100,55 @@ def passenger_booking_create(request):
 
 
 # form wizard view: 3 or more pages
-class BookingView(SessionWizardView):
+class BookingView(LoginRequiredMixin, SessionWizardView):
     form_list = [AirportBookingForm, FlightInfoBookingForm, PassengerInfoForm]
     template_name = 'booking/booking_wizard_form.html'
 
     def done(self, form_list, **kwargs):
-        return HttpResponse('Form submitted')
+        form_data = [form.cleaned_data for form in form_list]
+        form_data = {**form_data[0], **form_data[1], **form_data[2]}
+        passengers = form_data.pop('passenger')
+        booking = Booking.objects.create(**form_data, user=self.request.user)
+        booking.save()
+        for passenger in passengers:
+            passenger_booking = PassengerBooking.objects.create(booking=booking, passenger=passenger)
+            passenger_booking.save()
+        booking.passenger_number = booking.get_passenger_number()
+        booking.total_price = booking.get_total_price()
+        booking.save()
+        return render(self.request, 'booking/booking_detail.html',
+                      {'form_data': [form.cleaned_data for form in form_list],
+                       'booking': booking
+                       })
+
+
+class BookingDetailView(LoginRequiredMixin, DetailView):
+    form_class = BookingDetailForm
+    model = Booking
+    template_name = 'booking/booking_detail.html'
+    context_object_name = 'booking'
+
+
+class BookingListView(LoginRequiredMixin, ListView):
+    form = BookingDetailForm
+    model = Booking
+    template_name = 'booking/booking_list.html'
+    context_object_name = 'booking'
+
+    def get_queryset(self):
+        return Booking.objects.filter(user=self.request.user)
+
+
+def booking_confirm(request):
+    pass
+    # return render(request, 'booking/booking_complete.html')
+
+
+def booking_cancel(request):
+    pass
+    # return render(request, 'booking/booking_cancel.html')
+
+
+def booking_pay(request):
+    pass
+    # return render(request, 'booking/booking_pay.html')

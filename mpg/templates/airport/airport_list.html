@@ -1,4 +1,7 @@
-{% extends 'flatpages/default.html' %}
+{% extends "flatpages/default.html" %}
+{% load static %}
+{% load i18n %}
+
 
 {% block title %}
 Airport List
@@ -10,7 +13,7 @@ Airport List
         <p><b>{{ country.country }}</b></p>
         {% for airport in airports %}
             {% if country.country == airport.country %}
-                <p><a href="{% url 'airport_detail' 216 %}">
+                <p><a href="{% url 'airport_detail' airport.pk %}">
         <p>{{ airport.name }}</p>
     </a></p>
 

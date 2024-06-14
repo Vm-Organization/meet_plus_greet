@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.http import JsonResponse
 from django.views.generic import ListView, DetailView
 
+from main_app.models import Service
 from .models import Airport
 from .filters import AirportFilter
 
@@ -18,7 +19,7 @@ class AirportList(ListView):
         # list of countries' unique values
         context['countries'] = Airport.objects.values('country').distinct().order_by('country')
         # list of airports' unique names
-        context['airports'] = Airport.objects.values('name', 'country').distinct()
+        context['airports'] = Airport.objects.values('pk', 'name', 'country').distinct()
         return context
 
 
@@ -27,6 +28,23 @@ class AirportDetail(DetailView):
     model = Airport
     template_name = 'airport/airport_detail.html'
     context_object_name = 'airport'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['departure_price_one_passenger'] = (
+            self.object.service_price.get(service_type='departure').price_one_passenger)
+        context['departure_price_others_passengers'] = (
+            self.object.service_price.get(service_type='departure').price_others_passengers)
+        context['arrival_price_one_passenger'] = (
+            self.object.service_price.get(service_type='arrival').price_one_passenger)
+        context['arrival_price_others_passengers'] = (
+            self.object.service_price.get(service_type='arrival').price_others_passengers)
+        context['transit_price_one_passenger'] = (
+            self.object.service_price.get(service_type='transit').price_one_passenger)
+        context['transit_price_one_passenger'] = (
+            self.object.service_price.get(service_type='transit').price_others_passengers)
+        context['service'] = self.object.service_price.first().service.name
+        return context
 
 
 # search an airport

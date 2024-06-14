@@ -64,6 +64,7 @@ class PassengerDetailView(LoginRequiredMixin, DetailView):
     model = Passenger
     template_name = 'passenger/passenger.html'
     context_object_name = 'passenger'
+    form = PassengerForm
 
 
 class PassengerCreateView(LoginRequiredMixin, CreateView):
@@ -78,7 +79,7 @@ class PassengerCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('passenger_detail', kwargs={'pk': self.object.pk})
+        return reverse_lazy('passenger_detail', kwargs={'pk': self.object.pk})
 
 
 class PassengerEditView(LoginRequiredMixin, UpdateView):
