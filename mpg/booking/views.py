@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from django.http import HttpResponse
+from django.utils.html import format_html
 
 from dal import autocomplete
 from formtools.wizard.views import SessionWizardView
@@ -14,6 +15,12 @@ from .forms import AirportBookingForm, FlightInfoBookingForm, PassengerInfoForm
 # TODO: if 2 passengers, there are more passenger forms for them
 # view for creating widget autocompleting and selecting airport in booking
 class AirportAutocomplete(autocomplete.Select2QuerySetView):
+    def get_result_label(self, result):
+        return format_html('<span style="font-weight: bold;">{}</span><br>{}<br>{}', result.country, result.city, result.name)
+
+    def get_selected_result_label(self, item):
+        return item.name
+
     def get_queryset(self):
         qs = Airport.objects.all()
 
