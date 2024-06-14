@@ -8,9 +8,6 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('../images/booking_airport_form.png');
-    background-size: cover;
-    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
 }
@@ -94,8 +91,8 @@ nav {
     color: #2C3135;
 }
 
-#sub_title_book, #sub_title_account {
-    width: 50%;
+#sub_title_book {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,10 +104,6 @@ nav {
     border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-#sub_title_account {
-    background-color: #D8CCC0;
-    border-top: 1px solid #D8CCC0;
-}
 
 /* Main Content Styles */
 .main {
@@ -202,6 +195,10 @@ nav {
 /* Form Input Styles */
 .form-input {
     width: 100%;
+}
+
+.form-input-transit {
+    width: 830px;
 }
 
 /* Input Element Styles */

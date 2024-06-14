@@ -2,10 +2,10 @@ from django.urls import path
 
 from .views import airport_booking_create, AirportAutocomplete, BookingView, TerminalAutocomplete, \
     terminal_booking_create, PassengerAutocomplete, passenger_booking_create, BookingDetailView, BookingListView,\
-    booking_confirm, booking_cancel, booking_pay
+    booking_confirm, booking_cancel, booking_pay, FORMS
 
 urlpatterns = [
-    path('', BookingView.as_view(), name='booking_form'),
+    path('', BookingView.as_view(FORMS), name='booking_form'),
     path('airport/', airport_booking_create, name='airport_booking_create'),
     path('terminal/', terminal_booking_create, name='terminal_booking_create'),
     path('passenger/', passenger_booking_create, name='passenger_booking_create'),

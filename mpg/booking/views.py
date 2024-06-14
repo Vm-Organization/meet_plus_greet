@@ -10,7 +10,7 @@ from formtools.wizard.views import SessionWizardView
 
 from airport.models import Airport, Terminal
 from main_app.models import Passenger
-from .forms import AirportBookingForm, FlightInfoBookingForm, PassengerInfoForm, BookingDetailForm
+from .forms import AirportBookingForm, FlightInfoBookingForm, PassengerInfoForm
 from .models import Booking, PassengerBooking
 
 
@@ -71,7 +71,7 @@ def airport_booking_create(request):
     else:
         form = AirportBookingForm()
 
-    return render(request, 'booking_wizard_form.html', {'form': form})
+    return render(request, 'booking/airport_booking_page1.html', {'form': form})
 
 
 # view for adding widget autocompleting and selecting terminal in booking form
@@ -83,7 +83,7 @@ def terminal_booking_create(request):
     else:
         form = FlightInfoBookingForm()
 
-    return render(request, 'booking_wizard_form.html', {'form': form})
+    return render(request, 'booking/flight_info_booking_page2.html', {'form': form})
 
 
 # view for adding widget autocompleting and selecting passenger in booking form
@@ -95,13 +95,26 @@ def passenger_booking_create(request):
     else:
         form = PassengerInfoForm()
 
-    return render(request, 'booking_wizard_form.html', {'form': form})
+    return render(request, 'booking/passenger_info_booking_page3.html', {'form': form})
+
+
+FORMS = [
+    ('airport', AirportBookingForm),
+    ('flight_info', FlightInfoBookingForm),
+    ('passenger_info', PassengerInfoForm)
+]
+
+TEMPLATES = {
+    'airport': 'booking/airport_booking_page1.html',
+    'flight_info': 'booking/flight_info_booking_page2.html',
+    'passenger_info': 'booking/passenger_info_booking_page3.html'
+}
 
 
 # form wizard view: 3 or more pages
 class BookingView(LoginRequiredMixin, SessionWizardView):
-    form_list = [AirportBookingForm, FlightInfoBookingForm, PassengerInfoForm]
-    template_name = 'booking/booking_wizard_form.html'
+    def get_template_names(self):
+        return [TEMPLATES[self.steps.current]]
 
     def done(self, form_list, **kwargs):
         form_data = [form.cleaned_data for form in form_list]

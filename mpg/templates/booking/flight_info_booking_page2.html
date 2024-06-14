@@ -6,6 +6,13 @@
 {% block head %}
     {{ form.media }}
     <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
+    <style>
+        body {
+            background: url('{% static "images/booking_page_2_3.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
 {% endblock head %}
 
 
@@ -20,42 +27,68 @@
                 {% for form in wizard.form.forms %}
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="{{ form.departure_airport.id_for_label }}" class="form-label">Аэропорт Отправления:</label>
+                            <label for="{{ form.departure_terminal.id_for_label }}" class="form-label"></label>
                             <div class="form-input">
-                                {{ form.departure_airport }}
+                                {{ form.departure_terminal }}
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="{{ form.arrival_airport.id_for_label }}" class="form-label">Аэроропорт Прибытия:</label>
+                            <label for="{{ form.arrival_terminal.id_for_label }}" class="form-label"></label>
                             <div class="form-input">
-                                {{ form.arrival_airport }}
+                                {{ form.arrival_terminal }}
                             </div>
                         </div>
                     </div>
-                    <div class="form-group full-width">
+                    <div class="form-group">
+                        <label for="{{ form.flight_number.id_for_label }}" class="form-label"></label>
                         <div class="form-input">
-                            {{ form.transit_airport }}
+                            {{ form.flight_number }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.departure_datetime.id_for_label }}" class="form-label"></label>
+                        <div class="form-input">
+                            {{ form.departure_datetime }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.arrival_datetime.id_for_label }}" class="form-label"></label>
+                        <div class="form-input">
+                            {{ form.arrival_datetime }}
                         </div>
                     </div>
                 {% endfor %}
             {% else %}
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="{{ wizard.form.departure_airport.id_for_label }}" class="form-label">Аэропорт Отправления:</label>
+                        <label for="{{ wizard.form.departure_terminal.id_for_label }}" class="form-label"></label>
                         <div class="form-input">
-                            {{ wizard.form.departure_airport }}
+                            {{ wizard.form.departure_terminal }}
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="{{ wizard.form.arrival_airport.id_for_label }}" class="form-label">Аэроропорт Прибытия:</label>
+                        <label for="{{ wizard.form.arrival_terminal.id_for_label }}" class="form-label"></label>
                         <div class="form-input">
-                            {{ wizard.form.arrival_airport }}
+                            {{ wizard.form.arrival_terminal }}
                         </div>
                     </div>
                 </div>
-                <div class="form-group full-width">
+                <div class="form-group">
+                    <label for="{{ wizard.form.flight_number.id_for_label }}" class="form-label"></label>
                     <div class="form-input">
-                        {{ wizard.form.transit_airport }}
+                        {{ wizard.form.flight_number }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="{{ wizard.form.departure_datetime.id_for_label }}" class="form-label"></label>
+                    <div class="form-input">
+                        {{ wizard.form.departure_datetime }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="{{ wizard.form.arrival_datetime.id_for_label }}" class="form-label"></label>
+                    <div class="form-input">
+                        {{ wizard.form.arrival_datetime }}
                     </div>
                 </div>
             {% endif %}

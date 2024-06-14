@@ -13,17 +13,29 @@ from .models import Booking, PassengerBooking
 class AirportBookingForm(forms.ModelForm):
     departure_airport = forms.ModelChoiceField(
         queryset=Airport.objects.all(),
-        widget=autocomplete.ModelSelect2(url='airport_autocomplete'),
+        widget=autocomplete.ModelSelect2(url='airport_autocomplete',
+                                         attrs={
+                                             'data-html': True,
+                                             'data-placeholder': 'Найти',
+                                         }),
         label='Аэропорт отправления'
     )
     arrival_airport = forms.ModelChoiceField(
         queryset=Airport.objects.all(),
-        widget=autocomplete.ModelSelect2(url='airport_autocomplete'),
+        widget=autocomplete.ModelSelect2(url='airport_autocomplete',
+                                         attrs={
+                                             'data-html': True,
+                                             'data-placeholder': 'Найти',
+                                         }),
         label='Аэропорт прибытия'
     )
     transit_airport = forms.ModelChoiceField(
         queryset=Airport.objects.all(),
-        widget=autocomplete.ModelSelect2(url='airport_autocomplete'),
+        widget=autocomplete.ModelSelect2(url='airport_autocomplete',
+                                         attrs={
+                                             'data-html': True,
+                                             'data-placeholder': 'Добавить транзитный пункт',
+                                         }),
         label='Аэропорт транзита', required=False
     )
 
@@ -40,16 +52,18 @@ class AirportBookingForm(forms.ModelForm):
 class FlightInfoBookingForm(forms.ModelForm):
     departure_datetime = forms.DateTimeField(widget=DateTimeInput, label='Время отправления')
     arrival_datetime = forms.DateTimeField(widget=DateTimeInput, label='Время прибытия')
-    flight_number = forms.CharField(max_length=50, label='Номер рейса')
+    flight_number = forms.CharField(max_length=50, label='Номер рейса'),
     departure_terminal = forms.ModelChoiceField(
         queryset=Terminal.objects.all(),
-        widget=autocomplete.ModelSelect2(url='terminal_autocomplete'),
+        widget=autocomplete.ModelSelect2(url='terminal_autocomplete', attrs={
+                                                'data-placeholder': 'терминал отправления'}),
         label='Терминал отправления',
         required=False
     )
     arrival_terminal = forms.ModelChoiceField(
         queryset=Terminal.objects.all(),
-        widget=autocomplete.ModelSelect2(url='terminal_autocomplete'),
+        widget=autocomplete.ModelSelect2(url='terminal_autocomplete', attrs={
+                                                'data-placeholder': 'терминал прибытия'}),
         label='Терминал прибытия',
         required=False
     )
