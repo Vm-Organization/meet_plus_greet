@@ -10,7 +10,7 @@ from formtools.wizard.views import SessionWizardView
 
 from airport.models import Airport, Terminal
 from main_app.models import Passenger
-from .forms import AirportBookingForm, FlightInfoBookingForm, PassengerInfoForm, BookingDetailForm
+from .forms import AirportBookingForm, FlightInfoBookingForm, PassengerInfoForm
 from .models import Booking, PassengerBooking
 
 
