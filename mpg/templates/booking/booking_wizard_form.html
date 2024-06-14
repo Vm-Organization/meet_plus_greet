@@ -28,12 +28,13 @@
             {{ view.formset }}
         </table>
 
-        <span id="add-form" class="button">Search</span>
-
         {% if wizard.steps.prev %}
         <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "first step" %}</button>
         <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate "prev step" %}</button>
         {% endif %}
+        <a style="text-decoration: none" href="{% url 'passenger_create' %}" target="_blank">
+            <input type="button" value="Новый пассажир" />
+        </a>
         <input type="submit" value="{% translate 'submit' %}"/>
     </form>
 </div>

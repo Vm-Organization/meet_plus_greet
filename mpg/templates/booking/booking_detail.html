@@ -30,8 +30,27 @@
     <br>
     <p>Количество пассажиров: {{ booking.passenger_number }}</p>
     <p>Пассажиры:
-        {% for passenger in booking.passenger.all %} {{ passenger }} {% endfor %}</p>
+        {% for passenger in booking.passenger.all %}
+            <p>{{ passenger }}, {{ passenger.age }} </p>
+        {% endfor %}
     <p>Итоговая стоимость: {{ booking.total_price }}</p>
     <br>
+    <p>Время создания: {{ booking.date_created }}</p>
+    <br>
+    {% if booking.booking_status == 'unpaid' %}
+        {% if not booking.total_price == "By request" %}
+        <a style="text-decoration: none" href="{% url 'booking_pay' booking.pk %}">
+            <input type="button" value="Оплатить" />
+        </a>
+        {% endif %}
+        <a style="text-decoration: none" href="{% url 'booking_confirm' booking.pk %}">
+            <input type="button" value="Подтвердить бронирование" />
+        </a>
+    {% endif %}
+    {% if not booking.booking_status == 'complited' %}
+        <a style="text-decoration: none" href="{% url 'booking_cancel' booking.pk %}">
+            <input type="button" value="Отменить бронирование" />
+        </a>
+    {% endif %}
     <hr>
 {% endblock content %}

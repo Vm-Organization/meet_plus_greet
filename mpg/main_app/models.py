@@ -16,8 +16,8 @@ class Service(models.Model):
 class ServicePrice(models.Model):
     """Connection between service and price"""
     SERVICE_TYPE = [
-        ('arrival', 'Прилет'),
-        ('departure', 'Вылет'),
+        ('arrival', 'Прибытие'),
+        ('departure', 'Отправление'),
         ('transit', 'Транзит'),
     ]
 
@@ -45,7 +45,8 @@ class Account(models.Model):
         using=None,
         update_fields=None,
     ):
-        self.phone = valid_phone_number(self.phone)
+        if self.phone:
+            self.phone = valid_phone_number(self.phone)
         super().save(force_insert, force_update, using, update_fields)
 
     def __str__(self):
@@ -76,7 +77,8 @@ class Passenger(models.Model):
         using=None,
         update_fields=None,
     ):
-        self.phone = valid_phone_number(self.phone)
+        if self.phone:
+            self.phone = valid_phone_number(self.phone)
         # self.age = age_type(self.birth_date)[0]  # for english
         self.age = age_type(self.birth_date)[1]  # for russian
         super().save(force_insert, force_update, using, update_fields)

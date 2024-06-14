@@ -10,7 +10,7 @@ from formtools.wizard.views import SessionWizardView
 from airport.models import Airport, Terminal
 from main_app.models import Passenger
 from .forms import AirportBookingForm, FlightInfoBookingForm, PassengerInfoForm, BookingDetailForm
-from .models import Booking
+from .models import Booking, PassengerBooking
 
 
 # TODO: add is_authenticated in autocomplete widget + add LoginRequired for forms
@@ -100,7 +100,14 @@ class BookingView(LoginRequiredMixin, SessionWizardView):
     def done(self, form_list, **kwargs):
         form_data = [form.cleaned_data for form in form_list]
         form_data = {**form_data[0], **form_data[1], **form_data[2]}
+        passengers = form_data.pop('passenger')
         booking = Booking.objects.create(**form_data, user=self.request.user)
+        booking.save()
+        for passenger in passengers:
+            passenger_booking = PassengerBooking.objects.create(booking=booking, passenger=passenger)
+            passenger_booking.save()
+        booking.passenger_number = booking.get_passenger_number()
+        booking.total_price = booking.get_total_price()
         booking.save()
         return render(self.request, 'booking/booking_detail.html',
                       {'form_data': [form.cleaned_data for form in form_list],
@@ -125,12 +132,16 @@ class BookingListView(LoginRequiredMixin, ListView):
         return Booking.objects.filter(user=self.request.user)
 
 
-class PassengerListView(LoginRequiredMixin, ListView):
-    model = Passenger
-    ordering = ['last_name']
-    template_name = 'passenger/passenger_booking_list.html'
+def booking_confirm(request):
+    pass
+    # return render(request, 'booking/booking_complete.html')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['passengers'] = self.model.objects.filter(user=self.request.user)
-        return context
+
+def booking_cancel(request):
+    pass
+    # return render(request, 'booking/booking_cancel.html')
+
+
+def booking_pay(request):
+    pass
+    # return render(request, 'booking/booking_pay.html')
