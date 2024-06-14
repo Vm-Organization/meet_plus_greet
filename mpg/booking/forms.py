@@ -36,7 +36,6 @@ class AirportBookingForm(forms.ModelForm):
         ]
 
 
-
 # stage 2: flight information
 class FlightInfoBookingForm(forms.ModelForm):
     departure_datetime = forms.DateTimeField(widget=DateTimeInput, label='Время отправления')
@@ -65,13 +64,6 @@ class FlightInfoBookingForm(forms.ModelForm):
             'arrival_datetime',
         ]
 
-        # widgets = {
-        #     'departure_terminal': autocomplete.ModelSelect2(url='terminal_autocomplete'),
-        #     'arrival_terminal': autocomplete.ModelSelect2(url='terminal_autocomplete'),
-        #     'departure_datetime': DateTimeInput,
-        #     'arrival_datetime': DateTimeInput,
-        # }
-
 
 # stage 3: passengers' and additional information
 class PassengerInfoForm(forms.ModelForm):
@@ -95,22 +87,3 @@ class PassengerInfoForm(forms.ModelForm):
             'phone',
             'telegram'
         ]
-
-        # widgets = {
-        #     'passenger': autocomplete.ModelSelect2Multiple(url='passenger_autocomplete'),
-        # }
-
-
-class BookingDetailForm(forms.ModelForm):
-    class Meta:
-        model = Booking
-        fields = '__all__'
-
-
-# class PassengerBookingForm(forms.Form):
-#     passanger = forms.ModelChoiceField(queryset=Passenger.objects.all(),
-#                                        widget=autocomplete.ModelSelect2(url='passenger_autocomplete'))
-#
-#     class Meta:
-#         model = PassengerBooking
-#         fields = '__all__'

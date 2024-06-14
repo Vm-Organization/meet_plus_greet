@@ -14,12 +14,11 @@ from .forms import AirportBookingForm, FlightInfoBookingForm, PassengerInfoForm,
 from .models import Booking, PassengerBooking
 
 
-# TODO: add is_authenticated in autocomplete widget + add LoginRequired for forms
-# TODO: if 2 passengers, there are more passenger forms for them
 # view for creating widget autocompleting and selecting airport in booking
 class AirportAutocomplete(autocomplete.Select2QuerySetView):
     def get_result_label(self, result):
-        return format_html('<span style="font-weight: bold;">{}</span><br>{}<br>{}', result.country, result.city, result.name)
+        return format_html('<span style="font-weight: bold;">{}</span><br>{}<br>{}',
+                           result.country, result.city, result.name)
 
     def get_selected_result_label(self, item):
         return item.name
@@ -108,11 +107,14 @@ class BookingView(LoginRequiredMixin, SessionWizardView):
         form_data = [form.cleaned_data for form in form_list]
         form_data = {**form_data[0], **form_data[1], **form_data[2]}
         passengers = form_data.pop('passenger')
+        # create booking
         booking = Booking.objects.create(**form_data, user=self.request.user)
         booking.save()
+        # add passengers to booking
         for passenger in passengers:
             passenger_booking = PassengerBooking.objects.create(booking=booking, passenger=passenger)
             passenger_booking.save()
+        # calculate passenger number and total price
         booking.passenger_number = booking.get_passenger_number()
         booking.total_price = booking.get_total_price()
         booking.save()
@@ -123,14 +125,12 @@ class BookingView(LoginRequiredMixin, SessionWizardView):
 
 
 class BookingDetailView(LoginRequiredMixin, DetailView):
-    form_class = BookingDetailForm
     model = Booking
     template_name = 'booking/booking_detail.html'
     context_object_name = 'booking'
 
 
 class BookingListView(LoginRequiredMixin, ListView):
-    form = BookingDetailForm
     model = Booking
     template_name = 'booking/booking_list.html'
     context_object_name = 'booking'
