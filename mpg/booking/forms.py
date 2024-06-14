@@ -35,11 +35,6 @@ class AirportBookingForm(forms.ModelForm):
             'transit_airport',
         ]
 
-        # widgets = {
-        #     'departure_airport': autocomplete.ModelSelect2(url='airport_autocomplete'),
-        #     'arrival_airport': autocomplete.ModelSelect2(url='airport_autocomplete'),
-        #     'transit_airport': autocomplete.ModelSelect2(url='airport_autocomplete'),
-        # }
 
 
 # stage 2: flight information
@@ -95,8 +90,6 @@ class PassengerInfoForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = [
-            # 'passenger_number',
-            # 'passenger',
             'additional_info',
             'email',
             'phone',
