@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.db.models import Q
@@ -139,16 +140,25 @@ class BookingListView(LoginRequiredMixin, ListView):
         return Booking.objects.filter(user=self.request.user)
 
 
-def booking_confirm(request):
-    pass
-    # return render(request, 'booking/booking_complete.html')
+@login_required
+def booking_confirm(request, pk):
+    booking = Booking.objects.get(id=pk)
+    booking.booking_status = 'confirmed'
+    booking.save()
+    return render(request, 'booking/booking_confirm.html')
 
 
-def booking_cancel(request):
-    pass
-    # return render(request, 'booking/booking_cancel.html')
+@login_required
+def booking_cancel(request, pk):
+    booking = Booking.objects.get(id=pk)
+    booking.booking_status = 'canceled'
+    booking.save()
+    return render(request, 'booking/booking_cancel.html')
 
 
-def booking_pay(request):
-    pass
-    # return render(request, 'booking/booking_pay.html')
+@login_required
+def booking_pay(request, pk):
+    booking = Booking.objects.get(id=pk)
+    booking.booking_status = 'paid'
+    booking.save()
+    return render(request, 'booking/booking_pay.html')
