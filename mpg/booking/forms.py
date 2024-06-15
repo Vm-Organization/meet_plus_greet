@@ -106,10 +106,21 @@ class PassengerInfoForm(forms.ModelForm):
         label='Пассажир',
         required=False
     )
-    email = forms.EmailField(label='Email', required=False)
-    phone = forms.CharField(max_length=50, label='Телефон', required=False)
-    telegram = forms.CharField(max_length=50, label='Telegram', required=False)
-    additional_info = forms.CharField(max_length=200, label='Дополнительная информация', required=False)
+    email = forms.EmailField(label='Email',
+                             required=False,
+                             widget=forms.EmailInput(attrs={'placeholder': 'avv@gmail.com'}))
+    phone = forms.CharField(max_length=50,
+                            label='Телефон',
+                            required=False,
+                            widget=forms.TextInput(attrs={'placeholder': '+79117117171'}))
+    telegram = forms.CharField(max_length=50,
+                               label='Telegram',
+                               required=False,
+                               widget=forms.TextInput(attrs={'placeholder': 'Telegram: @artur126'}))
+    additional_info = forms.CharField(max_length=200,
+                                      label='Дополнительная информация',
+                                      required=False,
+                                      widget=forms.TextInput(attrs={'placeholder': 'Дополнительная информация'}))
 
     class Meta:
         model = Booking

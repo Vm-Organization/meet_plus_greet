@@ -1,47 +1,182 @@
-{% extends "flatpages/default.html" %}
+{% extends "booking/default_booking.html" %}
 {% load static %}
 {% load i18n %}
 
 
+{% block head %}
+    {{ form.media }}
+    <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
+    <style>
+        body {
+            background: url('{% static "images/booking_page_2_3.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .main {
+            margin-top: 7%;
+        }
+
+        .btns {
+            margin-top: 5%;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .input-form input[type='text'] {
+            width: 870px;
+        }
+
+        .form-group label {
+            font-size: 16px;
+        }
+    </style>
+{% endblock head %}
+
+
 {% block content %}
-<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
-<div>
-    <form action="" method="post">
-        {% csrf_token %}
-        <table>
+    <div class="booking_form">
+        <form action="" method="post">
+            {% csrf_token %}
             {{ wizard.management_form }}
+
             {% if wizard.form.forms %}
                 {{ wizard.form.management_form }}
                 {% for form in wizard.form.forms %}
-                    {{ form.as_table }}
+                    <div class="flight-passenger-info">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="{{ form.passenger.id_for_label }}" class="form-label">Пассажиры</label>
+                                <div class="form-input">
+                                    {{ form.passenger }}
+                                </div>
+                            </div>
+                            <div class="new-passenger">
+                                <a style="text-decoration: none" href="{% url 'passenger_create' %}" target="_blank">
+                                    <input type="button" value="+ Добавить пассажира" /></a>
+                                <input type="submit" value="{% translate 'submit' %}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="total-info">
+                        <div class="total">Всего</div>
+
+                        <div class="right">
+                            <div class="passenger-ages">
+                                <div class="age">adult: 0</div>
+                                <div class="age">child: 0</div>
+                                <div class="age">infant: 0</div>
+                            </div>
+
+                            <div class="price">1000$</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-add-info">
+                        <div class="form-group">
+                            <div class="input-form">
+                                {{ form.additional_info }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="input-form-contact">
+                                    {{ form.phone }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-form-contact">
+                                    {{ form.telegram }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-form-contact">
+                                {{ form.email }}
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
             {% else %}
-                {{ wizard.form }}
+                    <div class="flight-passenger-info">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="{{ wizard.form.passenger.id_for_label }}" class="form-label">Пассажиры</label>
+                                <div class="form-input">
+                                    {{ wizard.form.passenger }}
+                                </div>
+                            </div>
+                            <div class="new-passenger">
+                                <a style="text-decoration: none" href="{% url 'passenger_create' %}" target="_blank">
+                                    <input type="button" value="+ Добавить пассажира" /></a>
+                                <input type="submit" value="{% translate 'submit' %}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="total-info">
+                        <div class="total">Всего</div>
+
+                        <div class="passenger-ages">
+                            <p>adult: 0</p>
+                            <p>child: 0</p>
+                            <p>infant: 0</p>
+                        </div>
+
+                        <div class="price">1000$</div>
+                    </div>
+
+                    <div class="contact-add-info">
+                        <div class="form-group">
+                            <div class="input-form">
+                                {{ wizard.form.additional_info }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="input-form-contact">
+                                    {{ wizard.form.phone }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-form-contact">
+                                    {{ wizard.form.telegram }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-form-contact">
+                                {{ wizard.form.email}}
+                            </div>
+                        </div>
+                    </div>
             {% endif %}
-        </table>
 
-        <table style="display: none">
-            {{ view.formset.empty_form }}
-        </table>
+            <table style="display: none">
+                {{ view.formset.empty_form }}
+            </table>
 
-        <table>
-            {{ view.formset }}
-        </table>
+            <table>
+                {{ view.formset }}
+            </table>
 
-        <span id="add-form" class="button">Search</span>
-
-        {% if wizard.steps.prev %}
-        <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "first step" %}</button>
-        <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate "prev step" %}</button>
-        {% endif %}
-        <input type="submit" value="{% translate "submit" %}"/>
-    </form>
-</div>
+            <div class="btns">
+                <button class="btn previous icon_previous" name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">
+                    Назад</button>
+                <button type="submit" class="btn next icon_next">Далее</button></div>
+        </form>
+    </div>
 {% endblock %}
 
 
 {% block footer %}
 <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 {{ form.media }}
 {{ wizard.form.media }}
@@ -65,5 +200,13 @@
         newTable.slideDown()
     })
 })($)
+
+document.addEventListener('DOMContentLoaded', function() {
+            flatpickr('.flatpickr', {
+                enableTime: true,
+                dateFormat: "d.m.Y H:i",
+                time_24hr: true
+            });
+});
 </script>
 {% endblock %}

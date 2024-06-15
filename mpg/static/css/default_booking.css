@@ -229,12 +229,25 @@ input[type='datetime-local']::pattern {
     line-height: 38px;
 }
 
+.input-form-contact input[type="text"],.input-form-contact input[type='email'] {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 14px;
+    color: #2C3135;
+    width: 340px;
+    height: 40px;
+    background-color: #EFEFEF;
+    border: 1px solid #2C3135;
+    border-radius: 3px;
+    padding-left: 20px;
+}
+
 ::placeholder {
     font-family: 'TeXGyreHeros', sans-serif;
     font-size: 14px;
     color: #A0A0A0;
     line-height: 38px;
 }
+
 
 /* Select Input Autocomplete Light Widget */
 span.select2-container--default span.select2-selection {
@@ -269,4 +282,26 @@ span.select2-container--default {
 }
 .flatpickr-months .flatpickr-prev-month.flatpickr-next-month,.flatpickr-months .flatpickr-next-month.flatpickr-next-month {
     font-family: 'TeXGyreHeros', sans-serif !important;
+}
+
+/* Total Stirng in page 3*/
+.total-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.total {
+    flex: 1;
+}
+
+.passenger-ages {
+    display: flex;
+    gap: 15px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    margin-left: 107px;
 }
