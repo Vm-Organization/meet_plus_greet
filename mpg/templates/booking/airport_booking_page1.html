@@ -1,0 +1,137 @@
+{% extends "booking/default_booking.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block head %}
+    {{ form.media }}
+    <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
+    <style>
+        body {
+            background: url('{% static "images/booking_airport_form.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .main {
+            margin-top: 9%;
+        }
+
+        .btns {
+            margin-top: 15%;
+        }
+
+        .form-group {
+            margin-bottom: 40px;
+        }
+    </style>
+{% endblock head %}
+
+
+{% block content %}
+    <div class="booking_form">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ wizard.management_form }}
+
+            {% if wizard.form.forms %}
+                {{ wizard.form.management_form }}
+                {% for form in wizard.form.forms %}
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="{{ form.departure_airport.id_for_label }}" class="form-label">Аэропорт Отправления</label>
+                            <div class="form-input">
+                                {{ form.departure_airport }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.arrival_airport.id_for_label }}" class="form-label">Аэроропорт Прибытия</label>
+                            <div class="form-input">
+                                {{ form.arrival_airport }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <div class="form-input-full-width">
+                            {{ form.transit_airport }}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="{{ wizard.form.departure_airport.id_for_label }}" class="form-label">Аэропорт Отправления</label>
+                        <div class="form-input">
+                            {{ wizard.form.departure_airport }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ wizard.form.arrival_airport.id_for_label }}" class="form-label">Аэроропорт Прибытия</label>
+                        <div class="form-input">
+                            {{ wizard.form.arrival_airport }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <div class="form-input-full-width">
+                        {{ wizard.form.transit_airport }}
+                    </div>
+                </div>
+            {% endif %}
+
+            <table style="display: none">
+                {{ view.formset.empty_form }}
+            </table>
+
+{% comment %}
+        {% if wizard.steps.prev %}
+        <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "first step" %}</button>
+        <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate "prev step" %}</button>
+        {% endif %}
+        <a style="text-decoration: none" href="{% url 'passenger_create' %}" target="_blank">
+            <input type="button" value="Новый пассажир" />
+        </a>
+        <input type="submit" value="{% translate 'submit' %}"/>
+    </form>
+</div>
+{% endcomment %}
+            <table>
+                {{ view.formset }}
+            </table>
+
+            <div class="btns">
+                <button class="btn previous icon_previous" name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">
+                    Назад</button>
+                <button type="submit" class="btn next icon_next">Далее</button></div>
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+<script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+
+{{ form.media }}
+{{ wizard.form.media }}
+
+<script>
+(function($) {
+    $('#add-form').click(function() {
+        var index = $('#id_inline_test_models-TOTAL_FORMS').val()
+        var newTable = $('#id_inline_test_models-__prefix__-DELETE').parents('table').clone()
+        newTable.find(':input').each(function() {
+            for (attr of ['name'])
+                $(this).attr(
+                    attr,
+                    $(this).attr(attr).replace('__prefix__', index)
+                )
+        })
+        newTable.insertBefore($(this))
+        $('#id_inline_test_models-TOTAL_FORMS').val(
+            parseInt($('#id_inline_test_models-TOTAL_FORMS').val()) + 1
+        )
+        newTable.slideDown()
+    })
+})($)
+</script>
+{% endblock %}
