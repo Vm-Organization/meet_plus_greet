@@ -1,55 +1,79 @@
-{% block title %}
-    Passenger
-{% endblock title %}
+{% extends "airport/default_airport.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block head %}
+    {{ form.media }}
+    <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
+    <style>
+        body {
+            background: url('{% static "images/booking_airport_form.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .main {
+            margin-top: 9%;
+        }
+
+        .btns {
+            margin-top: 15%;
+        }
+
+        .form-group {
+            margin-bottom: 40px;
+        }
+    </style>
+{% endblock head %}
 
 {% block content %}
     <h2>Главная </h2>
+    <p><a href="{% url 'booking_form' %}">
+        <input type="button" class="btn previous icon_previous" value="Забронировать" />
+    </a></p>
+    <br>
+
     <p><a href="/admin/">
-        <input type="button" value="Админка" />
+        <input type="button" class="btn previous icon_previous" value="Админка" />
     </a></p>
 <br>
 
 <p>Если вы вошли, то сначала вам предложат выйти</p>
     <p><a href="/login/">
-        <input type="button" value="Вход" />
+        <input type="button" class="btn previous icon_previous" value="Вход" />
     </a></p>
 <p><a href="/signup/">
-        <input type="button" value="Зарегистрироваться" />
+        <input type="button" class="btn previous icon_previous" value="Зарегистрироваться" />
     </a></p>
 <br>
 
 <p><a href="{% url 'account' %}">
-        <input type="button" value="Личный кабинет" />
+        <input type="button" class="btn previous icon_previous" value="Личный кабинет" />
     </a></p>
 <p><a href="{% url 'account_edit' %}">
-        <input type="button" value="Редактировать личный кабинет" />
+        <input type="button" class="btn previous icon_previous" value="Редактировать личный кабинет" />
     </a></p>
 <br>
 
 <p><a href="{% url 'airport_list' %}">
-        <input type="button" value="Список аэропортов" />
+        <input type="button" class="btn previous icon_previous" value="Список аэропортов" />
     </a></p>
 <p><a href="{% url 'airport_detail' 216 %}">
-        <input type="button" value="Какой-то аэропорт" />
+        <input type="button" class="btn previous icon_previous" value="Какой-то аэропорт" />
     </a></p>
 <p><a href="{% url 'airport_search' %}">
-        <input type="button" value="Поиск аэропорта" />
+        <input type="button" class="btn previous icon_previous" value="Поиск аэропорта" />
     </a></p>
 <br>
 
 <p><a href="{% url 'passenger_list' %}">
-        <input type="button" value="Список пассажиров" />
+        <input type="button" class="btn previous icon_previous" value="Список пассажиров" />
     </a></p>
 <p><a href="{% url 'passenger_create' %}">
-        <input type="button" value="Добавить пассажира" />
+        <input type="button" class="btn previous icon_previous" value="Добавить пассажира" />
     </a></p>
 <br>
-
-<p>В разработке</p>
-    <p><a href="{% url 'booking_form' %}">
-        <input type="button" value="Забронировать" />
-    </a></p>
-    <br>
     <hr>
 {% endblock content %}
 

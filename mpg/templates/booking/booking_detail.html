@@ -1,11 +1,31 @@
-{% extends "flatpages/default.html" %}
+{% extends "booking/default_booking.html" %}
 {% load static %}
 {% load i18n %}
 
 
-{% block title %}
-     Booking
-{% endblock title %}
+{% block head %}
+    {{ form.media }}
+    <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
+    <style>
+        body {
+            background: url('{% static "images/booking_page_2_3.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .main {
+            margin-top: 7%;
+        }
+
+        .btns {
+            margin-top: 5%;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+    </style>
+{% endblock head %}
 
 {% block content %}
     <h2>Бронирование </h2>
@@ -40,16 +60,16 @@
     {% if booking.booking_status == 'unpaid' %}
         {% if not booking.total_price == "By request" %}
         <a style="text-decoration: none" href="{% url 'booking_pay' booking.pk %}">
-            <input type="button" value="Оплатить" />
+            <input type="button" class="btn previous icon_previous" value="Оплатить" />
         </a>
         {% endif %}
         <a style="text-decoration: none" href="{% url 'booking_confirm' booking.pk %}">
-            <input type="button" value="Подтвердить бронирование" />
+            <input type="button" class="btn previous icon_previous" value="Подтвердить бронирование" />
         </a>
     {% endif %}
     {% if not booking.booking_status == 'complited' %}
         <a style="text-decoration: none" href="{% url 'booking_cancel' booking.pk %}">
-            <input type="button" value="Отменить бронирование" />
+            <input type="button" class="btn previous icon_previous" value="Отменить бронирование" />
         </a>
     {% endif %}
     <hr>
