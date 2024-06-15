@@ -14,7 +14,7 @@ body {
 
 /* Navigation Menu Styles */
 nav {
-    position: absolute;
+    position: fixed;
     width: 80px;
     height: 100%;
     background-color: #D8CCC0;
