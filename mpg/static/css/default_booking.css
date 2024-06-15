@@ -10,11 +10,12 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    font-family: 'TeXGyreHeros', sans-serif;
 }
 
 /* Navigation Menu Styles */
 nav {
-    position: absolute;
+    position: fixed;
     width: 80px;
     height: 100%;
     background-color: #D8CCC0;
@@ -42,7 +43,7 @@ nav {
 }
 
 .menu li:first-child {
-    position: absolute; 
+    position: fixed;
     top: 55px;
 }
 
@@ -84,7 +85,7 @@ nav {
     display: flex;
     justify-content: space-around; 
     align-items: center;
-    font-family: "Raleway", sans-serif;
+    font-family: "Raleway", sans-serif !important;
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
@@ -124,7 +125,6 @@ nav {
 }
 
 .btn {
-    font-family: 'TeXGyreHeros', sans-serif;
     font-size: 16px;
     border: 2px solid;
     border-color: transparent;
@@ -183,7 +183,6 @@ nav {
 
 /* Form Label Styles */
 .form-label {
-   font-family: 'TeXGyreHeros', sans-serif;
    font-size: 18px;
    color: #2C3135;
    margin-bottom: 5px;
@@ -211,7 +210,6 @@ nav {
 
 /* Input Styles */
 .input-form input[type="text"],.input-form input[type='datetime-local'] {
-    font-family: 'TeXGyreHeros', sans-serif;
     font-size: 14px;
     color: #2C3135;
     width: 810px;
@@ -223,14 +221,12 @@ nav {
 }
 
 input[type='datetime-local']::pattern {
-    font-family: 'TeXGyreHeros', sans-serif;
     font-size: 14px;
     color: #A0A0A0;
     line-height: 38px;
 }
 
 .input-form-contact input[type="text"],.input-form-contact input[type='email'] {
-    font-family: 'TeXGyreHeros', sans-serif;
     font-size: 14px;
     color: #2C3135;
     width: 340px;
@@ -242,7 +238,6 @@ input[type='datetime-local']::pattern {
 }
 
 ::placeholder {
-    font-family: 'TeXGyreHeros', sans-serif;
     font-size: 14px;
     color: #A0A0A0;
     line-height: 38px;
@@ -286,22 +281,76 @@ span.select2-container--default {
 
 /* Total Stirng in page 3*/
 .total-info {
+    font-size: 18px;
+    color: #2C3135;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    width: 880px;
+    margin-bottom: 3%;
 }
 
 .total {
-    flex: 1;
+    margin-right: 479px;
 }
 
 .passenger-ages {
     display: flex;
+    font-size: 16px !important;
+    flex-direction: row;
     gap: 15px;
 }
 
-.right {
-    display: flex;
-    align-items: center;
+.age {
+   margin: 0;
+   padding: 0;
+}
+
+.price {
     margin-left: 107px;
+}
+
+.new-passenger {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.new-passenger a input[type='button'] {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    color: #2C3135;
+}
+
+.form-row-passenger  {
+   display: flex;
+   padding-right: 20px;
+   width: 100%;
+}
+
+.law-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 880px;
+    color: #2C3135;
+    padding-bottom: 17px;
+}
+
+.info-text {
+    text-align: justify;
+}
+
+.law-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+}
+.law-text label {
+    font-size: 10px;
 }

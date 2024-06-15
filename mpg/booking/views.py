@@ -116,7 +116,6 @@ class BookingView(LoginRequiredMixin, SessionWizardView):
     def get_template_names(self):
         return [TEMPLATES[self.steps.current]]
 
-
     def done(self, form_list, **kwargs):
         form_data = [form.cleaned_data for form in form_list]
         form_data = {**form_data[0], **form_data[1], **form_data[2]}

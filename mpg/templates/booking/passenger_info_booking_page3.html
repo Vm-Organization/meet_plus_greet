@@ -32,6 +32,9 @@
         .form-group label {
             font-size: 16px;
         }
+        .form-input {
+           width: 360px;
+        }
     </style>
 {% endblock head %}
 
@@ -46,7 +49,7 @@
                 {{ wizard.form.management_form }}
                 {% for form in wizard.form.forms %}
                     <div class="flight-passenger-info">
-                        <div class="form-row">
+                        <div class="form-row-passenger">
                             <div class="form-group">
                                 <label for="{{ form.passenger.id_for_label }}" class="form-label">Пассажиры</label>
                                 <div class="form-input">
@@ -55,8 +58,7 @@
                             </div>
                             <div class="new-passenger">
                                 <a style="text-decoration: none" href="{% url 'passenger_create' %}" target="_blank">
-                                    <input type="button" value="+ Добавить пассажира" /></a>
-                                <input type="submit" value="{% translate 'submit' %}"/>
+                                    <input type="button" value="+ Добавить пассажира"/></a>
                             </div>
                         </div>
                     </div>
@@ -99,10 +101,28 @@
                             </div>
                         </div>
                     </div>
+                    <div class="law-info">
+                        <div class="info-text">
+                            Далее Вы будете направлены на страницу оплаты. После оплаты ваша заявка появится  в личном
+                            кабинете, а так же будет отправлена личному менеджеру для дальнейшего сопровождения.
+                        </div>
+                        <div class="law-text">
+                            <div>
+                                <input type="checkbox" id="under-18">
+                                <label for="under-18">Мне уже исполнилось 18, я ознакомился и согласен с условиями политики конфеденциальности</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="personal-data" required>
+                                <label for="personal-data">Я разрешаю собирать, использовать и хранить мои персональные
+                                    данные, с целью оказания забронированных услуг</label>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 {% endfor %}
             {% else %}
                     <div class="flight-passenger-info">
-                        <div class="form-row">
+                        <div class="form-row-passenger">
                             <div class="form-group">
                                 <label for="{{ wizard.form.passenger.id_for_label }}" class="form-label">Пассажиры</label>
                                 <div class="form-input">
@@ -111,8 +131,7 @@
                             </div>
                             <div class="new-passenger">
                                 <a style="text-decoration: none" href="{% url 'passenger_create' %}" target="_blank">
-                                    <input type="button" value="+ Добавить пассажира" /></a>
-                                <input type="submit" value="{% translate 'submit' %}"/>
+                                    <input type="button" value="+ Добавить пассажира" class="btn-add-passenger" /></a>
                             </div>
                         </div>
                     </div>
@@ -121,9 +140,9 @@
                         <div class="total">Всего</div>
 
                         <div class="passenger-ages">
-                            <p>adult: 0</p>
-                            <p>child: 0</p>
-                            <p>infant: 0</p>
+                            <div class="age">adult: 0</div>
+                            <div class="age">child: 0</div>
+                            <div class="age">infant: 0</div>
                         </div>
 
                         <div class="price">1000$</div>
@@ -150,6 +169,24 @@
                         <div class="form-group">
                             <div class="input-form-contact">
                                 {{ wizard.form.email}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="law-info">
+                        <div class="info-text">
+                            Далее Вы будете направлены на страницу оплаты. После оплаты ваша заявка появится  в личном
+                            кабинете, а так же будет отправлена личному менеджеру для дальнейшего сопровождения.
+                        </div>
+                        <div class="law-text">
+                            <div>
+                                <input type="checkbox" id="under-18" required>
+                                <label for="under-18">Мне уже исполнилось 18, я ознакомился и согласен с условиями
+                                    политики конфеденциальности</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="personal-data" required>
+                                <label for="personal-data">Я разрешаю собирать, использовать и хранить мои персональные
+                                    данные, с целью оказания забронированных услуг</label>
                             </div>
                         </div>
                     </div>
