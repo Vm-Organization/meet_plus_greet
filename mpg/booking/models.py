@@ -100,7 +100,7 @@ class Booking(models.Model):
         super().save(force_insert, force_update, using, update_fields)
 
     def __str__(self):
-        return self.pk
+        return str(self.pk)
 
 
 class PassengerBooking(models.Model):

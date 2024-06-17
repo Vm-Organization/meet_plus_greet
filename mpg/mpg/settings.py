@@ -59,7 +59,8 @@ INSTALLED_APPS = [
     # my apps
     'main_app',
     'airport',
-    'booking',
+    'booking.apps.BookingConfig',
+    'chat',
 
     # for CORS
     'corsheaders',

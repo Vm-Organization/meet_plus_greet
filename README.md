@@ -27,6 +27,10 @@ Run
   python manage.py migrate
   python manage.py runserver
 ```   
+- запускаем бот
+``` bash
+  python manage.py bot
+```   
 To create superuser (admin):
 ```bash
   python manage.py createsuperuser

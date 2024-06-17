@@ -10,6 +10,7 @@ from django.views.generic import DetailView, ListView
 from formtools.wizard.views import SessionWizardView
 
 from airport.models import Airport, Terminal
+from chat.telegram import send_message
 from main_app.models import Passenger
 from .forms import AirportBookingForm, FlightInfoBookingForm, PassengerInfoForm
 from .models import Booking, PassengerBooking
@@ -153,11 +154,16 @@ class BookingListView(LoginRequiredMixin, ListView):
         return Booking.objects.filter(user=self.request.user)
 
 
+# views for changing booking status
 @login_required
 def booking_confirm(request, pk):
     booking = Booking.objects.get(id=pk)
     booking.booking_status = 'confirmed'
     booking.save()
+    try:
+        send_message(str(booking))
+    except:
+        pass
     return render(request, 'booking/booking_confirm.html')
 
 
@@ -166,6 +172,10 @@ def booking_cancel(request, pk):
     booking = Booking.objects.get(id=pk)
     booking.booking_status = 'canceled'
     booking.save()
+    try:
+        send_message(str(booking))
+    except:
+        pass
     return render(request, 'booking/booking_cancel.html')
 
 
@@ -174,4 +184,8 @@ def booking_pay(request, pk):
     booking = Booking.objects.get(id=pk)
     booking.booking_status = 'paid'
     booking.save()
+    try:
+        send_message(str(booking))
+    except:
+        pass
     return render(request, 'booking/booking_pay.html')
