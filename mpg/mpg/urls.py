@@ -23,4 +23,5 @@ urlpatterns = [
     path('airports/', include('airport.urls')),
     path('booking/', include('booking.urls')),
     path('', include('main_app.urls')),
+    path('chat/', include('chat.urls')),
 ]
