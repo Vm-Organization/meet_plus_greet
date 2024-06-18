@@ -1,18 +1,91 @@
-{% extends "booking/default_booking.html" %}
+{% extends "flatpages/default.html" %}
 {% load static %}
 {% load i18n %}
 
+{% block title %}
+    Текущие заказы
+{% endblock title %}
 
 {% block head %}
     {{ form.media }}
     <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
+
+    <style>
+        body {
+            background: url('{% static "images/booking_page_2_3.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .sub_titles {
+            margin-bottom: 60px;
+        }
+    </style>
 {% endblock head %}
 
+
+{% block header %}
+    <div class="logo">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'icons/logo.svg' %}" alt="Logo"></a>
+    </div>
+
+    <div class="sub_titles">
+        <a href="{% url 'account' %}" class="sub sub-left deactive">Личная информация</a>
+        <a href="{% url 'booking_list' %}" class="sub sub-center active">Текущие заказы</a>
+        <a href="{% url 'booking_list' %}" class="sub sub-right deactive">История бронирований</a>
+    </div>
+{% endblock header %}
+
 {% block content %}
-    <h2>Бронирование </h2>
     {% for booking in booking %}
-        {% include 'booking/booking_detail.html'%}
+        <table class="booking-list-table">
+            <tr class="table-titles">
+                <td>Номер брони</td>
+                <td>Пассажиры</td>
+                <td>Отправление</td>
+                <td>Прибытие</td>
+                <td>Услуга</td>
+                <td>Услуга</td>
+            </tr>
+            <tr>
+                <td class="booking-pk-cell"><span class="booking-pk">N{{ booking.pk }}</span></td>
+                <td class="booking-passenger">
+                    {% for passenger in booking.passenger.all %}
+                        <div>
+                        <span>{{ passenger.last_name }}</span><br>
+                        <span>{{ passenger.first_name }}</span>
+                        </div>
+                    {% endfor %}
+                </td>
+                <td class="booking-airport">
+                    <span class="booking-airport-city">{{ booking.departure_airport.city }}</span><br>
+                    <span>{{ booking.departure_terminal }}</span>
+                </td>
+                <td class="booking-airport">
+                    <span class="booking-airport-city">{{ booking.arrival_airport.city }}</span><br>
+                    <span>{{ booking.arrival_terminal }}</span>
+                </td>
+                <td class="booking-service">Встреча и сопровождение</td>
+                <td class="booking-service">Встреча и сопровождение</td>
+            </tr>
+            <tr>
+                <td class="booking-date-created">{{ booking.date_created|date:"d.m.Y" }}</td>
+                <td colspan="2">
+                    <div class="booking-row">
+                        <div class="booking-service booking-airport-city">Детали брони:</div>
+                        <div class="detail-booking">
+                            <span>{{ booking.flight_number }}</span>
+                            <span>{{ booking.departure_datetime|date:"d.m.Y" }}/{{ booking.departure_datetime|time:"H:i" }}</span>
+                            <span>{{ booking.flight_number }}</span>
+                            <span >{{ booking.arrival_datetime|date:"d.m.Y" }}/{{ booking.arrival_datetime|time:"H:i" }}</span>
+                        </div>
+                    </div>
+                </td>
+                <td colspan="3" class="booking-pk-cell">
+                    <span class="booking-status">{{ booking.booking_status }}</span>
+                </td>
+            </tr>
+        </table>
     {% endfor %}
-    <br>
-    <hr>
 {% endblock content %}
