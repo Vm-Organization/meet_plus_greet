@@ -4,30 +4,93 @@
 
 
 {% block title %}
-    Account
+    Личный кабинет
 {% endblock title %}
 
+{% block head %}
+    <style>
+        body {
+            background: url('{% static "images/account.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+{% endblock head %}
+
+{% block header %}
+    <div class="logo">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'icons/logo.svg' %}" alt="Logo"></a>
+    </div>
+
+    <div class="sub_titles">
+        <a href="{% url 'account' %}" class="sub sub-left active">Личная информация</a>
+        <a href="{% url 'booking_list' %}" class="sub sub-center deactive">Текущие заказы</a>
+        <a href="{% url 'booking_list' %}" class="sub sub-right deactive" >История бронирований</a>
+    </div>
+{% endblock header %}
+
 {% block content %}
-    <h2>Личный кабинет </h2>
-    <p>Email: {{ account.user.email }}</p>
-    <p>Имя: {{ account.first_name }}</p>
-    <p>Фамилия: {{ account.last_name }}</p>
-    <p>Организация: {{ account.organization }}</p>
-    <p>Телефон: {{ account.phone }}</p>
-    <p>Личная информация: {{ account.personal_information }}</p>
-    <br>
-    <a style="text-decoration: none" href="{% url 'booking_list' %}">
-            <input type="button" value="История бронирований" />
-        </a>
-    <a style="text-decoration: none" href="{% url 'passenger_list' %}">
-            <input type="button" value="Пассажиры" />
-        </a>
-    <a style="text-decoration: none" href="{% url 'passenger_create' %}">
-            <input type="button" value="Добавить пассажира" />
-        </a>
-    <a style="text-decoration: none" href="{% url 'account_edit' %}">
-            <input type="button" value="Редактировать" />
-        </a>
-    <hr>
+    <div class="account-row">
+        <div class="avatar">
+            <img src="{% static 'images/avatar.png' %}">
+            <a href="{% url 'account_edit' %}" class="btn-avatar">Редактировать профиль</a>
+        </div>
+        <div class="account-general-info">
+            {% if account.first_name and account.last_name %}
+                <div class="account-name">{{ account.first_name }} {{ account.last_name }}</div>
+            {% else %}
+                <div class="account-name">Имя Фамилия</div>
+            {% endif %}
+
+            <div class="account-info">
+                <div class="account-info-row">
+                    <span class="account-info-field">Организация</span>
+                    <span class="account-info-data">{{ account.organization }}</span>
+                </div>
+                <div class="account-info-row">
+                    <span class="account-info-field">Почта</span>
+                    <span class="account-info-data">{{ account.user.email }}</span>
+                </div>
+                <div class="account-info-row">
+                    <span class="account-info-field">Телефон</span>
+                    <span class="account-info-data">{{ account.phone }}</span>
+                </div>
+                <div class="account-info-row">
+                    <span class="account-info-field-private">Личная информация</span>
+                    <span class="account-info-data">{{ account.personal_information }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btns-account">
+        <a id="get-passenger" style="text-decoration: none" href="{% url 'passenger_list' %}" class="btn next icon_next">
+           Пассажиры</a>
+    </div>
+
+    <div id="passenger-list-container"></div>
 {% endblock content %}
 
+{% block footer %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const passenger = document.getElementById('get-passenger');
+        const passengerContainer = document.getElementById('passenger-list-container');
+
+        passenger.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            fetch("{% url 'passenger_list' %}")
+                .then(response => response.text())
+                .then(data => {
+                    passengerContainer.innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error fetching the passenger list:', error);
+                });
+        });
+    });
+    </script>
+{% endblock footer %}
