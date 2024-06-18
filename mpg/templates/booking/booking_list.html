@@ -52,8 +52,10 @@
                 <td class="booking-pk-cell"><span class="booking-pk">N{{ booking.pk }}</span></td>
                 <td class="booking-passenger">
                     {% for passenger in booking.passenger.all %}
+                        <div>
                         <span>{{ passenger.last_name }}</span><br>
                         <span>{{ passenger.first_name }}</span>
+                        </div>
                     {% endfor %}
                 </td>
                 <td class="booking-airport">

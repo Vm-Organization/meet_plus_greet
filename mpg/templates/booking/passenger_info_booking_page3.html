@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             <div class="new-passenger">
-                                <a style="text-decoration: none" href="{% url 'passenger_create' %}" target="_blank">
+                                <a id="add-passenger" style="text-decoration: none" href="{% url 'passenger_create' %}" target="_blank">
                                     <input type="button" value="+ Добавить пассажира"/></a>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                                 </div>
                             </div>
                             <div class="new-passenger">
-                                <a style="text-decoration: none" href="{% url 'passenger_create' %}" target="_blank">
+                                <a id="add-passenger" style="text-decoration: none" href="{% url 'passenger_create' %}" target="_blank">
                                     <input type="button" value="+ Добавить пассажира" class="btn-add-passenger" /></a>
                             </div>
                         </div>
@@ -216,6 +216,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 {{ form.media }}
 {{ wizard.form.media }}
