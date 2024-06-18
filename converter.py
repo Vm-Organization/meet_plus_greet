@@ -62,3 +62,21 @@ def convert_to_json(filename):
 
 
 # convert_to_json('airports.xlsx')
+
+# s = 'Andorra-La Seu dвЂ™Urgell Airport (LEU)'
+# s1 = s.encode('cp1251').decode('utf-8')
+# print(s1)
+
+
+def decode_csv(filename):
+    """Fix csv encoding"""
+    with (open(filename, 'r', encoding='utf-8') as f):
+        data = f.read().encode('cp1251', errors='ignore')
+        # print(data)
+        data = data.decode('utf-8', errors='ignore')
+    with open('new.csv', 'w', encoding='utf-8') as f:
+        f.write(data)
+
+
+# decode_csv('airport_airport.csv')
+# decode_csv('main_app_service.csv')
