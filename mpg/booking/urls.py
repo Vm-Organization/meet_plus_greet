@@ -1,8 +1,8 @@
 from django.urls import path
 
 from .views import airport_booking_create, AirportAutocomplete, BookingView, TerminalAutocomplete, \
-    terminal_booking_create, PassengerAutocomplete, passenger_booking_create, BookingDetailView, BookingListView,\
-    booking_confirm, booking_cancel, booking_pay, FORMS
+    terminal_booking_create, PassengerAutocomplete, passenger_booking_create, BookingDetailView, BookingListView, \
+    booking_confirm, booking_cancel, booking_pay, FORMS, BookingActiveListView
 
 urlpatterns = [
     path('', BookingView.as_view(FORMS), name='booking_form'),
@@ -14,6 +14,7 @@ urlpatterns = [
     path('passenger_autocomplete/', PassengerAutocomplete.as_view(), name='passenger_autocomplete'),  # adding widget
     path('<int:pk>', BookingDetailView.as_view(), name='booking_detail'),
     path('list/', BookingListView.as_view(), name='booking_list'),
+    path('list_active/', BookingActiveListView.as_view(), name='active_booking'),
     path('confirm/<int:pk>', booking_confirm, name='booking_confirm'),
     path('cancel/<int:pk>', booking_cancel, name='booking_cancel'),
     path('pay/<int:pk>', booking_pay, name='booking_pay'),

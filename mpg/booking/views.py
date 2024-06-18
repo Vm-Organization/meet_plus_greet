@@ -154,6 +154,15 @@ class BookingListView(LoginRequiredMixin, ListView):
         return Booking.objects.filter(user=self.request.user)
 
 
+class BookingActiveListView(LoginRequiredMixin, ListView):
+    model = Booking
+    template_name = 'booking/booking_list.html'
+    context_object_name = 'booking'
+
+    def get_queryset(self):
+        return Booking.objects.filter(user=self.request.user, booking_status='unpaid' or 'paid' or 'confirmed')
+
+
 # views for changing booking status
 @login_required
 def booking_confirm(request, pk):
