@@ -46,7 +46,7 @@ class Booking(models.Model):
     phone = models.CharField(max_length=20, blank=True, null=True, validators=[valid_phone_number])
     telegram = models.CharField(max_length=100, blank=True, null=True)
 
-    total_price = models.CharField(max_length=50, null=True)  # TODO: function to calculate total price
+    total_price = models.CharField(max_length=50, null=True)
 
     date_created = models.DateTimeField(auto_now_add=True)
 
