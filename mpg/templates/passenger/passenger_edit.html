@@ -1,0 +1,40 @@
+{% extends "booking/default_booking.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block head %}
+    {{ form.media }}
+    <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
+    <style>
+        body {
+            background: url('{% static "images/booking_page_2_3.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .main {
+            margin-top: 7%;
+        }
+
+        .btns {
+            margin-top: 5%;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+    </style>
+{% endblock head %}
+
+{% block content %}
+    <h2>Пассажир </h2>
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+        <input type="submit" value="Сохранить">
+    </form>
+    <br>
+    <hr>
+{% endblock content %}
+

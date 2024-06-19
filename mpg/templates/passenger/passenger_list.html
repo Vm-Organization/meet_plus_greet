@@ -1,49 +1,31 @@
-{% extends "booking/default_booking.html" %}
 {% load static %}
-{% load i18n %}
-
-
-{% block head %}
-    {{ form.media }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
-    <style>
-        body {
-            background: url('{% static "images/booking_page_2_3.png" %}');
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
 
-        .main {
-            margin-top: 7%;
-        }
+<body>
+        {% for passenger in passengers %}
+            <div class="field-passenger">Пассажир</div>
+            <div class="passenger-detail">
+                <div class="passenger-name">
+                <a href="{% url 'passenger_detail' passenger.pk %}">{{ passenger }}</a>
+                </div>
+                <a href="{% url 'passenger_delete' passenger.pk %}" class="delete-passenger">
+                    <img src="{% static 'icons/recycle.svg' %}">
+                </a>
+            </div>
+        {% endfor %}
 
-        .btns {
-            margin-top: 5%;
-        }
+        <div class="btn-new-passenger">
+            <a href="{% url 'passenger_create' %}">
+                <input type="button" value="Добавить пассажира + ">
+            </a>
+        </div>
 
-        .form-group {
-            margin-bottom: 30px;
-        }
-    </style>
-{% endblock head %}
-
-{% block content %}
-    <h2>Пассажиры </h2>
-    {% for passenger in passengers %}
-    <p>
-        <a href="{% url 'passenger_detail' passenger.pk %}">{{ passenger }}</a>
-        <a href="{% url 'passenger_edit' passenger.pk %}">
-            <input type="button" value="Редактировать" />
-        </a>
-        <a href="{% url 'passenger_delete' passenger.pk %}">
-            <input type="button" value="Удалить" />
-        </a>
-    </p>
-    {% endfor %}
-    <br>
-<a href="{% url 'passenger_create' %}">
-    <input type="button" value="Добавить пассажира">
-</a>
-    <hr>
-{% endblock content %}
-
+</body>

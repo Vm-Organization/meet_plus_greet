@@ -70,7 +70,7 @@ class PassengerDetailView(LoginRequiredMixin, DetailView):
 class PassengerCreateView(LoginRequiredMixin, CreateView):
     model = Passenger
     form_class = PassengerForm
-    template_name = 'passenger/passenger_create_or_edit.html'
+    template_name = 'passenger/passenger_create.html'
 
     def form_valid(self, form):
         passenger = form.save(commit=False)
@@ -87,7 +87,7 @@ class PassengerEditView(LoginRequiredMixin, UpdateView):
     model = Passenger
     form_class = PassengerForm
     context_object_name = 'passenger'
-    template_name = 'passenger/passenger_create_or_edit.html'
+    template_name = 'passenger/passenger_edit.html'
 
     def get_success_url(self):
         return reverse('passenger_list')
@@ -118,5 +118,5 @@ class PassengerListView(LoginRequiredMixin, ListView):
 class PassengerDeleteView(LoginRequiredMixin, DeleteView):
     model = Passenger
     template_name = 'passenger/passenger_delete.html'
-    success_url = reverse_lazy('passenger_list')
+    success_url = reverse_lazy('account')
     context_object_name = 'passenger'
