@@ -1,0 +1,89 @@
+{% extends "flatpages/default.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block head %}
+    {{ form.media }}
+    <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
+    <style>
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+{% endblock head %}
+
+{% block header %}
+    {% include 'main/main_header.html' %}
+{% endblock header %}
+
+
+{% block content %}
+    <div class="cover">
+        <div class="heading-cover">
+            <div class="first-heading">WORLDWIDE VIP</div>
+            <div class="second-heading">СЕРВИС В АЭРОПОРТАХ МИРА</div>
+        </div>
+        <div class="img-cover">
+            <img src="{% static 'images/main_cover.jpg' %}" alt="Встреча VIP">
+        </div>
+        <div class="cover-items">
+            <div class="cover-item">
+                <div class="cover-item-caps">МЕЖДУНАРОДНЫЕ</div>
+                <div>решения</div>
+            </div>
+            <div class="cover-item">
+                <div class="cover-item-caps">ОПЫТНАЯ КОМАНДА</div>
+                <div>для путешественников</div>
+            </div>
+            <div class="cover-item">
+                <div class="cover-item-caps">КОНФИДЕНЦИАЛЬНО</div>
+                <div>без стресса</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="main-airport">
+        <h2 class="visually-hidden">Аэропорты</h2>
+
+        <div class="main-airport-svg">
+            <div class="down-arrow">
+                <img src="{% static 'icons/down-arrow.svg' %}" alt="down-arrow">
+            </div>
+            <div class="main-airport-svg-airport">
+                <img src="{% static 'icons/airports-svg-main.svg' %}" alt="АЭРОПОРТЫ">
+            </div>
+        </div>
+        <div class="main-airport-images">
+            <div class="main-airport-plane">
+                <img src="{% static 'images/main-airport-plane.jpg' %}" alt="Самолет">
+            </div>
+            <div class="main-airport-woman">
+                <img src="{% static 'images/main-airport-woman.jpg' %}" alt="Девушка" class="main-airport-woman">
+            </div>
+        </div>
+        <div class="main-airport-text">
+            <div>ПУТЕШЕСТВУЙТЕ С КОРОЛЕВСКИМИ ПРИВИЛЕГИЯМИ</div>
+            <div>Мы познакомим Вас с VIP сервисом нового формата</div>
+            <div>
+                <a href="#">Введите город или аэропорт</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-service">
+        <h2 class="visually-hidden">Услуги</h2>
+    </section>
+    <section class="main-about">
+        <h2 class="visually-hidden">О компании</h2>
+    </section>
+    <section class="main-Q&A">
+        <h2 class="visually-hidden">Q&Aи</h2>
+    </section>
+{% endblock content %}
+

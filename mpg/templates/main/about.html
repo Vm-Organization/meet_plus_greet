@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><a href="{% url 'airport_list' %}">
+        <input type="button" class="btn previous icon_previous" value="Список аэропортов" />
+    </a></p>
+<p><a href="{% url 'airport_detail' 216 %}">
+        <input type="button" class="btn previous icon_previous" value="Какой-то аэропорт" />
+    </a></p>
+<p><a href="{% url 'airport_search' %}">
+        <input type="button" class="btn previous icon_previous" value="Поиск аэропорта" />
+    </a></p>
+<br>
+
+<p><a href="{% url 'passenger_list' %}">
+        <input type="button" class="btn previous icon_previous" value="Список пассажиров" />
+    </a></p>
+<p><a href="{% url 'passenger_create' %}">
+        <input type="button" class="btn previous icon_previous" value="Добавить пассажира" />
+    </a></p>
+<br>
+    <hr>
+</body>
+</html>

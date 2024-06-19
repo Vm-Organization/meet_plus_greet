@@ -23,6 +23,7 @@ nav {
     flex-direction: column;
     justify-content: center; 
     align-items: center;
+    z-index: 2;
 }
 
 .menu ul {
@@ -643,3 +644,282 @@ td.booking-date-created {
     justify-content: flex-start;
 }
 
+/* MAIN main_header */
+.header,
+.cover {
+    background-color: #8C9DA5;
+}
+
+.logo-main a {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 40%;
+    margin-top: 7%;
+}
+
+.btns-main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2%;
+    margin-left: 30%;
+}
+
+.btns-main a {
+    text-decoration: none;
+    width: 235px;
+    height: 50px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: 0px 1px 4px #2C3135;
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-black {
+    background-color: #2C3135;
+    color: #F4F3EF;
+    margin-right: 10px;
+}
+
+.btn-light {
+    background-color: #D8CCC0;
+    color: #323232;
+    margin-left: 10px;
+}
+
+/* MAIN */
+
+.visually-hidden {
+    position: absolute;
+    margin: -1px;
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+/* MAIN COVER */
+.cover {
+    position: relative;
+}
+
+.heading-cover {
+    margin-top: 8vh;
+    margin-bottom: 6vh;
+}
+
+.heading-cover,
+.cover-items {
+    font-family: "Raleway", sans-serif;
+    color: #F4F3EF;
+}
+
+.first-heading {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 11.5%;
+    font-size: 96px;
+}
+
+.second-heading {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 25%;
+    font-size: 36px;
+}
+
+.img-cover {
+    width: 100%;
+    margin-bottom: 6vh;
+}
+
+.img-cover img {
+    width: 100%;
+    min-width: 1200px;
+}
+
+.cover-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 6vh;
+    margin-right: 3%;
+}
+
+.cover-item-caps {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.cover-item {
+    text-align: justify;
+    margin-right: 7%;
+}
+
+/* MAIN AIRPORT */
+
+.main-airport {
+    width: 100%;
+    position: relative;
+    background-color: #F4F3EF;
+}
+
+.down-arrow {
+    position: absolute;
+    top: -70px;
+    margin-left: 17%;
+    z-index: 10;
+}
+
+.down-arrow img {
+    width: 100%;
+    height: auto;
+}
+
+.main-airport-svg-airport {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 7%;
+    margin-bottom: 5%;
+}
+
+.main-airport-images {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 13%;
+}
+
+.main-airport-plane img {
+    width: 405px;
+    height: 403px;
+    position: absolute;
+    z-index: 1;
+}
+
+.main-airport-woman img {
+    width: 405px;
+    height: 390px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: 2;
+}
+
+.main-airport-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+/* MEDIA MAIN */
+
+@media (max-width: 1280px) {
+    .btns-main {
+        margin-left: 20%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .logo-main a img {
+        width: 80%;
+        height: auto;
+    }
+
+    .btns-main a {
+        width: 188px;
+        height: 40px;
+    }
+
+    .first-heading {
+        font-size: 76.8px;
+        margin-left: 21%;
+    }
+
+    .second-heading {
+        font-size: 28.8px;
+        margin-right: 20%;
+    }
+
+    .cover-items {
+        font-size: 12.8px;
+        margin-right: 2%;
+    }
+
+    .cover-item-caps {
+        font-size: 16px;
+    }
+
+    .down-arrow img {
+        width: 80%;
+        height: auto;
+    }
+
+    .main-airport-svg-airport img {
+        width: 599px;
+    }
+
+    .main-airport-svg-airport {
+        margin-right: 0%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-main a img {
+        width: 60%;
+        height: auto;
+    }
+
+    .btns-main a {
+        width: 141px;
+        height: 30px;
+    }
+
+    .first-heading {
+        font-size: 57.6px;
+    }
+
+    .second-heading {
+        font-size: 21.6px;
+    }
+
+    .cover-items {
+        font-size: 9.6px;
+        margin-right: 2%;
+    }
+
+    .cover-item-caps {
+        font-size: 12px;
+    }
+
+    .down-arrow img {
+        width: 60%;
+        height: auto;
+    }
+
+    .main-airport-svg-airport img {
+        width: 449.5px;
+    }
+
+    .main-airport-svg-airport {
+        margin-right: 0%;
+    }
+}
