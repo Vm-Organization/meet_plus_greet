@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>{% block title%}{% endblock title%}</title>
     {% block head %}
+
     {% endblock head %}
+    <link rel="icon" type="image/x-icon" href="{% static 'icons/favicon.png' %}" />
 </head>
 <body>
     <nav>
@@ -18,7 +20,7 @@
             <li><a href="{% url 'home' %}" class="burgermenu-item">
                 <img style="margin: -5px; padding-right: 20px"
                      src="{% static 'icons/burger/home.svg' %}" alt="home">Главная</a><li>
-            <li><a href="{% url 'airport_search' %}' %}" class="burgermenu-item">
+            <li><a href="{% url 'airport_search' %}" class="burgermenu-item">
                 <img style="margin: -5px; padding-right: 20px"
                      src="{% static 'icons/burger/airports.svg' %}" alt="airports">Аэропорты</a><li>
                 <li><a href="#" class="burgermenu-item">

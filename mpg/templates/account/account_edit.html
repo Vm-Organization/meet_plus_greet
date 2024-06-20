@@ -4,13 +4,52 @@
 
 
 {% block title %}
-    Account edit
+    Личный кабинет
 {% endblock title %}
 
+{% block head %}
+{% endblock head %}
+
+{% block header %}
+    {{ form.media }}
+    <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
+    <style>
+        .main {
+            margin-top: 9%;
+        }
+
+        .btns {
+            margin-top: 15%;
+        }
+
+        .form-group {
+            margin-bottom: 40px;
+        }
+        body {
+            background: url('{% static "images/account.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <div class="logo">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'icons/logo.svg' %}" alt="Logo"></a>
+    </div>
+
+    <div class="sub_titles">
+        <a href="{% url 'account' %}" class="sub sub-left active">Личная информация</a>
+        <a href="{% url 'active_booking' %}" class="sub sub-center deactive">Текущие заказы</a>
+        <a href="{% url 'booking_list' %}" class="sub sub-right deactive" >История бронирований</a>
+    </div>
+    <link rel="icon" type="image/x-icon" href="{% static 'icons/favicon.png' %}" />
+{% endblock header %}
+
 {% block content %}
-    <h2>Личный кабинет </h2>
+    <div class="account-row">
+        <div class="avatar">
+            <img src="{% static 'images/avatar.png' %}">
     <p>Email: {{ account.user.email }}</p>
-    <form action="" method="post">
+    <form action="" method="post" class="form-input">
     {% csrf_token %}
     {{ form.as_p }}
         <input type="submit" value="Сохранить">
