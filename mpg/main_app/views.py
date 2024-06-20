@@ -30,7 +30,7 @@ class AccountView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['account'] = self.model.objects.get(user=self.request.user)
+        context['account'], created = self.model.objects.get_or_create(user=self.request.user)
         return context
 
 

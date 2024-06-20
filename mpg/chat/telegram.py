@@ -22,4 +22,4 @@ def handle(msg):
     return content_type, chat_type, chat_id
 
 
-MessageLoop(telegram_bot, handle).run_as_thread()
+# MessageLoop(telegram_bot, handle).run_as_thread()
