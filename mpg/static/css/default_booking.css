@@ -795,7 +795,7 @@ td.booking-date-created {
 .main-airport-svg-airport {
     display: flex;
     justify-content: flex-end;
-    margin-right: 7%;
+    margin-right: 8.5%;
     margin-bottom: 5%;
 }
 
@@ -804,7 +804,7 @@ td.booking-date-created {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin-left: 13%;
+    margin-left: 12%;
 }
 
 .main-airport-plane img {
@@ -818,30 +818,420 @@ td.booking-date-created {
     width: 405px;
     height: 390px;
     position: absolute;
-    top: 100px;
-    left: 100px;
+    top: 14vh;
+    left: 7.7%;
     z-index: 2;
 }
 
 .main-airport-text {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
+    justify-content: center;
+    text-align: justify;
+    margin-top: 2%;
+    margin-left: 52.5%;
+    margin-bottom: 17%;
+    color: #2C3135;
+}
+
+.heading-main-airport-text {
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 36px;
+    width: 350px;
+    margin-bottom: 3%;
+}
+
+.sub-heading-main-airport-text {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 20px;
+    width: 350px;
+    margin-bottom: 5%;
+}
+
+.main-airport-btn {
+    text-decoration: none;
+    width: 420px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #2C3135;
+    border-radius: 3px;
+    background-color: #E6DFD7;
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 18px;
+    color: #A0A0A0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.icon-magnifier:before {
+    content: url('../icons/magnifier.svg');
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2%;
+}
+
+/* MAIN SERVICES */
+
+.main-service {
+    width: 100%;
+    background-color: #E6DFD7;
+}
+
+.main-service-svg {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 12.5%;
+    margin-bottom: 4%;
+}
+
+.main-service-text {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    color: #323232;
+    margin-bottom: 1%;
+}
+
+.heading-main-service {
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 36px;
+    text-transform: uppercase;
+    width: 458px;
+}
+
+.sub-heading-main-service {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 20px;
+    width: 494px;
+}
+
+/* MAIN SERVICES items */
+
+.main-service-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 5%;
+    margin-right: 1%;
+}
+
+.main-service-item {
+    margin-top: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
+    position: relative;
+    width: 320px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.main-service-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.main-service-item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(140, 157, 165, 0.75);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transform: translateX(-40%);
+    transition: transform 0.5s ease;
+}
+
+.main-service-item:hover .main-service-item-overlay {
+    transform: translateX(0);
+}
+
+.main-service-item-title {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    margin: 0;
+    font: font-family: "Raleway", sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 32px;
+    color: #F4F3EF;
+    text-align: justify;
+    z-index: 10;
+}
+
+.main-service-item-description {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 16px;
+    color: #F4F3EF;
+    text-align: justify;
+    width: 291px;
+    height: 66px;
+    margin-top: 128px;
+    margin-bottom: 125px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.main-service-item-btn {
+    text-decoration: none;
+    background-color: #F4F3EF;
+    width: 235px;
+    height: 57px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 16px;
+    color: #8C9DA5;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease, background-color 0.6s;
+}
+
+.main-service-item-btn:hover {
+    background-color: #323232;
+    color: #F4F3EF;
+}
+
+.main-service-item:hover .main-service-item-description,
+.main-service-item:hover .main-service-item-btn {
+    opacity: 1;
+}
+
+.main-service-btn {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 41.2%;
+    margin-top: 3%;
+    margin-bottom: 6%;
+}
+
+.main-service-btn a {
+    text-decoration: none;
+    width: 320px;
+    height: 50px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: 0px 1px 4px #2C3135;
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 16px;
+    background-color: #2C3135;
+    color: #F4F3EF;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* MAIN ABOUT */
+
+.main-about {
+    width: 100%;
+    color: #323232;
+    background-color: #F4F3EF;
+}
+
+.main-about-svg {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 12.5%;
+    margin-bottom: 0.5%;
+}
+
+.comfort {
+    width: 685px;
+    height: 68px;
+    margin-bottom: 1%;
+}
+
+.sub-comfort {
+    width: 496px;
+    height: 39px;
+    margin-left: 27%;
+}
+
+.main-about-heading {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 12.5%;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+}
+
+.main-about-images {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 12.5%;
+}
+
+.main-about-image-plane {
+    weight: 405px;
+    height: 469px;
+    position: absolute;
+    top: 18vh;
+    z-index: 1;
+}
+
+.main-about-image-woman {
+    width: 405px;
+    height: 481px;
+    position: absolute;
+    top: 9vh;
+    left: 7.7%;
+    z-index: 2;
+}
+
+.main-about-content {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin-top: 8%;
+    margin-left: 57.5%;
+    margin-bottom: 17%;
+}
+
+.main-about-text {
+    width: 405px;
+    margin-bottom: 50px;
+}
+
+.main-about-btn a {
+    text-decoration: underline 1px rgba(244, 243, 239, 1);
+    color: #323232;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color 300ms, text-underline-offset 300ms;
+}
+
+.main-about-btn a:hover {
+    text-decoration-color: rgba(50, 50, 50, 1);
+    text-underline-offset: 0.4em;
+}
+
+.icon-arrow-right-black:after {
+    content: url('../icons/arrow-right-black.svg');
+    padding-left: 20px;
+}
+
+.main-about-item-num {
+    font-family: "Dancing Script", cursive;
+    font-weight: 500;
+    font-size: 80px;
+}
+
+.main-about-item-text {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 20px;
+}
+
+.main-about-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 1%;
+    margin-bottom: 6%;
+}
+
+.main-about-item {
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 /* MEDIA MAIN */
+
+@media (min-width: 1400px) and (max-width: 1970px) {
+    .main-airport-images {
+        margin-left: 15%;
+    }
+
+    .main-airport-text {
+        margin-left: 58%;
+    }
+
+    .main-service-items {
+        margin-left: 7%;
+        margin-right: 3%;
+    }
+
+    .main-service-svg,
+    .main-about-svg,
+    .main-about-heading,
+    .main-about-images{
+        margin-left: 15%;
+    }
+
+    .main-service-item {
+        margin-top: 4%;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    .heading-main-service {
+        margin-right: 7.3%;
+    }
+
+    .main-about-content {
+        margin-bottom: 12%;
+    }
+}
 
 @media (max-width: 1280px) {
     .btns-main {
         margin-left: 20%;
     }
+
+    .main-airport-images {
+        margin-left: 12.5%;
+    }
+
+    .main-airport-woman img {
+        top: 11vh;
+        left: 9%;
+    }
+
+    .main-airport-text {
+        margin-left: 58%;
+        margin-bottom: 21%;
+    }
+
+    .main-service-btn {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 39.5%;
+    }
+
+    .sub-comfort {
+        margin-left: 30%;
+    }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1150px) {
     .logo-main a img {
         width: 80%;
         height: auto;
+    }
+
+    .btns-main {
+        margin-right: 8%;
     }
 
     .btns-main a {
@@ -857,6 +1247,15 @@ td.booking-date-created {
     .second-heading {
         font-size: 28.8px;
         margin-right: 20%;
+    }
+
+    .cover {
+        width: 100%;
+    }
+
+    .img-cover img {
+        width: 100%;
+        min-width: 800px;
     }
 
     .cover-items {
@@ -878,7 +1277,45 @@ td.booking-date-created {
     }
 
     .main-airport-svg-airport {
-        margin-right: 0%;
+        margin-right: 8%;
+    }
+
+    .main-airport-plane img {
+        width: 324px;
+        height: 322px;
+    }
+
+    .main-airport-woman img {
+        width: 324px;
+        height: 312px;
+    }
+
+    .heading-main-airport-text {
+        font-size: 29px;
+        width: 280px;
+    }
+
+    .sub-heading-main-airport-text {
+        font-size: 16px;
+        width: 280px;
+    }
+
+    .main-airport-btn {
+        width: 336px;
+        height: 40px;
+        line-height: 30px;
+        font-size: 14px;
+    }
+
+    .icon-magnifier:before {
+        width: 80%;
+        height: auto;
+    }
+
+    .main-service-svg img,
+    .main-about-svg img {
+        width: 80%;
+        height: auto;
     }
 }
 
@@ -921,5 +1358,43 @@ td.booking-date-created {
 
     .main-airport-svg-airport {
         margin-right: 0%;
+    }
+
+    .main-airport-plane img {
+        width: 243px;
+        height: 242px;
+    }
+
+    .main-airport-woman img {
+        width: 243px;
+        height: 234px;
+    }
+
+    .heading-main-airport-text {
+        font-size: 22px;
+        width: 210px;
+    }
+
+    .sub-heading-main-airport-text {
+        font-size: 12px;
+        width: 210px;
+    }
+
+    .main-airport-btn {
+        width: 252px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 11px;
+    }
+
+    .icon-magnifier:before {
+        width: 60%;
+        height: auto;
+    }
+
+    .main-service-svg img,
+    .main-about-svg img {
+        width: 60%;
+        height: auto;
     }
 }
