@@ -6,7 +6,8 @@ from main_app.views import (AccountView,
                             PassengerCreateView,
                             PassengerEditView,
                             PassengerListView,
-                            PassengerDeleteView, home, HomeView
+                            PassengerDeleteView, home,
+                            HomeView, AboutView, ContactsView, ReviewsView,
                             )
 
 urlpatterns = [
@@ -19,4 +20,7 @@ urlpatterns = [
     path('passenger/<int:pk>/delete/', PassengerDeleteView.as_view(), name='passenger_delete'),
 
     path('', HomeView.as_view(), name='home'),
+    path('about/', AboutView.as_view(), name='about'),
+    path('contacts/', ContactsView.as_view(), name='contacts'),
+    path('reviews/', ReviewsView.as_view(), name='reviews'),
     ]

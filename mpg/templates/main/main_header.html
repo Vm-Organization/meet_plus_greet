@@ -1,0 +1,38 @@
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
+  <style>
+    .header {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+  </style>
+{% endblock head %}
+
+<div class="logo-main">
+    <a href="{% url 'home' %}">
+        <img src="{% static 'icons/logo_main.svg' %}" alt="Meet plus greet">
+    </a>
+</div>
+
+{% if request.user.is_authenticated %}
+    <div class="btns-main">
+        <a href="{% url 'booking_form' %}" class="btn-black">
+            Забронировать
+        </a>
+        <a href="{% url 'account' %}" class="btn-light">
+            Личный кабинет
+        </a>
+    </div>
+{% else %}
+    <div class="btns-main">
+        <a href="/login/" class="btn-black">
+            Войти
+        </a>
+        <a href="/signup/" class="btn-light">
+            Зарегистрироваться
+        </a>
+    </div>
+{% endif %}

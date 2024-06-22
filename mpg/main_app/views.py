@@ -16,11 +16,23 @@ from main_app.models import Account, Passenger
 
 
 def home(request):
-    return TemplateView.as_view(template_name='home.html')
+    return TemplateView.as_view(template_name='main/home.html')
 
 
 class HomeView(TemplateView):
-    template_name = 'home.html'
+    template_name = 'main/home.html'
+
+
+class AboutView(TemplateView):
+    template_name = 'main/about.html'
+
+
+class ContactsView(TemplateView):
+    template_name = 'main/contacts.html'
+
+
+class ReviewsView(TemplateView):
+    template_name = 'main/reviews.html'
 
 
 class AccountView(LoginRequiredMixin, TemplateView):
