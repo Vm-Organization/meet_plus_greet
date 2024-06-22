@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block title %}
-    История заказов
+    Текущие заказы
 {% endblock title %}
 
 {% block head %}
@@ -32,8 +32,8 @@
 
     <div class="sub_titles">
         <a href="{% url 'account' %}" class="sub sub-left deactive">Личная информация</a>
-        <a href="{% url 'active_booking' %}" class="sub sub-center deactive">Текущие заказы</a>
-        <a href="{% url 'booking_list' %}" class="sub sub-right active">История бронирований</a>
+        <a href="{% url 'active_booking' %}" class="sub sub-center active">Текущие заказы</a>
+        <a href="{% url 'booking_list' %}" class="sub sub-right deactive">История бронирований</a>
     </div>
 {% endblock header %}
 

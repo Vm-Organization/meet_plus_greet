@@ -8,27 +8,16 @@
     <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
     <style>
         body {
-            background: url('{% static "images/booking_page_2_3.png" %}');
+            background: url('{% static "images/account.png" %}');
             background-size: cover;
             background-repeat: no-repeat;
-        }
-
-        .main {
-            margin-top: 7%;
-        }
-
-        .btns {
-            margin-top: 5%;
-        }
-
-        .form-group {
-            margin-bottom: 30px;
         }
     </style>
 {% endblock head %}
 
 {% block content %}
     <h2>Пассажир </h2>
+<div class="account-list" style="text-align: left">
     <p>Фамилия: {{ passenger.last_name }}</p>
     <p>Имя: {{ passenger.first_name }}</p>
     <p>Отчество: {{ passenger.middle_name }}</p>
@@ -38,12 +27,18 @@
     <p>Телефон: {{ passenger.phone }}</p>
     <p>Личная информация: {{ passenger.personal_data }}</p>
     <br>
-    <a style="text-decoration: none" href="{% url 'passenger_edit' passenger.pk %}">
-            <input type="button" value="Редактировать" />
+</div>
+<div class="btns-account" style="padding-left: 20%;">
+    <a  style="text-decoration: none;" href="{% url 'passenger_edit' passenger.pk %}">
+            <input type="button" class="btn previous icon_previous" value="Редактировать" />
         </a>
-    <a href="{% url 'passenger_delete' passenger.pk %}">
-            <input type="button" value="Удалить" />
+    <a style="text-decoration: none;" href="{% url 'passenger_delete' passenger.pk %}">
+            <input type="button" class="btn previous icon_previous" style="text-decoration: none"value="Удалить" />
+        </a>
+    <a style="text-decoration: none;" href="{% url 'account' %}">
+            <input type="button" class="btn previous icon_previous" style="text-decoration: none"value="Назад" />
         </a>
     <hr>
+    </div>
 {% endblock content %}
 

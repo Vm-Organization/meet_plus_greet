@@ -12,18 +12,6 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
-
-        .main {
-            margin-top: 7%;
-        }
-
-        .btns {
-            margin-top: 5%;
-        }
-
-        .form-group {
-            margin-bottom: 30px;
-        }
     </style>
 {% endblock head %}
 
@@ -32,7 +20,7 @@
     <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-        <input type="submit" value="Сохранить">
+        <input type="submit" class="btn previous icon_previous" value="Сохранить">
     </form>
     <br>
     <hr>
