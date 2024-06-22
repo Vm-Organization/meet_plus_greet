@@ -1252,7 +1252,7 @@ td.booking-date-created {
 }
 
 .underlined-info {
-    text-decoration: underline;s
+    text-decoration: underline;
 }
 
 /* MEDIA Q&A items */
@@ -1326,6 +1326,11 @@ td.booking-date-created {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
+}
+
+.main-q-a-item:hover .main-q-a-item-answer-overlay {
+    max-height: 200px;
+    opacity: 1;
 }
 
 .main-q-a-item-question:hover .icon-add {
