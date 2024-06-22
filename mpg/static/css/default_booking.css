@@ -466,6 +466,19 @@ span.select2-container--default {
     font-size: 10px;
 }
 
+.footer {
+    background-color: #2C3135;
+    height: 400;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    color: #F4F3EF;
+    font-size: 14;
+
+}
+
 
 
 /* ACCOUNT
