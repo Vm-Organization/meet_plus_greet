@@ -1,28 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<p><a href="{% url 'airport_list' %}">
-        <input type="button" class="btn previous icon_previous" value="Список аэропортов" />
-    </a></p>
-<p><a href="{% url 'airport_detail' 216 %}">
-        <input type="button" class="btn previous icon_previous" value="Какой-то аэропорт" />
-    </a></p>
-<p><a href="{% url 'airport_search' %}">
-        <input type="button" class="btn previous icon_previous" value="Поиск аэропорта" />
-    </a></p>
-<br>
+{% extends 'flatpages/default.html' %}
+{% load static %}
+{% load i18n %}
 
-<p><a href="{% url 'passenger_list' %}">
-        <input type="button" class="btn previous icon_previous" value="Список пассажиров" />
-    </a></p>
-<p><a href="{% url 'passenger_create' %}">
-        <input type="button" class="btn previous icon_previous" value="Добавить пассажира" />
-    </a></p>
-<br>
-    <hr>
-</body>
-</html>
+{% block head %}
+    {{ form.media }}
+    <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
+    <style>
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+{% endblock head %}
+
+{% block header %}
+    {% include 'main/main_header.html' %}
+{% endblock header %}
+
+{% block content %}
+    <div class="cover">
+        <div class="about-cover">
+            <div class="about-cover-heading">О компании</div>
+        </div>
+        <div class="img-cover">
+            <img src="{% static 'images/about-cover.jpg' %}" alt="Встреча VIP">
+        </div>
+        <div class="about-cover-items">
+            <div class="about-cover-item">
+                <div class="main-about-item-num">10</div>
+                <div class="main-about-item-text">Лет на рынке</div>
+            </div>
+            <div class="about-cover-item">
+                <div class="main-about-item-num">500</div>
+                <div class="main-about-item-text">Счастливых клиентов</div>
+            </div>
+            <div class="about-cover-item">
+                <div class="main-about-item-num">200</div>
+                <div class="main-about-item-text">Партнеров</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="about-legal-info">
+        <h2 class="visually-hidden">Юридическая информация</h2>
+
+        <div class="about-legal-info-svgs">
+            <div class="down-arrow-right">
+                <img src="{% static 'icons/down-arrow-right.svg' %}" class="down-arrow-right">
+            </div>
+            <div class="about-legal-info-svg">
+                <img src="{% static 'icons/about-legal-svg.svg'%}" alt="Юридическая" class="about-legal-svg">
+                <img src="{% static 'icons/about-info-svg.svg'%}" alt="Информация" class="about-info-svg">
+            </div>
+        </div>
+
+        <div class="about-legal-info-images">
+            <div class="about-legal-info-plane">
+                <img src="{% static 'images/about-law-plane.jpg'%}" alt="Самолет">
+            </div>
+            <div class="about-legal-info-woman">
+                <img src="{% static 'images/about-law-woman.jpg'%}" alt="Девушка">
+            </div>
+        </div>
+
+        <div class="about-legal-info-text">
+            <div class="about-legal-info-main-text">
+                С нами работают бизнесмены, руководители, частные лица и группы, в том числе VIP-персоны.
+                Кроме того, мы предоставляем специализированную помощь путешественникам с особыми
+                потребностями, например, пожилым людям, несовершеннолетним без сопровождения,
+                лицам с ограниченными возможностями и тем, кто может столкнуться с языковым барьером.
+            </div>
+            <div>
+                АО «Первоклассные решения»<br>
+                ИНН 9707025574<br>
+                КПП 770701001<br>
+            </div>
+            <div class="about-legal-info-adress">
+                Адрес: 127055, город Москва,<br>1-й Тихвинский туп, д. 5-7,<br>помещ. 1п
+            </div>
+            <div class="about-legal-info-privacy-policy underlined-info">
+                Политика в отношении конфиденциальности и обработки<br>персональных данных постетителей сайта
+            </div>
+        </div>
+    </section>
+
+    <section class="about-payment-system">
+        <h2 class="visually-hidden">Система платежей</h2>
+
+        <div class="main-service-text payment-system">
+            <div class="heading-main-service">Удобная система<br>платежей</div>
+            <div class="sub-heading-main-service">
+                Если вашим приоритетом является путешествие с исключительным комфортом по
+                доступным ценам, наши услуги встречи в аэропорту созданы специально для Вас.
+            </div>
+        </div>
+
+        <div class="about-payment-system-items">
+            <div class="about-payment-system-item">
+                <img src="{% static 'icons/stripe.svg' %}" alt="stripe">
+                <div class="payment-system-item-description">интеграция  stripe</div>
+            </div>
+            <div class="about-payment-system-item">
+                <img src="{% static 'icons/currency.svg' %}" alt="stripe">
+                <div class="payment-system-item-description">валюта разных стран</div>
+            </div>
+            <div class="about-payment-system-item">
+                <img src="{% static 'icons/cards.svg' %}" alt="stripe">
+                <div class="payment-system-item-description">банковские карты</div>
+            </div>
+            <div class="about-payment-system-item">
+                <img src="{% static 'icons/usdt.svg' %}" alt="stripe">
+                <div class="payment-system-item-description">USDT</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-employee">
+        <h2 class="visually-hidden">Сотрудники</h2>
+    </section>
+{% endblock content %}
