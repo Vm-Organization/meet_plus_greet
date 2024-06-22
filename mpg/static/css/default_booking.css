@@ -1156,6 +1156,186 @@ td.booking-date-created {
     margin-right: 5%;
 }
 
+/* MEDIA Q&A */
+.main-q-a-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+.main-q-a {
+    width: 100%;
+    background-color: #E6DFD7;
+}
+
+.q-a-text {
+    margin-top: 6%;
+    margin-bottom: 3%;
+}
+
+/* MEDIA Q&A form */
+.main-q-a-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 4%;
+}
+
+.q-a-form {
+    display: flex;
+    flex-direction: column;
+    width: 275px;
+    padding: 40px 65px;
+    background-color: #F4F3EF;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.q-a-form-heading {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 17px;
+}
+
+.q-a-form-input input[type="text"],
+.q-a-form-input input[type="tel"] {
+    width: 275px;
+    height: 52px;
+    background-color: #E6DFD7;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin-bottom: 12px;
+}
+
+.long-input input[type="text"] {
+    height: 89px;
+}
+
+.q-a-form-input input[type="text"]::placeholder,
+.q-a-form-input input[type="tel"]::placeholder {
+    padding-left: 10px;
+}
+
+.long-input input[type="text"]::placeholder {
+    vertical-align: top;
+    transform: translateY(-17px);
+}
+
+.q-a-form-btn button {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 16px;
+    color: #F4F3EF;
+    width: 280px;
+    height: 50px;
+    background-color: #8C9DA5;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.icon_next_form:after {
+    content: url('../icons/next.svg');
+    padding-left: 5%;
+}
+
+.q-a-form-law {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 12px;
+    color: #2C3135;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.underlined-info {
+    text-decoration: underline;s
+}
+
+/* MEDIA Q&A items */
+
+.main-q-a-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-q-a-item {
+    width: 575px;
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 14px;
+    text-align: left;
+    vertical-align: middle;
+    padding-left: 20px;
+    overflow: hidden;
+}
+
+.main-q-a-item-question {
+    position: relative;
+    height: 46px;
+    line-height: 46px;
+    padding-left: 25px;
+    background-color: #E6DFD7;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.main-q-a-item-question:hover {
+    background-color: #F4F3EF;
+}
+
+.main-q-a-item-answer {
+    width: 449px;
+    padding-left: 25px;
+    color: #A0A0A0;
+    margin-top: 1%;
+}
+
+.icon-add img {
+    transition: opacity 0.3s ease;
+}
+
+.icon-add,
+.icon-multiply-hover {
+    position: absolute;
+    left: 520px;
+    top: 15px;
+}
+
+.icon-add {
+    opacity: 1;
+}
+
+.icon-multiply-hover {
+    opacity: 0;
+}
+
+.main-q-a-item-question:hover .icon-add {
+    opacity: 0;
+}
+
+.main-q-a-item-question:hover .icon-multiply-hover {
+    opacity: 1;
+}
+
+.main-q-a-item-answer-overlay {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.main-q-a-item-question:hover .icon-add {
+    opacity: 0;
+}
+
+.main-q-a-item-question:hover .icon-multiply-hover {
+    opacity: 1;
+}
+
 /* MEDIA MAIN */
 
 @media (min-width: 1400px) and (max-width: 1970px) {

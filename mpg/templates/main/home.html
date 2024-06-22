@@ -214,8 +214,192 @@
         </div>
     </section>
 
-    <section class="main-Q&A">
-        <h2 class="visually-hidden">Q&Aи</h2>
+    <section class="main-q-a">
+        <h2 class="visually-hidden">Q&A</h2>
+
+        <div class="main-service-text q-a-text">
+            <div class="heading-main-service">Ответы на часто задаваемые<br>вопросы</div>
+            <div class="sub-heading-main-service">
+                Если вашим приоритетом является путешествие с исключительным комфортом по
+                доступным ценам, наши услуги встречи в аэропорту созданы специально для Вас.
+            </div>
+        </div>
+
+        <div class="main-q-a-content">
+            <div class="main-q-a-form">
+                <form class="q-a-form" action="" method="post">
+                    {% csrf_token %}
+                    <div class="q-a-form-heading">Есть<br>дополнительные<br>вопросы?</div>
+                    <div class="q-a-form-inputs">
+                        <div class="q-a-form-input">
+                            <input type="text" placeholder="Ваше имя">
+                        </div>
+                        <div class="q-a-form-input">
+                            <input type="tel" placeholder="Телефон">
+                        </div>
+                        <div class="q-a-form-input long-input">
+                            <input type="text" placeholder="Задайте Ваш вопрос">
+                        </div>
+                    </div>
+                    <div class="q-a-form-btn">
+                        <button type="submit" class="icon_next_form">Задать вопрос</button>
+                    </div>
+                    <div class="q-a-form-law">
+                        Нажимая на кнопку, выражаю свое согласие на
+                        <span class="underlined-info">обработку персональных данных</span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="main-q-a-items">
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Как получить подтверждение об оплаченной услуге?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Будут ли со мной на связи, в случае возникновения вопросов?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Возможно ли оформить несколько услуг сразу?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Возможно ли оформить услуги на нескольких человек?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Возможно ли оформить услуги в транзитном аэропорту?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        За какое время до вылета необходимо заказать услугу?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Нужны ли документы для оформления брони?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Нужны ли документы для оформления брони?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Нужны ли документы для оформления брони?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 {% endblock content %}
 
+{% block footer %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const items = document.querySelectorAll('.main-q-a-item');
+
+        items.forEach(item => {
+            const question = item.querySelector('.main-q-a-item-question');
+            const answerOverlay = item.querySelector('.main-q-a-item-answer-overlay');
+
+            question.addEventListener('mouseover', () => {
+                answerOverlay.style.maxHeight = answerOverlay.scrollHeight + 'px';
+            });
+
+            question.addEventListener('mouseout', () => {
+                answerOverlay.style.maxHeight = '0';
+            });
+        });
+    });
+</script>
+{% endblock footer %}
