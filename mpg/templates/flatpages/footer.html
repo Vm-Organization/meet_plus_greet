@@ -14,23 +14,65 @@
     <link rel="icon" type="image/x-icon" href="{% static 'icons/favicon.png' %}" />
 </head>
 <footer class="footer">
-        <div class="container">
-            <div class="footer-logo">
-            <a href="{% url 'home' %}">
-            <img src="{% static 'icons/logo_light.svg' %}" alt="Logo"></a>
+    <div>
+        <div class="footer-container">
+            <div class="footer-logo" style="margin-left: 80px; margin-top: 76px">
+                <a href="{% url 'home' %}">
+                <img src="{% static 'icons/logo_light.svg' %}" alt="Logo"></a>
+            </div>
+            <ul class="footer-links" style="margin-left: 50px; margin-top: 100px">
+                <li style="font-size: 18px; font-weight: bold;">Остались вопросы?</li>
+                <li style="margin-top: 20px">
+                    <form style="padding: 0; margin: 0" method="post">
+                        {% csrf_token %}
+                        <div class="q-a-form-input" >
+                            <input type="text" style="width: 235px; height: 50px" placeholder="Номер телефона">
+                        </div>
+                    </form>
+                </li>
+            </ul>
+            <ul class="footer-links" style="margin-left: 50px; margin-top: 100px">
+                <li>
+                    <div class="btns-main" style="margin-left: -40px; margin-top: 48px">
+                        <a href="#" class="btn-light" style="color: #2C3135; height: 50px; width: 235px">
+                            Отправить
+                        </a>
+                    </div>
+                </li>
+                </li>
+            </ul>
+            <ul class="footer-links" style="margin-left: 5px; margin-top: 108px">
+                <li style="font-size: 18px; font-weight: bold;">Подпишитесь на нас</li>
+                <li style="margin-top: 20px">
+                    <a href="#"><img src="{% static 'icons/footer_tg.svg' %}" alt="telegram"></a>
+                </li>
+            </ul>
         </div>
-        <ul class="footer-links">
-            <li><a href="{% url 'home' %}">Главная</a></li>
-            <li><a href="{% url 'airport_search' %}">Аэропорты</a></li>
-            <li><a href="{% url 'booking_form' %}">Забронировать</a></li>
-            <li><a href="#">О компании</a></li>
-            <li><a href="#">Отзывы</a></li>
-            <li><a href="#">Контакты</a></li>
-        </ul>
-        <div class="footer-contacts">
-            <p>Телефон</p>
-            <p><img src="{% static 'icons/phone_with_number.svg' %}" alt="phone"></p>
+        <div class="footer-container" style="margin-left: 140px; margin-top: 30px; padding-bottom: 80px">
+            <ul class="footer-links">
+                <li><a href="#">Email</a></li>
+                <li style="margin-top: 12px"><a href="#">+7 (***) ***-**-**</a></li>
+                <li style="margin-top: 12px"><a href="{% url 'home' %}">meet_plus_greet.com</a></li>
+            </ul>
+                <ul class="footer-links" style="margin-left: 130px">
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li style="margin-top: 12px"><a href="{% url 'airport_search' %}">Аэропорты</a></li>
+                <li style="margin-top: 12px"><a href="#">Услуги</a></li>
+            </ul>
+                <ul class="footer-links" style="margin-left: 80px">
+                <li style="width: 120px"><a href="{% url 'account' %}">Личный кабинет</a></li>
+                <li style="margin-top: 12px"><a href="{% url 'reviews' %}">Отзывы</a></li>
+                <li style="margin-top: 12px"><a href="{% url 'contacts' %}">Контакты</a></li>
+            </ul>
+                <ul class="footer-links" style="margin-left: 45px">
+                <li><a href="{% url 'about' %}">О компании</a></li>
+                <li style="margin-top: 12px"><a href="{% url 'booking_form' %}">Бронирование</a></li>
+            </ul>
+                <ul class="footer-links" style="margin-left: 120px;">
+                <li style="width: 250px"><a href="#">Политика конфиденциальности</a></li>
+                <li style="margin-top: 12px; width: 250px"><a href="#">Обработка персональных данных</a></li>
+            </ul>
         </div>
-        </div>
+    </div>
     </footer>
 </html>
