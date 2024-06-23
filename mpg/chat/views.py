@@ -8,7 +8,7 @@ from chat.telegram import telegram_bot, send_message
 
 # Create your views here.
 class ChatView(TemplateView):
-    template_name = 'chat/chat.html'
+    template_name = 'chat.html'
     from_class = MessageForm
     model = Chat
 

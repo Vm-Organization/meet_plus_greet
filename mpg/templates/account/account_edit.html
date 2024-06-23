@@ -2,14 +2,17 @@
 {% load static %}
 {% load i18n %}
 
-
+<title>
 {% block title %}
     Личный кабинет
 {% endblock title %}
-
+</title>
+<head>
 {% block head %}
 {% endblock head %}
+</head>
 
+<body>
 {% block header %}
     {{ form.media }}
     <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
@@ -56,6 +59,6 @@
     </form>
 
     <br>
-    <hr>
 {% endblock content %}
 
+</body>
