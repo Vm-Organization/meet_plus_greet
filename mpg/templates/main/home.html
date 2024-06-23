@@ -1,0 +1,405 @@
+{% extends "flatpages/default.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block head %}
+    {{ form.media }}
+    <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
+    <style>
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+{% endblock head %}
+
+{% block header %}
+    {% include 'main/main_header.html' %}
+{% endblock header %}
+
+
+{% block content %}
+    <div class="cover">
+        <div class="heading-cover">
+            <div class="first-heading">WORLDWIDE VIP</div>
+            <div class="second-heading">СЕРВИС В АЭРОПОРТАХ МИРА</div>
+        </div>
+
+        <div class="img-cover">
+            <img src="{% static 'images/main_cover_1.jpg' %}" alt="Встреча VIP">
+        </div>
+
+        <div class="cover-items">
+            <div class="cover-item">
+                <div class="cover-item-caps">МЕЖДУНАРОДНЫЕ</div>
+                <div>решения</div>
+            </div>
+            <div class="cover-item">
+                <div class="cover-item-caps">ОПЫТНАЯ КОМАНДА</div>
+                <div>для путешественников</div>
+            </div>
+            <div class="cover-item">
+                <div class="cover-item-caps">КОНФИДЕНЦИАЛЬНО</div>
+                <div>без стресса</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="main-airport">
+        <h2 class="visually-hidden">Аэропорты</h2>
+
+        <div class="main-airport-svg">
+            <div class="down-arrow">
+                <img src="{% static 'icons/down-arrow.svg' %}" alt="down-arrow">
+            </div>
+            <div class="main-airport-svg-airport">
+                <img src="{% static 'icons/airports-svg-main.svg' %}" alt="АЭРОПОРТЫ">
+            </div>
+        </div>
+
+        <div class="main-airport-images">
+            <div class="main-airport-plane">
+                <img src="{% static 'images/main-airport-plane.jpg' %}" alt="Самолет">
+            </div>
+            <div class="main-airport-woman">
+                <img src="{% static 'images/main-airport-woman.jpg' %}" alt="Девушка" class="main-airport-woman">
+            </div>
+        </div>
+
+        <div class="main-airport-text">
+            <div class="heading-main-airport-text">ПУТЕШЕСТВУЙТЕ<br>С КОРОЛЕВСКИМИ ПРИВИЛЕГИЯМИ</div>
+            <div class="sub-heading-main-airport-text">Мы познакомим Вас с VIP сервисом нового формата</div>
+            <div class="main-airport-text-btn">
+                <a href="#" class="main-airport-btn icon-magnifier">Введите город или аэропорт</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-service">
+        <h2 class="visually-hidden">Услуги</h2>
+
+        <div class="main-service-svg">
+            <img src="{% static 'icons/services-svg-main.svg' %}" alt="Наши услуги">
+        </div>
+
+        <div class="main-service-text">
+            <div class="heading-main-service">Предоставляем полный перечень услуг для VIP</div>
+            <div class="sub-heading-main-service">
+                Услуга Meet & Greet обеспечивает быстрое оформление
+                прилетающих и вылетающих пассажиров, чтобы сэкономить
+                Ваше время и сделать прибывание аэропорту менее напряженным.</div>
+        </div>
+
+        <div class="main-service-items">
+            <div class="main-service-item">
+                <img src="{% static 'images/main-service-item-meet-and-greet.jpg' %}" alt="Meet&Greet">
+                <h2 class="main-service-item-title">Meet &<br>Greet</h2>
+                <div class="main-service-item-overlay">
+                    <p class="main-service-item-description">
+                        VIP сопровождение клиента на всех этапах
+                        путешествия: от прибытия в аэропорт до посадки на рейс.</p>
+                    <a href="{% url 'booking_form' %}" target="_blank" class="main-service-item-btn">Забронировать</a>
+                </div>
+            </div>
+            <div class="main-service-item">
+                <img src="{% static 'images/main-service-item-fast-track.jpg' %}" alt="Fast Track">
+                <h2 class="main-service-item-title">Fast<br>Track</h2>
+                <div class="main-service-item-overlay">
+                    <p class="main-service-item-description">
+                        Ускоренное прохождение всех предполётных процедур,
+                        контроль, регистрация и другое в приоритетном порядке.</p>
+                    <a href="{% url 'booking_form' %}" target="_blank" class="main-service-item-btn">Забронировать</a>
+                </div>
+            </div>
+            <div class="main-service-item">
+                <img src="{% static 'images/main-service-item-personal-transfer.jpg' %}" alt="Personal transfer">
+                <h2 class="main-service-item-title">Личный<br>Трансфер</h2>
+                <div class="main-service-item-overlay">
+                    <p class="main-service-item-description">
+                        Комфортное перемещение пассажиров от  аэропорта до места назначения. </p>
+                    <a href="{% url 'booking_form' %}" target="_blank" class="main-service-item-btn">Забронировать</a>
+                </div>
+            </div>
+            <div class="main-service-item">
+                <img src="{% static 'images/main-service-item-VIP.jpg' %}" alt="VIP">
+                <h2 class="main-service-item-title">VIP под<br>ключ</h2>
+                <div class="main-service-item-overlay">
+                    <p class="main-service-item-description">
+                        Аренда отдельного VIP зала с повышенным комфортом и обслуживанием.</p>
+                    <a href="{% url 'booking_form' %}" target="_blank" class="main-service-item-btn">Забронировать</a>
+                </div>
+            </div>
+            <div class="main-service-item">
+                <img src="{% static 'images/main-service-item-tarmac-transfer.jpg' %}" alt="Tarmac Transfer">
+                <h2 class="main-service-item-title">Tarmac<br>Transfer</h2>
+                <div class="main-service-item-overlay">
+                    <p class="main-service-item-description">
+                        VIP трансфер в аэропорту - роскошный и эффективный
+                        способ передвижения между самолетом и терминалом.</p>
+                    <a href="{% url 'booking_form' %}" target="_blank" class="main-service-item-btn">Забронировать</a>
+                </div>
+            </div>
+            <div class="main-service-item">
+                <img src="{% static 'images/main-service-item-diplomatic-fast-track.jpg' %}" alt="Diplomatic Fast Track">
+                <h2 class="main-service-item-title">Diplomatic<br>Fast Track</h2>
+                <div class="main-service-item-overlay">
+                    <p class="main-service-item-description">
+                        Быстрый проход всех пунктов досмотра. Для дипломатических персон, сотрудников
+                        международных организаций и других лиц, имеющих дипломатический статус.</p>
+                    <a href="{% url 'booking_form' %}" target="_blank" class="main-service-item-btn">Забронировать</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-service-btn">
+            <a href="#" class="icon_next">Все услуги</a>
+        </div>
+    </section>
+
+    <section class="main-about">
+        <h2 class="visually-hidden">О компании</h2>
+
+        <div class="main-about-svg">
+            <img src="{% static 'icons/main-about-comfort.svg' %}" alt="Комфортные" class="comfort">
+            <img src="{% static 'icons/main-about-arrivals-departures.svg' %}" alt="Перелеты и вылеты" class="sub-comfort">
+        </div>
+
+        <div class="main-about-heading">
+            УДОБНО ДЛЯ ВАС!
+        </div>
+
+        <div class="main-about-images">
+            <div class="main-about-image-plane">
+                <img src="{% static 'images/main-about-runway.jpg' %}" alt="Взлетная полоса">
+            </div>
+            <div class="main-about-image-woman">
+                <img src="{% static 'images/main-about-woman.jpg' %}" alt="Девушка">
+            </div>
+        </div>
+
+        <div class="main-about-content">
+            <div class="main-about-text">
+                Если вашим приоритетом является путешествие с исключительным комфортом по доступным ценам,
+                наши услуги встречи в аэропорту созданы специально для Вас. У Вас не только будет
+                специальный агент, который проведет вас через процедуры прибытия, транзита или отбытия,
+                но вы также получите ряд привилегий, выбрав наши услуги по встрече и сопровождению.
+            </div>
+            <div class="main-about-btn">
+                <a href="{% url 'about' %}" class="icon-arrow-right-black icon-arrow-right-black-up">ПОДРОБНЕЕ О КОМПАНИИ</a>
+            </div>
+        </div>
+
+        <div class="main-about-items">
+            <div class="main-about-item">
+                <div class="main-about-item-num">10</div>
+                <div class="main-about-item-text">Профессиональных<br>экспертов</div>
+            </div>
+            <div class="main-about-item">
+                <div class="main-about-item-num">24</div>
+                <div class="main-about-item-text">Направления</div>
+            </div>
+            <div class="main-about-item">
+                <div class="main-about-item-num">200</div>
+                <div class="main-about-item-text">Мировых<br>аэропортов</div>
+            </div>
+            <div class="main-about-item">
+                <div class="main-about-item-num">500</div>
+                <div class="main-about-item-text">Счастливых<br>клиентов</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-q-a">
+        <h2 class="visually-hidden">Q&A</h2>
+
+        <div class="main-service-text q-a-text">
+            <div class="heading-main-service">Ответы на часто задаваемые<br>вопросы</div>
+            <div class="sub-heading-main-service">
+                Если вашим приоритетом является путешествие с исключительным комфортом по
+                доступным ценам, наши услуги встречи в аэропорту созданы специально для Вас.
+            </div>
+        </div>
+
+        <div class="main-q-a-content">
+            <div class="main-q-a-form">
+                <form class="q-a-form" action="" method="post">
+                    {% csrf_token %}
+                    <div class="q-a-form-heading">Есть<br>дополнительные<br>вопросы?</div>
+                    <div class="q-a-form-inputs">
+                        <div class="q-a-form-input">
+                            <input type="text" placeholder="Ваше имя">
+                        </div>
+                        <div class="q-a-form-input">
+                            <input type="tel" placeholder="Телефон">
+                        </div>
+                        <div class="q-a-form-input long-input">
+                            <input type="text" placeholder="Задайте Ваш вопрос">
+                        </div>
+                    </div>
+                    <div class="q-a-form-btn">
+                        <button type="submit" class="icon_next_form">Задать вопрос</button>
+                    </div>
+                    <div class="q-a-form-law">
+                        Нажимая на кнопку, выражаю свое согласие на
+                        <span class="underlined-info">обработку персональных данных</span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="main-q-a-items">
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Как получить подтверждение об оплаченной услуге?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Будут ли со мной на связи, в случае возникновения вопросов?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Возможно ли оформить несколько услуг сразу?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Возможно ли оформить услуги на нескольких человек?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Возможно ли оформить услуги в транзитном аэропорту?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        За какое время до вылета необходимо заказать услугу?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Нужны ли документы для оформления брони?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Нужны ли документы для оформления брони?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+                <div class="main-q-a-item">
+                    <div class="main-q-a-item-question">
+                        Нужны ли документы для оформления брони?
+                        <img src="{% static 'icons/addition.svg' %}" alt="add" class="icon-add">
+                        <img src="{% static 'icons/multiplication.svg' %}" alt="multiply" class="icon-multiply-hover">
+                    </div>
+                    <div class="main-q-a-item-answer-overlay">
+                        <div class="main-q-a-item-answer">
+                            После оформления услуги на сайте и оплаты, Вам будет направлен Ваучер с подтвреждением оплаты
+                            от персонального менеджера, на электронную почту, по указанному Вами адресу. Так же,
+                            информацию о статусе вашего бронирования, Вы сможете увидеть в Вашем личном кабинете.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+
+{% block footer %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const items = document.querySelectorAll('.main-q-a-item');
+
+        items.forEach(item => {
+            const question = item.querySelector('.main-q-a-item-question');
+            const answerOverlay = item.querySelector('.main-q-a-item-answer-overlay');
+
+            question.addEventListener('mouseover', () => {
+                answerOverlay.style.maxHeight = answerOverlay.scrollHeight + 'px';
+            });
+
+            question.addEventListener('mouseout', () => {
+                answerOverlay.style.maxHeight = '0';
+            });
+        });
+    });
+</script>
+{% endblock footer %}
