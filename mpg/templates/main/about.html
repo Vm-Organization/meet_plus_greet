@@ -92,7 +92,7 @@
         <h2 class="visually-hidden">Система платежей</h2>
 
         <div class="main-service-text payment-system">
-            <div class="heading-main-service">Удобная система<br>платежей</div>
+            <div class="heading-main-service heading-payment-system">Удобная система<br>платежей</div>
             <div class="sub-heading-main-service">
                 Если вашим приоритетом является путешествие с исключительным комфортом по
                 доступным ценам, наши услуги встречи в аэропорту созданы специально для Вас.
@@ -121,5 +121,77 @@
 
     <section class="about-employee">
         <h2 class="visually-hidden">Сотрудники</h2>
+
+        <div class="about-employee-svg">
+            <img src="{% static 'icons/employee-every.svg' %}" alt="каждый" class="about-every-svg">
+            <img src="{% static 'icons/employee-employee.svg' %}" alt="сотрудник">
+        </div>
+
+        <div class="about-employee-heading">
+            специалист<br>в своем деле
+        </div>
+
+        <div class="about-employee-head">
+            <div class="about-employee-head-img">
+                <img src="{% static 'images/employee-maria.jpg' %}" alt="Иванова Мария Ивановна">
+            </div>
+            <div class="about-employee-head-content">
+                <div class="head-content-name">Иванова<br>Мария Ивановна</div>
+                <div class="head-content-post">Гениральный директор ООО<br>«Компания»</div>
+                <div class="head-content-moto">
+                    Репутация компании и довольный<br>клиент – это то, ради чего<br>
+                    мы работаем на современном<br>рынке торговли.
+                </div>
+            </div>
+        </div>
+
+        <div class="about-employee-items">
+            <div class="about-employee-item">
+                <img src="{% static 'images/employee-dmitry.jpg' %}" alt="Иванов Дмитрий Павлович">
+                <div class="about-employee-item-content">
+                    <div class="employee-item-content-name">Иванов Дмитрий Павлович</div>
+                    <div class="employee-item-content-post">Менеджер</div>
+                    <div class="employee-item-content-spec">
+                        Специалист по обслуживанию клиентов в аэропорте.
+                    </div>
+                    <div class="employee-item-content-contact">
+                        <div class="content-contact-email">d.p.ivanov@mail.ru</div>
+                        <div>+7 913 400-28-28</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-employee-item light-item">
+                <img src="{% static 'images/employee-sergei.jpg' %}" alt="Голованов Сергей Геннадьевич">
+                <div class="about-employee-item-content">
+                    <div class="employee-item-content-name">Голованов Сергей Геннадьевич</div>
+                    <div class="employee-item-content-post">Менеджер</div>
+                    <div class="employee-item-content-spec">
+                        Специалист по обслуживанию клиентов в аэропорте.
+                    </div>
+                    <div class="employee-item-content-contact">
+                        <div class="content-contact-email">s.g.golovanov@mail.ru</div>
+                        <div>+7 913 400-29-29</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-employee-item">
+                <img src="{% static 'images/employee-julia.jpg' %}" alt="Орлова Юлия Михайловна">
+                <div class="about-employee-item-content">
+                    <div class="employee-item-content-name">Орлова Юлия Михайловна</div>
+                    <div class="employee-item-content-post">Менеджер</div>
+                    <div class="employee-item-content-spec">
+                        Специалист по обслуживанию клиентов в аэропорте.
+                    </div>
+                    <div class="employee-item-content-contact">
+                        <div class="content-contact-email">y.m.orlova@mail.ru</div>
+                        <div>+7 913 400-30-30</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-employee-btn">
+            <a href="#" class="icon-employee-next">Связаться с нами</a>
+        </div>
     </section>
 {% endblock content %}
