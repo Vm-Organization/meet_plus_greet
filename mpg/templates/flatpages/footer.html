@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>{% block title%}{% endblock title%}</title>
+    {% block head %}
+
+    {% endblock head %}
+    <link rel="icon" type="image/x-icon" href="{% static 'icons/favicon.png' %}" />
+</head>
+<footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+            <a href="{% url 'home' %}">
+            <img src="{% static 'icons/logo_light.svg' %}" alt="Logo"></a>
+        </div>
+        <ul class="footer-links">
+            <li><a href="{% url 'home' %}">Главная</a></li>
+            <li><a href="{% url 'airport_search' %}">Аэропорты</a></li>
+            <li><a href="{% url 'booking_form' %}">Забронировать</a></li>
+            <li><a href="#">О компании</a></li>
+            <li><a href="#">Отзывы</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+        <div class="footer-contacts">
+            <p>Телефон</p>
+            <p><img src="{% static 'icons/phone_with_number.svg' %}" alt="phone"></p>
+        </div>
+        </div>
+    </footer>
+</html>

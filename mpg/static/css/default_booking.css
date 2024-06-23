@@ -8,9 +8,11 @@
 body {
     margin: 0;
     padding: 0;
+    height: 100%;
     display: flex;
     flex-direction: column;
     font-family: 'TeXGyreHeros', sans-serif;
+    margin-bottom: 0;
 }
 
 /* Navigation Menu Styles */
@@ -181,7 +183,6 @@ a.sub-center {
     background-color: rgba(230, 223, 215, 1);
     border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
-
 
 /* BOOKING
 Main Content Styles */
@@ -468,7 +469,6 @@ span.select2-container--default {
 }
 
 
-
 /* ACCOUNT
  Style */
 
@@ -729,6 +729,29 @@ td.booking-date-created {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+}
+
+.footer {
+    background-color: #2C3135;
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+    color: #F4F3EF;
+    font-size: 14;
+    display: flex;
+    padding: 0;
+}
+
+.container: {
+    display: flex;
+}
+
+.footer-logo a {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-left: 60px;
+    margin-top: 100px;
 }
 
 /* MAIN main_header */
