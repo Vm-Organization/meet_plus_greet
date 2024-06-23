@@ -156,7 +156,7 @@ class BookingListView(LoginRequiredMixin, ListView):
 
 class BookingActiveListView(LoginRequiredMixin, ListView):
     model = Booking
-    template_name = 'booking/booking_list.html'
+    template_name = 'booking/booking_active_list.html'
     context_object_name = 'booking'
 
     def get_queryset(self):

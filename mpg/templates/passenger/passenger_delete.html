@@ -8,34 +8,36 @@
     <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
     <style>
         body {
-            background: url('{% static "images/booking_page_2_3.png" %}');
+            background: url('{% static "images/booking_airport_form.png" %}');
             background-size: cover;
             background-repeat: no-repeat;
         }
 
         .main {
-            margin-top: 7%;
+            margin-top: 2%;
         }
 
         .btns {
-            margin-top: 5%;
+            margin-top: 15%;
         }
 
         .form-group {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
     </style>
 {% endblock head %}
 
 {% block content %}
     <h2>Удалить пассажира </h2>
-    <form class="text-center" action="" method="post">
+    <form class="booking_form" action="" method="post">
         {% csrf_token %}
         <p>Вы действительно хотите удалить пассажира?</p>
-        <input type="submit" value="Удалить">
-        <a href="{% url 'passenger_list' %}">
-            <input type="button" value="Отмена" />
+        <div class="btns">
+        <input type="submit" class="btn previous" value="Удалить">
+        <a style="text-decoration: none" href="{% url 'account' %}">
+            <input type="button" class="btn next" value="Отмена" />
         </a>
+        </div>
     </form>
     <br>
     <hr>

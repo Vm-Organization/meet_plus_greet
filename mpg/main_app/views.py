@@ -16,11 +16,23 @@ from main_app.models import Account, Passenger
 
 
 def home(request):
-    return TemplateView.as_view(template_name='home.html')
+    return TemplateView.as_view(template_name='main/home.html')
 
 
 class HomeView(TemplateView):
-    template_name = 'home.html'
+    template_name = 'main/home.html'
+
+
+class AboutView(TemplateView):
+    template_name = 'main/about.html'
+
+
+class ContactsView(TemplateView):
+    template_name = 'main/contacts.html'
+
+
+class ReviewsView(TemplateView):
+    template_name = 'main/reviews.html'
 
 
 class AccountView(LoginRequiredMixin, TemplateView):
@@ -30,7 +42,7 @@ class AccountView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['account'] = self.model.objects.get(user=self.request.user)
+        context['account'], created = self.model.objects.get_or_create(user=self.request.user)
         return context
 
 
@@ -79,7 +91,7 @@ class PassengerCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse_lazy('passenger_detail', kwargs={'pk': self.object.pk})
+        return reverse_lazy('account')
 
 
 class PassengerEditView(LoginRequiredMixin, UpdateView):
@@ -90,7 +102,7 @@ class PassengerEditView(LoginRequiredMixin, UpdateView):
     template_name = 'passenger/passenger_edit.html'
 
     def get_success_url(self):
-        return reverse('passenger_list')
+        return reverse('account')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

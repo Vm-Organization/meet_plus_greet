@@ -9,21 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>{% block title%}{% endblock title%}</title>
     {% block head %}
+
     {% endblock head %}
+    <link rel="icon" type="image/x-icon" href="{% static 'icons/favicon.png' %}" />
 </head>
 <body>
-    <nav>
-        <div class="menu">
-            <ul>
-                <li><a href="#"><img src="{% static 'icons/menu.svg' %}" alt="menu"></a></li>
-                <li><a href="#"><img src="{% static 'icons/whatsapp.svg' %}" alt="whatsapp"></a></li>
-                <li><a href="#"><img src="{% static 'icons/mail.svg' %}" alt="mail"></a></li>
-                <li><a href="#"><img src="{% static 'icons/telegram.svg' %}"  alt="telegram"></a></li>
-                <li><a href="#"><img src="{% static 'icons/phone.svg' %}" alt="phone"></a></li>
-                <li><a href="#"><img src="{% static 'icons/globe.svg' %}" alt="globe"></a></li>
-            </ul>
-        </div>
-    </nav>
+
 
     <div class="header">
         <div class="logo">
@@ -35,6 +26,7 @@
             <div id="sub_title_book">БРОНИРОВАНИЕ</div>
         </div>
     </div>
+    {% include "flatpages/default.html" %}
 
     <div class="main">
         {% block content %}
