@@ -2,18 +2,13 @@
 {% load static %}
 {% load i18n %}
 
-<title>
+
 {% block title %}
     Личный кабинет
 {% endblock title %}
-</title>
-<head>
-{% block head %}
-{% endblock head %}
-</head>
 
-<body>
-{% block header %}
+
+{% block head %}
     {{ form.media }}
     <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
     <style>
@@ -34,6 +29,9 @@
             background-repeat: no-repeat;
         }
     </style>
+{% endblock head %}
+
+{% block header %}
     <div class="logo">
         <a href="{% url 'home' %}">
             <img src="{% static 'icons/logo.svg' %}" alt="Logo"></a>
@@ -51,14 +49,13 @@
     <div class="account-row">
         <div class="avatar">
             <img src="{% static 'images/avatar.png' %}">
-    <p>Email: {{ account.user.email }}</p>
+            <p>Email: {{ account.user.email }}</p>
+        </div>
     <form action="" method="post" class="form-input">
     {% csrf_token %}
     {{ form.as_p }}
         <input type="submit" class="btn previous icon_previous" value="Сохранить">
     </form>
-
+    </div>
     <br>
 {% endblock content %}
-
-</body>

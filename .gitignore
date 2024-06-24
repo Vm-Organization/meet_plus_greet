@@ -9,3 +9,5 @@
 /mpg/airport/__pycache__/
 /mpg/mpg/__pycache__/
 /mpg/db.sqlite3
+/mpg/chat/migrations/__pycache__/
+/mpg/chat/__pycache__/

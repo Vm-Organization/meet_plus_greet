@@ -13,23 +13,28 @@
     <link rel="icon" type="image/x-icon" href="{% static 'icons/favicon.png' %}" />
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <a href="{% url 'home' %}">
-            <img src="{% static 'icons/logo.svg' %}" alt="Logo"></a>
-        </div>
+    {% include 'flatpages/navigation.html' %}
 
-        <div class="sub_titles">
-            <div id="sub_title_book">АЭРОПОРТЫ</div>
+    {% block header %}
+        <div class="header">
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                <img src="{% static 'icons/logo.svg' %}" alt="Logo"></a>
+            </div>
+
+            <div class="sub_titles">
+                <div id="sub_title_book">АЭРОПОРТЫ</div>
+            </div>
         </div>
-    </div>
-    {% include "flatpages/default.html" %}
+    {% endblock header %}
+
 
     <div class="main">
         {% block content %}
         {% endblock content %}
     </div>
 
+    {% include 'flatpages/footer.html' %}
     {% block footer %}
     {% endblock footer %}
 </body>
