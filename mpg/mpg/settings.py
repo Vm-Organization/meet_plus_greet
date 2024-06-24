@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [
     '192.168.0.12',
     '95.163.185.57',
     'laptop-cpe75sgr',
+    'nataliatkachuk.pythonanywhere.com/',
 ]
 
 
