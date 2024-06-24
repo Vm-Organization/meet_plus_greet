@@ -25,9 +25,12 @@
 
 
 {% block header %}
-    <div class="logo">
-        <a href="{% url 'home' %}">
+    <div class="logo" style="display: flex">
+        <a href="{% url 'home' %}" style="width: 90%; margin-left: 5%">
             <img src="{% static 'icons/logo.svg' %}" alt="Logo"></a>
+
+        <a href="/logout/" style="width: 10%">
+            <img src="{% static 'icons/exit.svg' %}" style="stroke: #2C3135; height: 30px; width: 30px" alt="Logout"/></a>
     </div>
 
     <div class="sub_titles">

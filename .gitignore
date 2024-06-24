@@ -10,4 +10,8 @@
 /mpg/airport/__pycache__/
 /mpg/mpg/__pycache__/
 /mpg/chat/__pycache__/
+<<<<<<< HEAD
 /mpg/db.sqlite3
+=======
+/mpg/db.sqlite3
+>>>>>>> b3e701df0ff7ea4f613255cea149e1b174df71af
