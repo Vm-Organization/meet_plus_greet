@@ -52,7 +52,9 @@
                 <td>Услуга</td>
             </tr>
             <tr>
-                <td class="booking-pk-cell"><span class="booking-pk">N{{ booking.pk }}</span></td>
+                <td class="booking-pk-cell"><a href="{% url 'booking_detail' booking.pk %}">
+                    <span class="booking-pk">
+                    N{{ booking.pk }}</span></a></td>
                 <td class="booking-passenger">
                     {% for passenger in booking.passenger.all %}
                         <div>
