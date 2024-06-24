@@ -8,3 +8,4 @@
 /mpg/booking/__pycache__/
 /mpg/airport/__pycache__/
 /mpg/mpg/__pycache__/
+/mpg/db.sqlite3
