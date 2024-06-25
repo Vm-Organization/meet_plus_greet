@@ -9,13 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>{% block title%}{% endblock title%}</title>
     {% block head %}
-
     {% endblock head %}
+    <style>
+        .main {
+            margin-bottom: 100px;
+        }
+    </style>
     <link rel="icon" type="image/x-icon" href="{% static 'icons/favicon.png' %}" />
 </head>
 <body>
-
-
+    {% include "flatpages/navigation.html" %}
     <div class="header">
         <div class="logo">
             <a href="{% url 'home' %}">
@@ -26,15 +29,16 @@
             <div id="sub_title_book">БРОНИРОВАНИЕ</div>
         </div>
     </div>
-    {% include "flatpages/default.html" %}
 
     <div class="main">
         {% block content %}
         {% endblock content %}
     </div>
 
-    {% block footer %}
-    {% endblock footer %}
-    {% include 'flatpages/footer.html' %}
+    <div class="footer">
+        {% include 'flatpages/footer.html' %}
+        {% block footer %}
+        {% endblock footer %}
+    </div>
 </body>
 </html>

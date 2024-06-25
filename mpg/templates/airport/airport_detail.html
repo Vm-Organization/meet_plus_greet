@@ -1,57 +1,177 @@
-{% extends "airport/default_airport.html" %}
 {% load static %}
 {% load i18n %}
 
 
-{% block head %}
-    {{ form.media }}
-    <link rel="stylesheet" href="{% static 'css/default_booking.css' %}">
-    <style>
-        body {
-            background: url('{% static "images/booking_airport_form.png" %}');
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-
-        .main {
-            margin-top: 9%;
-        }
-
-        .btns {
-            margin-top: 15%;
-        }
-
-        .form-group {
-            margin-bottom: 40px;
-        }
-    </style>
-{% endblock head %}
-
 {% block content %}
-<h3>{{ airport.name }}</h3>
-<p>{{ airport.city }} -- {{ airport.country }}</p>
-<h5>Отправление:</h5>
-<p>Один пассажир:</p>
-<p>{{ departure_price_one_passenger }}</p>
-<p>Последующие пассажиры:</p>
-<p>{{ departure_price_others_passengers }}</p>
-<br>
-<h5>Прибытие:</h5>
-<p>Один пассажир:</p>
-<p>{{ arrival_price_one_passenger }}</p>
-<p>Последующие пассажиры:</p>
-<p>{{ arrival_price_others_passengers }}</p>
-<br>
-<h5>Транзит:</h5>
-<p>Один пассажир:</p>
-<p>{{ transit_price_one_passenger }}</p>
-<p>Последующие пассажиры:</p>
-<p>{{ transit_price_others_passengers }}</p>
-<br>
-<h5>Услуги:</h5>
-<p>{{ service }}</p>
-<br>
-<h5>Дополнительная информация:</h5>
-<p>{{ airport.additional_info }}</p>
+    <section class="airport-search-detail-service">
+        <div class="airport-service-svgs">
+            <div class="airport-service-service">
+                <img src="{% static 'icons/airport-service.svg' %}" alt="услуги">
+            </div>
+        </div>
+
+        <div class="airport-service-name-information">
+            <div class="airport-service-information-geo">
+                <img src="{% static 'icons/geo-icon.svg' %}" alt="geo">
+            </div>
+            <div class="airport-service-information-name">
+                <div>
+                    {{ airport.city }}
+                </div>
+                <div>
+                    {{ airport.name }}
+                </div>
+            </div>
+        </div>
+
+        <div class="airport-service-information">
+            <img src="{% static 'images/airport-service-detail.jpg' %}" alt="information about airport">
+        </div>
+    </section>
+
+    <section class="airport-search-detail-main">
+        <div class="airport-detail-main-heading">
+            встреча и сопровождение
+        </div>
+        <div class="airport-detail-main-operator">
+            <img src="{% static 'icons/airport-arrow-left.svg' %}" alt="arrow left">
+            <img src="{% static 'icons/airport-morhaba.svg' %}" alt="morhaba" class="airport-detail-main-operator-logo">
+            <img src="{% static 'icons/airport-arrow-right.svg' %}" alt="arrow right">
+        </div>
+        <div class="airport-detail-main-operator-add">(выберите оператора)</div>
+        <div class="airport-detail-main-items">
+            <img src="{% static 'icons/airport-arrow-left-big.svg' %}" alt="arrow">
+            <div class="airport-detail-main-item">
+                <div class="airport-detail-main-item-headings">
+                    <div class="airport-detail-main-item-heading-arr">Прибытие</div>
+                    <img src="{% static 'icons/airport-arrival.svg' %}" alt="plane">
+                </div>
+                <div class="airport-detail-main-item-passenger">
+                    <div class="airport-detail-main-item-passenger-1">Первый пассажир (1-2 чел.) - {{ arrival_price_one_passenger }}€</div>
+                    <div>Следующий пассажир - {{ arrival_price_others_passengers }}€</div>
+                </div>
+                <div class="airport-item-hr">
+                <hr></div>
+                <div class="airport-detail-main-item-description">
+                    <ul>
+                        <li>
+                            Сопровождение до зала выдачи багажа, помощь с багажом (если предварительно заказаны
+                            услуги носильщика)
+                        </li>
+                        <li>
+                            Наш агент встречает пассажиров в конце воздушного моста или у входа в терминал с
+                            персональной табличкой с именем
+                        </li>
+                        <li>
+                            Сопровождение до следующего вида транспорта или зала прилета, в зависимости от
+                            потребности клиента
+                        </li>
+                    </ul>
+                </div>
+                <a href="{% url 'booking_form' %}" target="_blank" class="airport-detail-main-item-btn">Забронировать</a>
+            </div>
+            <div class="airport-detail-main-item">
+                <div class="airport-detail-main-item-headings">
+                    <div class="airport-detail-main-item-heading-dep">Отправление</div>
+                    <img src="{% static 'icons/airport-departure.svg' %}" alt="plane">
+                </div>
+                <div class="airport-detail-main-item-passenger">
+                    <div class="airport-detail-main-item-passenger-1">Первый пассажир (1-2 чел.) - {{ departure_price_one_passenger }}€</div>
+                    <div>Следующий пассажир - {{ departure_price_others_passengers }}€</div>
+                </div>
+                <div class="airport-item-hr">
+                <hr></div>
+                <div class="airport-detail-main-item-description">
+                    <ul>
+                        <li>
+                            Наш агент и водитель пассажира/сопровождающий пассажира связывается для согласования места высадки до их прибытия
+                        </li>
+                        <li>
+                            Встреча пассажира у тратуара агентом и носильщиком багажа (по предварительному заказу)
+                        </li>
+                        <li>
+                            Сопровождение при прохождении всех формальностей , связанных с регистрацией и обеспечением безопасности, по ускоренным маршрутам
+                        </li>
+                    </ul>
+                </div>
+                <a href="{% url 'booking_form' %}" target="_blank" class="airport-detail-main-item-btn">Забронировать</a>
+            </div>
+            <div class="airport-detail-main-item">
+                <div class="airport-detail-main-item-headings">
+                    <div class="airport-detail-main-item-heading-tra">Транзит</div>
+                    <img src="{% static 'icons/airport-transit.svg' %}" alt="plane">
+                </div>
+                <div class="airport-detail-main-item-passenger">
+                    <div class="airport-detail-main-item-passenger-1">Первый пассажир (1-2 чел.) - {{ transit_price_one_passenger }}€</div>
+                    <div>Следующий пассажир - {{ transit_price_others_passengers }}€</div>
+                </div>
+                <div class="airport-item-hr">
+                <hr></div>
+                <div class="airport-detail-main-item-description">
+                    <ul>
+                        <li>
+                            Наш агент встречает пассажиров в конце воздушного моста или у входа в терминал с персональной табличкой с именем
+                        </li>
+                        <li>
+                            Сопровождение до зала выдачи багажа, помощь с багажом (если предварительно заказаны услуги носильщика)
+                        </li>
+                        <li>
+                            Сопровождение через иммиграционные формальности и службы безопасности по ускоренным маршрутам
+                        </li>
+                    </ul>
+                </div>
+                <a href="{% url 'booking_form' %}" target="_blank" class="airport-detail-main-item-btn">Забронировать</a>
+            </div>
+            <img src="{% static 'icons/airport-arrow-right-big.svg' %}" alt="arrow">
+        </div>
+    </section>
+
+    <section class="airport-detail-add-service">
+        <div class="airport-detail-add-service-svg">
+            <img src="{% static 'icons/additional.svg' %}" alt="дополнительные" class="add-additional-service-svg">
+            <img src="{% static 'icons/service.svg' %}" alt="услуги" class="add-additional-service">
+        </div>
+
+        <div class="airport-detail-add-service-items">
+            <div class="airport-detail-add-service-item">
+                <div class="airport-detail-add-service-item-heading">Porter' services</div>
+                <div class="airport-detail-add-service-item-description">Багаж  - 45€</div>
+                <div class="airport-detail-add-service-item-hr"><hr></div>
+                <div class="airport-detail-add-service-item-description btn-add-space">Стоимость указана с учетом помощи до 4 вещей</div>
+                <div class="airport-detail-add-service-item-btn">
+                    <a href="{% url 'booking_form' %}">Забронировать</a>
+                </div>
+            </div>
+            <div class="airport-detail-add-service-item">
+                <div class="airport-detail-add-service-item-heading">VIP зал</div>
+                <div class="airport-detail-add-service-item-description">Семья или группа до 4 человек  - 650€</div>
+                <div class="airport-detail-add-service-item-hr"><hr></div>
+                <div class="airport-detail-add-service-item-description btn-add-space">Сопровождение до зала ожидания
+                    Marhaba lounge, помощь с багажом (если предварительно заказаны услуги носильщика).</div>
+                <div class="airport-detail-add-service-item-btn">
+                    <a href="{% url 'booking_form' %}">Забронировать</a>
+                </div>
+            </div>
+            <div class="airport-detail-add-service-item">
+                <div class="airport-detail-add-service-item-heading">ЛИЧНЫЙ ТРАНСФЕР</div>
+                <div class="airport-detail-add-service-item-description">Дети (от 2 до 11 лет): <br> прибытие или отъезд  - 100€
+                    <br>проезд транзитом  - 130€</div>
+                <div class="airport-detail-add-service-item-hr"><hr></div>
+                <div class="airport-detail-add-service-item-description btn-add-space-3">Полное сопровождение от
+                    представителя клиента до зала ожидания, помощь с багажом (если предварительно заказаны услуги носильщика).</div>
+                <div class="airport-detail-add-service-item-btn">
+                    <a href="{% url 'booking_form' %}">Забронировать</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="airport-detail-main-heading">
+            Дополнительные условия
+        </div>
+        <div class="airport-detail-main-description">
+            {{ airport.additional_info }}
+        </div>
+    </section>
+
 
 {% endblock content %}

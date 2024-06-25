@@ -1,0 +1,42 @@
+{% load static %}
+
+<nav>
+    <div class="burgermenu" id="burgermenu">
+        <ul class="burgermenu-list">
+            <li><a href="{% url 'home' %}" class="burgermenu-item">
+                <img style="margin: -5px; padding-right: 20px"
+                     src="{% static 'icons/burger/home.svg' %}" alt="home">Главная</a><li>
+            <li><a href="{% url 'airport_search' %}" class="burgermenu-item">
+                <img style="margin: -5px; padding-right: 20px"
+                     src="{% static 'icons/burger/airports.svg' %}" alt="airports">Аэропорты</a><li>
+            <li><a href="#" class="burgermenu-item">
+                <img style="margin: -5px; padding-right: 20px"
+                     src="{% static 'icons/burger/exclusive.svg' %}" alt="exclusive">Услуги</a><li>
+            <li><a href="{% url 'booking_form' %}" class="burgermenu-item">
+                <img style="margin: -5px; padding-right: 20px"
+                     src="{% static 'icons/burger/booking.svg' %}" alt="booking">Забронировать</a><li>
+            <li><a href="{% url 'about' %}" class="burgermenu-item">
+                <img style="margin: -5px; padding-right: 20px"
+                     src="{% static 'icons/burger/company.svg' %}" alt="company">О компании</a><li>
+            <li><a href="{% url 'reviews' %}" class="burgermenu-item">
+                <img style="margin: -5px; padding-right: 20px"
+                     src="{% static 'icons/burger/feedback.svg' %}" alt="feedback">Отзывы</a><li>
+            <li><a href="{% url 'contacts' %}" class="burgermenu-item">
+                <img style="margin: -5px; padding-right: 20px"
+                     src="{% static 'icons/burger/contacts.svg' %}" alt="contacts">Контакты</a><li>
+            <div class="burgermenu-item" style="padding: 5px; padding-left: 20px;"><p>Телефон </p>
+                <p><img style="margin: -5px;"
+                     src="{% static 'icons/burger/phone_with_number.svg' %}" alt="phone"></p></div>
+            </ul>
+    </div>
+    <div class="menu">
+        <ul>
+            <li id="burgerbutton" style="width: 80px; padding-bottom: 40px"><a href="#"><img src="{% static 'icons/menu.svg' %}" alt="menu"></a></li>
+            <li><a href="#"><img src="{% static 'icons/whatsapp.svg' %}" alt="whatsapp"></a></li>
+            <li><a href="#"><img src="{% static 'icons/mail.svg' %}" alt="mail"></a></li>
+            <li><a href="#"><img src="{% static 'icons/telegram.svg' %}"  alt="telegram"></a></li>
+            <li><a href="#"><img src="{% static 'icons/phone.svg' %}" alt="phone"></a></li>
+            <li><a href="#"><img src="{% static 'icons/globe.svg' %}" alt="globe"></a></li>
+        </ul>
+    </div>
+</nav>

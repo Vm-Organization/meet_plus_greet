@@ -2,10 +2,14 @@ from django.shortcuts import render
 from django.db.models import Q
 from django.http import JsonResponse
 from django.views.generic import ListView, DetailView
+from django.utils.html import format_html
+
+from dal import autocomplete
 
 from main_app.models import Service
 from .models import Airport
 from .filters import AirportFilter
+from .forms import AirportSearchForm
 
 
 # list of airports
@@ -64,3 +68,33 @@ class AirportSearch(ListView):
         return context
 
 
+# dropdown search airport widget
+class AirportSearchAutocomplete(autocomplete.Select2QuerySetView):
+    def get_result_label(self, result):
+        return format_html('<span style="font-weight: bold;">{}</span><br>{}<br>{}',
+                           result.country, result.city, result.name)
+
+    def get_selected_result_label(self, item):
+        return item.name
+
+    def get_queryset(self):
+        qs = Airport.objects.all()
+
+        if self.q:
+            qs = qs.filter(
+                Q(name__icontains=self.q) |
+                Q(country__icontains=self.q) |
+                Q(city__icontains=self.q)
+            )
+
+        return qs
+
+
+# dropdown search airport view
+def search_airport(request):
+    form = AirportSearchForm(request.GET)
+
+    if form.is_valid():
+        form.save()
+        print('form valid')
+    return render(request, 'airport/airport_search.html', {'form': form})

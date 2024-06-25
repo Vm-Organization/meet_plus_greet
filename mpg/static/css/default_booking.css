@@ -118,6 +118,19 @@ nav {
     width: 100%;
 }
 
+logo {
+    display: flex;
+    position: relative;
+}
+
+.logout {
+    width: 10% !important;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    z-index: 2;
+}
+
 .logo a {
     padding-top: 3vh;
     padding-bottom: 3vh;
@@ -356,13 +369,13 @@ input[type='datetime-local']::pattern {
 /* Select Input Autocomplete Light Widget */
 span.select2-container--default span.select2-selection {
     background-color: var(--body-bg, #EFEFEF) !important;
-    height: 5vh !important;
+    height: 5vh;
     border: 1px solid #2C3135 !important;
     border-radius: 3px !important;
 }
 
 span.select2-container--default span.select2-selection--single span.select2-selection__rendered {
-    line-height: 4.5vh !important;
+    line-height: 4.5vh;
     font-family: 'TeXGyreHeros', sans-serif !important;
     font-size: 14px !important;
     color: #A0A0A0;
@@ -586,6 +599,7 @@ a.btn-avatar:hover {
     align-self: flex-start;
     margin-top: 50px;
     margin-left: 246px;
+    margin-bottom: 50px;
 }
 
 .field-passenger {
@@ -683,6 +697,11 @@ a.btn-avatar:hover {
 .booking-pk {
     width: 96px;
     height: 35px;
+}
+
+span.booking-pk {
+    text-decoration: none;
+    color: #2C3135;
 }
 
 .booking-status {
@@ -793,6 +812,21 @@ td.booking-date-created {
     justify-content: flex-start;
     margin-left: 40%;
     margin-top: 7%;
+}
+
+.btn-footer a {
+    text-decoration: none;
+    width: 235px;
+    height: 50px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: 0px 1px 4px #2C3135;
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btns-main {
@@ -1513,7 +1547,7 @@ td.booking-date-created {
 .about-legal-info {
     width: 100%;
     position: relative;
-    background-color: #E6DFD7;s
+    background-color: #E6DFD7;
 }
 
 .down-arrow-right {
@@ -1803,6 +1837,331 @@ div.heading-payment-system {
     justify-content: center;
 }
 
+/* AIRPORT SEARCH */
+
+.airport-search {
+    width: 100%;
+    background-color: #8C9DA5;
+}
+
+.airport-search-header {
+    display: flex;
+    justify-content: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 85px;
+    color: #F4F3EF;
+    text-transform: uppercase;
+    margin-top: 4%;
+    margin-bottom: 3%;
+}
+
+.airport-search-form {
+    position: relative;
+}
+
+.airport-search-form img {
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+.search-form {
+    width: 45%;
+    position: absolute;
+    top: 70px;
+    left: 27%;
+    z-index: 2;
+}
+
+.airport-submit-btn {
+    width: 320px;
+    height: 50px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background-color: #F4F3EF;
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 16px;
+    color: #2C3135;
+    cursor: pointer;
+}
+
+/* AIRPORT DETAIL SERVICE */
+
+.airport-detail-container {
+    width: 100%;
+}
+
+.airport-search-detail-service {
+    width: 100%;
+    background-color: #E6DFD7;
+}
+
+.airport-service-name-information {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 3%;
+    margin-left: 10%;
+}
+
+.airport-service-information-geo {
+    padding-top: 30px;
+    margin-right: 30px;
+}
+
+.airport-service-information-name {
+    font-family: "Raleway", sans-serif;
+    font-weight: 200;
+    font-size: 36px;
+    color: #2C3135;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.airport-service-information {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 3%;
+    margin-left: 10%;
+    padding-bottom: 5%;
+}
+
+/* AIRPORT MAIN */
+.airport-search-detail-main {
+    background: url('../images/airport-main.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.airport-detail-main-heading {
+    font-family: "Raleway", sans-serif;
+    font-weight: 200;
+    font-size: 40px;
+    color: #2C3135;
+    text-transform: uppercase;
+    padding-top: 30px;
+    margin-bottom: 50px;
+}
+
+.airport-detail-main-operator {
+    margin-bottom: 10px;
+}
+
+.airport-detail-main-operator-add {
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 20px;
+    color: #F4F3EF;
+    margin-bottom: 65px;
+}
+
+.airport-detail-main-operator-logo {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.airport-detail-add-service {
+    width: 100%;
+    background-color: #F4F3EF;
+}
+
+.airport-detail-add-service-svg {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 70px;
+}
+
+.add-additional-service-svg {
+    width: 800px;
+    height: 69px;
+    margin-left: 230px;
+}
+
+.add-additional-service {
+    width: 187px;
+    height: 36px;
+    margin-top: 10px;
+    margin-left: 900px;
+}
+
+/* AIRPORT MAIN ITEMS */
+.airport-detail-main-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 80px;
+}
+
+.airport-detail-main-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    background-color: #E6DFD7;
+    font-family: 'TeXGyreHeros', sans-serif;
+    color: #2C3135;
+    padding: 15px 35px 31px 39px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.airport-detail-main-item-headings {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.airport-detail-main-item-heading-arr {
+    margin-right: 120px;
+}
+
+.airport-detail-main-item-heading-dep {
+    margin-right: 100px;
+}
+
+.airport-detail-main-item-heading-tra {
+    margin-right: 60px;
+}
+
+.airport-detail-main-item-passenger {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.airport-detail-main-item-passenger-1 {
+    margin-bottom: 5px;
+}
+
+.airport-detail-main-item-description {
+    font-size: 12px;
+    text-align: left;
+}
+
+airport-item-hr {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.airport-item-hr hr {
+  width: 250px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #2C3135;
+}
+
+.airport-detail-add-service-items {
+    margin-left: 100px;
+}
+
+.airport-detail-main-item-btn {
+    text-decoration: none;
+    width: 250px;
+    height: 50px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 16px;
+    background-color: #F4F3EF;
+    color: #2C3135;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.airport-detail-add-service-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    background-color: #8C9DA5;
+    font-family: 'TeXGyreHeros', sans-serif;
+    color: #FFFFFF;
+    padding: 15px 35px 31px 39px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.airport-detail-add-service-item-heading {
+    display: flex;
+    flex-direction: row;
+    font-size: 28px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.airport-detail-add-service-item-hr hr {
+    width: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #FFFFFF;
+}
+
+.airport-detail-add-service-item-description {
+    font-size: 14px;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.btn-add-space {
+    margin-bottom: 230px;
+}
+
+.btn-add-space-3 {
+    margin-bottom: 137px;
+}
+
+.airport-detail-add-service-item-btn a {
+    text-decoration: none;
+    width: 250px;
+    height: 50px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 16px;
+    background-color: #E6DFD7;
+    color: #2C3135;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.airport-detail-add-service-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 235px;
+    margin-bottom: 30px;
+}
+
+.airport-detail-main-description {
+    text-align: center;
+    font-family: 'TeXGyreHeros', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #2C3135;
+    width: 875px;
+    margin-left: 320px;
+    padding-bottom: 50px;
+}
+
 /* MEDIA MAIN */
 
 @media (min-width: 1400px) and (max-width: 1970px) {
@@ -1848,7 +2207,9 @@ div.heading-payment-system {
     .about-legal-info-svg,
     .about-payment-system-items,
     .about-employee-head,
-    .about-employee-items {
+    .about-employee-items,
+    .airport-service-name-information,
+    .airport-service-information {
         margin-left: 15%;
     }
 
@@ -1862,6 +2223,10 @@ div.heading-payment-system {
 
     .payment-system {
         margin-left: 6%;
+    }
+
+    .airport-search-form img {
+        height: 505px;
     }
 }
 
