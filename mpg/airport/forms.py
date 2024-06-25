@@ -11,7 +11,7 @@ class AirportSearchForm(forms.ModelForm):
         widget=autocomplete.ModelSelect2(url='airport_search_autocomplete',
                                          attrs={
                                              'data-html': True,
-                                             'data-placeholder': 'Найти',
+                                             'data-placeholder': 'Город, аэропорт или терминал...',
                                          }),
         label='Search'
     )

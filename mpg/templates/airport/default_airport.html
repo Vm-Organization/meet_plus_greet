@@ -1,3 +1,5 @@
+{% extends 'flatpages/default.html' %}
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -15,19 +17,15 @@
 <body>
     {% include 'flatpages/navigation.html' %}
 
-    {% block header %}
-        <div class="header">
-            <div class="logo">
-                <a href="{% url 'home' %}">
-                <img src="{% static 'icons/logo.svg' %}" alt="Logo"></a>
-            </div>
-
-            <div class="sub_titles">
-                <div id="sub_title_book">АЭРОПОРТЫ</div>
-            </div>
+    <div class="header">
+        <div class="logo">
+            <a href="{% url 'home' %}"><img src="{% static 'icons/logo.svg' %}" alt="Logo"></a>
         </div>
-    {% endblock header %}
 
+        <div class="sub_titles">
+            <div id="sub_title_book">АЭРОПОРТЫ</div>
+        </div>
+    </div>
 
     <div class="main">
         {% block content %}

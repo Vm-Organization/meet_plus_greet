@@ -68,6 +68,7 @@ class AirportSearch(ListView):
         return context
 
 
+# dropdown search airport widget
 class AirportSearchAutocomplete(autocomplete.Select2QuerySetView):
     def get_result_label(self, result):
         return format_html('<span style="font-weight: bold;">{}</span><br>{}<br>{}',
@@ -89,6 +90,7 @@ class AirportSearchAutocomplete(autocomplete.Select2QuerySetView):
         return qs
 
 
+# dropdown search airport view
 def search_airport(request):
     form = AirportSearchForm(request.GET)
 
