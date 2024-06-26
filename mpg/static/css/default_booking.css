@@ -2059,9 +2059,6 @@ airport-item-hr {
   border: 1px solid #2C3135;
 }
 
-.airport-detail-add-service-items {
-    margin-left: 100px;
-}
 
 .airport-detail-main-item-btn {
     text-decoration: none;
@@ -2147,7 +2144,7 @@ airport-item-hr {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin-left: 235px;
+    margin-left: 15%;
     margin-bottom: 30px;
 }
 
@@ -2274,6 +2271,10 @@ airport-item-hr {
 
     .about-employee-btn {
         margin-left: 36.6%;
+    }
+
+    .airport-detail-add-service-items {
+        margin-left: 10%;
     }
 }
 
